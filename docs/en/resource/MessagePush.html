@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -1278,101 +1282,101 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="message-center">Message Center</h2>
-<h3 id="message-push-setting">Message Push Setting</h3>
-<h4 id="gets-the-current-state-of-the-message-master-switch">Gets the current state of the message master switch</h4>
-<h5 id="&#x3010;description&#x3011;">&#x3010;Description&#x3011;</h5>
+                                <h2 id="message-center"><a name="message-center" class="plugin-anchor" href="#message-center"><i class="fa fa-link" aria-hidden="true"></i></a>Message Center</h2>
+<h3 id="message-push-setting"><a name="message-push-setting" class="plugin-anchor" href="#message-push-setting"><i class="fa fa-link" aria-hidden="true"></i></a>Message Push Setting</h3>
+<h4 id="gets-the-current-state-of-the-message-master-switch"><a name="gets-the-current-state-of-the-message-master-switch" class="plugin-anchor" href="#gets-the-current-state-of-the-message-master-switch"><i class="fa fa-link" aria-hidden="true"></i></a>Gets the current state of the message master switch</h4>
+<h5 id="&#x3010;description&#x3011;"><a name="&#x3010;description&#x3011;" class="plugin-anchor" href="#&#x3010;description&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Description&#x3011;</h5>
 <p>The message push switch is the main switch, and when it is off, it cannot receive any message such as device Alarm, Family, Notify message.</p>
-<h5 id="&#x3010;method&#x3011;">&#x3010;Method&#x3011;</h5>
-<pre><code class="lang-java">   <span class="hljs-comment">/**
+<h5 id="&#x3010;method&#x3011;"><a name="&#x3010;method&#x3011;" class="plugin-anchor" href="#&#x3010;method&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method&#x3011;</h5>
+<pre class="language-"><code class="lang-java">   <span class="token comment">/**
      * Gets the message master switch state
-     * <span class="hljs-doctag">@param</span> callback
+     * @param callback
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getPushStatus</span><span class="hljs-params">(ITuyaResultCallback&lt;PushStatusBean&gt; callback)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">getPushStatus</span><span class="token punctuation">(</span>ITuyaResultCallback<span class="token generics function"><span class="token punctuation">&lt;</span>PushStatusBean<span class="token punctuation">&gt;</span></span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
-<pre><code class="lang-java"> TuyaHomeSdk.getPushInstance().getPushStatus(<span class="hljs-keyword">new</span> ITuyaResultCallback&lt;PushStatusBean&gt;() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(PushStatusBean result)</span> </span>{
-            }
+<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
+<pre class="language-"><code class="lang-java"> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getPushInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getPushStatus</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ITuyaResultCallback</span><span class="token generics function"><span class="token punctuation">&lt;</span>PushStatusBean<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>PushStatusBean result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
 
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMessage)</span> </span>{
-            }
-        });
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMessage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="set-the-message-master-switch">Set the message master switch</h4>
-<h5 id="&#x3010;description&#x3011;">&#x3010;Description&#x3011;</h5>
+<h4 id="set-the-message-master-switch"><a name="set-the-message-master-switch" class="plugin-anchor" href="#set-the-message-master-switch"><i class="fa fa-link" aria-hidden="true"></i></a>Set the message master switch</h4>
+<h5 id="&#x3010;description&#x3011;"><a name="&#x3010;description&#x3011;" class="plugin-anchor" href="#&#x3010;description&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Description&#x3011;</h5>
 <p>The message push switch is the main switch, and when it is off, it cannot receive any message such as device Alarm, Family, Notify message.</p>
-<h5 id="&#x3010;method&#x3011;">&#x3010;Method&#x3011;</h5>
-<pre><code class="lang-java">    <span class="hljs-comment">/**
+<h5 id="&#x3010;method&#x3011;"><a name="&#x3010;method&#x3011;" class="plugin-anchor" href="#&#x3010;method&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method&#x3011;</h5>
+<pre class="language-"><code class="lang-java">    <span class="token comment">/**
      * Set the message master switch
-     * <span class="hljs-doctag">@param</span> isOpen Message is Open
-     * <span class="hljs-doctag">@param</span> callback
+     * @param isOpen Message is Open
+     * @param callback
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setPushStatus</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> isOpen, ITuyaDataCallback&lt;Boolean&gt; callback)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">setPushStatus</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> isOpen<span class="token punctuation">,</span> ITuyaDataCallback<span class="token generics function"><span class="token punctuation">&lt;</span>Boolean<span class="token punctuation">&gt;</span></span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
-<pre><code class="lang-java">TuyaHomeSdk.getPushInstance().setPushStatus(open, <span class="hljs-keyword">new</span> ITuyaDataCallback&lt;Boolean&gt;() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Boolean result)</span> </span>{
-            }
+<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
+<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getPushInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setPushStatus</span><span class="token punctuation">(</span>open<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaDataCallback</span><span class="token generics function"><span class="token punctuation">&lt;</span>Boolean<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>Boolean result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
 
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMessage)</span> </span>{
-            }
-        });
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMessage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="gets-the-on-off-state-of-a-message-based-on-its-type">Gets the on-off state of a message based on its type</h4>
-<h5 id="&#x3010;description&#x3011;">&#x3010;Description&#x3011;</h5>
+<h4 id="gets-the-on-off-state-of-a-message-based-on-its-type"><a name="gets-the-on-off-state-of-a-message-based-on-its-type" class="plugin-anchor" href="#gets-the-on-off-state-of-a-message-based-on-its-type"><i class="fa fa-link" aria-hidden="true"></i></a>Gets the on-off state of a message based on its type</h4>
+<h5 id="&#x3010;description&#x3011;"><a name="&#x3010;description&#x3011;" class="plugin-anchor" href="#&#x3010;description&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Description&#x3011;</h5>
 <p>Gets the on-off state of a message based on its type</p>
-<h5 id="&#x3010;method&#x3011;">&#x3010;Method&#x3011;</h5>
-<pre><code class="lang-java">  <span class="hljs-comment">/**
+<h5 id="&#x3010;method&#x3011;"><a name="&#x3010;method&#x3011;" class="plugin-anchor" href="#&#x3010;method&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method&#x3011;</h5>
+<pre class="language-"><code class="lang-java">  <span class="token comment">/**
      *  Gets the on-off state of a message based on its type
      *  PushType.PUSH_ALARM  Alarm Message
      *  PushType.PUSH_FAMILY Family Message
      *  PushType.PUSH_NOTIFY Notify Message
-     * <span class="hljs-doctag">@param</span> type Message type
-     * <span class="hljs-doctag">@param</span> callback
+     * @param type Message type
+     * @param callback
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getPushStatusByType</span><span class="hljs-params">(PushType type, ITuyaDataCallback&lt;Boolean&gt; callback)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">getPushStatusByType</span><span class="token punctuation">(</span>PushType type<span class="token punctuation">,</span> ITuyaDataCallback<span class="token generics function"><span class="token punctuation">&lt;</span>Boolean<span class="token punctuation">&gt;</span></span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
-<pre><code class="lang-java">    TuyaHomeSdk.getPushInstance().getPushStatusByType(type, <span class="hljs-keyword">new</span> ITuyaDataCallback&lt;Boolean&gt;() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Boolean result)</span> </span>{
-            }
+<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
+<pre class="language-"><code class="lang-java">    TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getPushInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getPushStatusByType</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaDataCallback</span><span class="token generics function"><span class="token punctuation">&lt;</span>Boolean<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>Boolean result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
 
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMessage)</span> </span>{
-            }
-        });
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMessage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="sets-the-on-off-state-of-a-message-based-on-its-type">Sets the on-off state of a message based on its type</h4>
-<h5 id="&#x3010;description&#x3011;">&#x3010;Description&#x3011;</h5>
+<h4 id="sets-the-on-off-state-of-a-message-based-on-its-type"><a name="sets-the-on-off-state-of-a-message-based-on-its-type" class="plugin-anchor" href="#sets-the-on-off-state-of-a-message-based-on-its-type"><i class="fa fa-link" aria-hidden="true"></i></a>Sets the on-off state of a message based on its type</h4>
+<h5 id="&#x3010;description&#x3011;"><a name="&#x3010;description&#x3011;" class="plugin-anchor" href="#&#x3010;description&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Description&#x3011;</h5>
 <p>Sets the on-off state of a message based on its type</p>
-<h5 id="&#x3010;method&#x3011;">&#x3010;Method&#x3011;</h5>
-<pre><code class="lang-java">  <span class="hljs-comment">/**
+<h5 id="&#x3010;method&#x3011;"><a name="&#x3010;method&#x3011;" class="plugin-anchor" href="#&#x3010;method&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method&#x3011;</h5>
+<pre class="language-"><code class="lang-java">  <span class="token comment">/**
      *  Sets the on-off state of a message based on its type
      *  PushType.PUSH_ALARM  Alarm Message
      *  PushType.PUSH_FAMILY Family Message
      *  PushType.PUSH_NOTIFY Notify Message
-     * <span class="hljs-doctag">@param</span> type Message Type
-     * <span class="hljs-doctag">@param</span> isOpen Message is Open
-     * <span class="hljs-doctag">@param</span> callback
+     * @param type Message Type
+     * @param isOpen Message is Open
+     * @param callback
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setPushStatusByType</span><span class="hljs-params">(PushType type, isOpen, ITuyaDataCallback&lt;Boolean&gt; callback)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">setPushStatusByType</span><span class="token punctuation">(</span>PushType type<span class="token punctuation">,</span> isOpen<span class="token punctuation">,</span> ITuyaDataCallback<span class="token generics function"><span class="token punctuation">&lt;</span>Boolean<span class="token punctuation">&gt;</span></span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
-<pre><code class="lang-java">        TuyaHomeSdk.getPushInstance().setPushStatusByType(pushType, checked, <span class="hljs-keyword">new</span> ITuyaDataCallback&lt;Boolean&gt;() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Boolean result)</span> </span>{
-            }
+<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
+<pre class="language-"><code class="lang-java">        TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getPushInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setPushStatusByType</span><span class="token punctuation">(</span>pushType<span class="token punctuation">,</span> checked<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaDataCallback</span><span class="token generics function"><span class="token punctuation">&lt;</span>Boolean<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>Boolean result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
 
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMessage)</span> </span>{
-            }
-        });
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMessage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -1417,7 +1421,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Message push switch","level":"1.15.2","depth":2,"next":{"title":"Feedback","level":"1.16","depth":1,"path":"resource/Feedback.md","ref":"./resource/Feedback.md","articles":[]},"previous":{"title":"Message list","level":"1.15.1","depth":2,"path":"resource/Message.md","ref":"./resource/Message.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/MessagePush.md","mtime":"2019-07-22T12:24:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Message push switch","level":"1.15.2","depth":2,"next":{"title":"Feedback","level":"1.16","depth":1,"path":"resource/Feedback.md","ref":"./resource/Feedback.md","articles":[]},"previous":{"title":"Message list","level":"1.15.1","depth":2,"path":"resource/Message.md","ref":"./resource/Message.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/MessagePush.md","mtime":"2019-07-22T12:24:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1425,6 +1429,14 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

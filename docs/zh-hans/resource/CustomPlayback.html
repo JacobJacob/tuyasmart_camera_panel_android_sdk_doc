@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -542,11 +546,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x56DE;&#x653E;">&#x81EA;&#x5B9A;&#x4E49;&#x56DE;&#x653E;</h2>
+                                <h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x56DE;&#x653E;"><a name="&#x81EA;&#x5B9A;&#x4E49;&#x56DE;&#x653E;" class="plugin-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x56DE;&#x653E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x81EA;&#x5B9A;&#x4E49;&#x56DE;&#x653E;</h2>
 <p>&#x82E5;&#x63D0;&#x4F9B;&#x7684;&#x56DE;&#x653E;&#x9762;&#x677F;&#x4E0D;&#x6EE1;&#x8DB3;&#x7528;&#x6237;&#x9700;&#x6C42;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x81EA;&#x884C;&#x5B9E;&#x73B0;&#x56DE;&#x653E;&#x9762;&#x677F;</p>
 <p><strong>&#x63A5;&#x53E3;&#x8BF4;&#x660E;</strong></p>
 <p>&#x8BBE;&#x7F6E; PlaybackPanelListener &#x76D1;&#x542C;&#xFF0C;&#x8DF3;&#x8F6C;&#x5230;&#x81EA;&#x5B9A;&#x4E49;&#x9762;&#x677F;&#x53BB;&#x5B9E;&#x73B0;&#x56DE;&#x653E;</p>
-<pre><code class="lang-java">TuyaCameraPanelSDK.setCustomPlaybackPanelListener(PlaybackPanelListener playbackListener);
+<pre class="language-"><code class="lang-java">TuyaCameraPanelSDK<span class="token punctuation">.</span><span class="token function">setCustomPlaybackPanelListener</span><span class="token punctuation">(</span>PlaybackPanelListener playbackListener<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p> <strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
@@ -564,12 +568,12 @@
 </tbody>
 </table>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
-<pre><code class="lang-java">TuyaCameraPanelSDK.setCustomPlaybackPanelListener(<span class="hljs-keyword">new</span> PlaybackPanelListener() {
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPlaybackPanelClick</span><span class="hljs-params">(String deviceId)</span> </span>{
-        L.d(TAG, <span class="hljs-string">&quot;&#x56DE;&#x653E;&#x9762;&#x677F; -&#x81EA;&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;&quot;</span> + deviceId);
-    }
-});
+<pre class="language-"><code class="lang-java">TuyaCameraPanelSDK<span class="token punctuation">.</span><span class="token function">setCustomPlaybackPanelListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">PlaybackPanelListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onPlaybackPanelClick</span><span class="token punctuation">(</span>String deviceId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        L<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;&#x56DE;&#x653E;&#x9762;&#x677F; -&#x81EA;&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;&quot;</span> <span class="token operator">+</span> deviceId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -614,7 +618,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"自定义回放","level":"1.7.2","depth":2,"next":{"title":"自定义云存储","level":"1.7.3","depth":2,"path":"resource/CustomCloudStorage.md","ref":"./resource/CustomCloudStorage.md","articles":[]},"previous":{"title":"自定义主题","level":"1.7.1","depth":2,"path":"resource/CustomTheme.md","ref":"./resource/CustomTheme.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/CustomPlayback.md","mtime":"2020-03-06T02:45:56.499Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"自定义回放","level":"1.7.2","depth":2,"next":{"title":"自定义云存储","level":"1.7.3","depth":2,"path":"resource/CustomCloudStorage.md","ref":"./resource/CustomCloudStorage.md","articles":[]},"previous":{"title":"自定义主题","level":"1.7.1","depth":2,"path":"resource/CustomTheme.md","ref":"./resource/CustomTheme.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/CustomPlayback.md","mtime":"2020-03-06T02:45:56.499Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
@@ -622,6 +626,14 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

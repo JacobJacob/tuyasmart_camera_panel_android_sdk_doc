@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -1278,9 +1282,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="home-member-management-class">Home Member Management Class</h2>
+                                <h2 id="home-member-management-class"><a name="home-member-management-class" class="plugin-anchor" href="#home-member-management-class"><i class="fa fa-link" aria-hidden="true"></i></a>Home Member Management Class</h2>
 <p>The ITuyaHomeMember provides the family member management interfaces including adding member, removing member, update the control permission of member and obtaining home member list ,etc. The invocation method is <code>TuyaHomeSdk.getMemberInstance()</code>.  </p>
-<h2 id="memberbean-field-information">MemberBean Field Information</h2>
+<h2 id="memberbean-field-information"><a name="memberbean-field-information" class="plugin-anchor" href="#memberbean-field-information"><i class="fa fa-link" aria-hidden="true"></i></a>MemberBean Field Information</h2>
 <table>
 <thead>
 <tr>
@@ -1332,53 +1336,53 @@
 </tr>
 </tbody>
 </table>
-<h2 id="add-members-in-a-home">Add Members in a Home</h2>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<h2 id="add-members-in-a-home"><a name="add-members-in-a-home" class="plugin-anchor" href="#add-members-in-a-home"><i class="fa fa-link" aria-hidden="true"></i></a>Add Members in a Home</h2>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
 * Add members in home
 *
-* <span class="hljs-doctag">@param</span> countryCode Country code
-* <span class="hljs-doctag">@param</span> userAccount User name
-* <span class="hljs-doctag">@param</span> name     Nickname
-* <span class="hljs-doctag">@param</span> admin       Have the administrator permission or not.
-* <span class="hljs-doctag">@param</span> callback
+* @param countryCode Country code
+* @param userAccount User name
+* @param name     Nickname
+* @param admin       Have the administrator permission or not.
+* @param callback
 */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addMember</span><span class="hljs-params">(<span class="hljs-keyword">long</span> homeId ,<span class="hljs-keyword">int</span> countryCode, String userAccount, String name, <span class="hljs-keyword">boolean</span> admin, ITuyaMemberResultCallback callback)</span></span>;
+<span class="token keyword">void</span> <span class="token function">addMember</span><span class="token punctuation">(</span><span class="token keyword">long</span> homeId <span class="token punctuation">,</span><span class="token keyword">int</span> countryCode<span class="token punctuation">,</span> String userAccount<span class="token punctuation">,</span> String name<span class="token punctuation">,</span> <span class="token keyword">boolean</span> admin<span class="token punctuation">,</span> ITuyaMemberResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="remove-member-of-a-home">Remove Member of a Home</h2>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<h2 id="remove-member-of-a-home"><a name="remove-member-of-a-home" class="plugin-anchor" href="#remove-member-of-a-home"><i class="fa fa-link" aria-hidden="true"></i></a>Remove Member of a Home</h2>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
 * Remove member of a home
 *
-* <span class="hljs-doctag">@param</span> id
-* <span class="hljs-doctag">@param</span> callback
+* @param id
+* @param callback
 */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">removeMember</span><span class="hljs-params">(<span class="hljs-keyword">long</span> memberId, IResultCallback callback)</span></span>;
+<span class="token keyword">void</span> <span class="token function">removeMember</span><span class="token punctuation">(</span><span class="token keyword">long</span> memberId<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="change-name-and-permission-of-members">Change Name and Permission of Members</h2>
-<pre><code class="lang-java"><span class="hljs-comment">/**Change name and permission of members
-* <span class="hljs-doctag">@param</span> memberId of member. 
-* <span class="hljs-doctag">@param</span> name of member. 
-* <span class="hljs-doctag">@param</span> admin administrator or not.
-* <span class="hljs-doctag">@param</span> callback
+<h2 id="change-name-and-permission-of-members"><a name="change-name-and-permission-of-members" class="plugin-anchor" href="#change-name-and-permission-of-members"><i class="fa fa-link" aria-hidden="true"></i></a>Change Name and Permission of Members</h2>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**Change name and permission of members
+* @param memberId of member. 
+* @param name of member. 
+* @param admin administrator or not.
+* @param callback
 */</span>
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">updateMember</span><span class="hljs-params">(<span class="hljs-keyword">long</span> memberId,String name, <span class="hljs-keyword">boolean</span> admin, IResultCallback callback)</span></span>;
+<span class="token keyword">void</span> <span class="token function">updateMember</span><span class="token punctuation">(</span><span class="token keyword">long</span> memberId<span class="token punctuation">,</span>String name<span class="token punctuation">,</span> <span class="token keyword">boolean</span> admin<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="query-the-member-list-of-a-home">Query the Member List of a Home</h2>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<h2 id="query-the-member-list-of-a-home"><a name="query-the-member-list-of-a-home" class="plugin-anchor" href="#query-the-member-list-of-a-home"><i class="fa fa-link" aria-hidden="true"></i></a>Query the Member List of a Home</h2>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
 * Query the member list of a home
 *
-* <span class="hljs-doctag">@param</span> callback
+* @param callback
 */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">queryMemberList</span><span class="hljs-params">(<span class="hljs-keyword">long</span> homeId,ITuyaGetMemberListCallback callback)</span></span>;
+<span class="token keyword">void</span> <span class="token function">queryMemberList</span><span class="token punctuation">(</span><span class="token keyword">long</span> homeId<span class="token punctuation">,</span>ITuyaGetMemberListCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="to-accept-or-reject-family-invitation">To accept or reject family invitation</h2>
-<pre><code class="lang-java"> <span class="hljs-comment">/**
+<h2 id="to-accept-or-reject-family-invitation"><a name="to-accept-or-reject-family-invitation" class="plugin-anchor" href="#to-accept-or-reject-family-invitation"><i class="fa fa-link" aria-hidden="true"></i></a>To accept or reject family invitation</h2>
+<pre class="language-"><code class="lang-java"> <span class="token comment">/**
  * To accept or reject family invitation
- * <span class="hljs-doctag">@param</span> homeId    
- * <span class="hljs-doctag">@param</span> action    true:accept,false:reject
- * <span class="hljs-doctag">@param</span> callBack
+ * @param homeId    
+ * @param action    true:accept,false:reject
+ * @param callBack
 */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">processInvitation</span><span class="hljs-params">(<span class="hljs-keyword">long</span> homeId, <span class="hljs-keyword">boolean</span> action, <span class="hljs-keyword">final</span> IResultCallback callBack)</span></span>;
+<span class="token keyword">void</span> <span class="token function">processInvitation</span><span class="token punctuation">(</span><span class="token keyword">long</span> homeId<span class="token punctuation">,</span> <span class="token keyword">boolean</span> action<span class="token punctuation">,</span> <span class="token keyword">final</span> IResultCallback callBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -1423,7 +1427,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Home Member Management Class","level":"1.6.3","depth":2,"next":{"title":"Room information management","level":"1.6.4","depth":2,"path":"resource/Room.md","ref":"./resource/Room.md","articles":[]},"previous":{"title":"Operation Class of Home","level":"1.6.2","depth":2,"path":"resource/Home_Option.md","ref":"./resource/Home_Option.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Home_Member.md","mtime":"2019-05-07T09:38:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Home Member Management Class","level":"1.6.3","depth":2,"next":{"title":"Room information management","level":"1.6.4","depth":2,"path":"resource/Room.md","ref":"./resource/Room.md","articles":[]},"previous":{"title":"Operation Class of Home","level":"1.6.2","depth":2,"path":"resource/Home_Option.md","ref":"./resource/Home_Option.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Home_Member.md","mtime":"2019-05-07T09:38:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1431,6 +1435,14 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

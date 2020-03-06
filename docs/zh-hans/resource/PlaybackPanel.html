@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -542,7 +546,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x56DE;&#x653E;&#x9762;&#x677F;">&#x56DE;&#x653E;&#x9762;&#x677F;</h2>
+                                <h2 id="&#x56DE;&#x653E;&#x9762;&#x677F;"><a name="&#x56DE;&#x653E;&#x9762;&#x677F;" class="plugin-anchor" href="#&#x56DE;&#x653E;&#x9762;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x56DE;&#x653E;&#x9762;&#x677F;</h2>
 <p>&#x6444;&#x50CF;&#x673A;&#x56DE;&#x653E;&#x9762;&#x677F;&#xFF0C;&#x5C55;&#x793A;&#x7684;&#x662F;&#x4FDD;&#x5B58;&#x5728;&#x6444;&#x50CF;&#x673A;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x4E0A;&#x7684;&#x89C6;&#x9891;&#xFF0C;&#x5305;&#x62EC;&#x89C6;&#x9891;&#x56DE;&#x653E;&#xFF0C;&#x56DE;&#x653E;&#x65E5;&#x671F;&#x9009;&#x62E9;&#xFF0C;&#x89C6;&#x9891;&#x968F;&#x65F6;&#x95F4;&#x8F74;&#x62D6;&#x52A8;&#x64AD;&#x653E;&#xFF0C;&#x64AD;&#x653E;/&#x6682;&#x505C;&#xFF0C;&#x58F0;&#x97F3;&#x63A7;&#x5236;&#xFF0C;&#x622A;&#x56FE;&#xFF0C;&#x5F55;&#x5236;&#x7B49;&#x529F;&#x80FD;</p>
 <p><strong>&#x9762;&#x677F;&#x7C7B;&#x540D;</strong></p>
 <p>CameraPlaybackActivity.class</p>
@@ -562,9 +566,9 @@
 </tbody>
 </table>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
-<pre><code class="lang-java">Intent intent = <span class="hljs-keyword">new</span> Intent(context, CameraPlaybackActivity.class);
-intent.putExtra(<span class="hljs-string">&quot;extra_camera_uuid&quot;</span>, deviceId);
-context.startActivity(intent);
+<pre class="language-"><code class="lang-java">Intent intent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> CameraPlaybackActivity<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token string">&quot;extra_camera_uuid&quot;</span><span class="token punctuation">,</span> deviceId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+context<span class="token punctuation">.</span><span class="token function">startActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p><strong>&#x9762;&#x677F;&#x793A;&#x610F;&#x56FE;</strong></p>
 <p><img src="images/camera_panel_playback.png" alt="&#x56DE;&#x653E;&#x9762;&#x677F;"></p>
@@ -611,7 +615,7 @@ context.startActivity(intent);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"回放面板","level":"1.6.3","depth":2,"next":{"title":"云存储面板","level":"1.6.4","depth":2,"path":"resource/CloudStoragePanel.md","ref":"./resource/CloudStoragePanel.md","articles":[]},"previous":{"title":"RN预览面板","level":"1.6.2","depth":2,"path":"resource/RnPanel.md","ref":"./resource/RnPanel.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/PlaybackPanel.md","mtime":"2020-03-05T11:40:15.400Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"回放面板","level":"1.6.3","depth":2,"next":{"title":"云存储面板","level":"1.6.4","depth":2,"path":"resource/CloudStoragePanel.md","ref":"./resource/CloudStoragePanel.md","articles":[]},"previous":{"title":"RN预览面板","level":"1.6.2","depth":2,"path":"resource/RnPanel.md","ref":"./resource/RnPanel.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/PlaybackPanel.md","mtime":"2020-03-05T11:40:15.400Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
@@ -619,6 +623,14 @@ context.startActivity(intent);
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

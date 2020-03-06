@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -542,21 +546,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="tuyacamerapanelsdk-&#x521D;&#x59CB;&#x5316;">TuyaCameraPanelSDK &#x521D;&#x59CB;&#x5316;</h2>
+                                <h2 id="tuyacamerapanelsdk-&#x521D;&#x59CB;&#x5316;"><a name="tuyacamerapanelsdk-&#x521D;&#x59CB;&#x5316;" class="plugin-anchor" href="#tuyacamerapanelsdk-&#x521D;&#x59CB;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>TuyaCameraPanelSDK &#x521D;&#x59CB;&#x5316;</h2>
 <p>&#x5728; Application &#x4E2D;&#x521D;&#x59CB;&#x5316; TuyaCameraPanelSDK</p>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TuyaSmartApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Application</span> </span>{
-  <span class="hljs-meta">@Override</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">super</span>.onCreate();
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TuyaSmartApp</span> <span class="token keyword">extends</span> <span class="token class-name">Application</span> <span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">// ... &#x786E;&#x8BA4; appkey &#xFF0C;appSecret&#x5B58;&#x5728;</span>
-    TuyaWrapper.init(<span class="hljs-keyword">this</span>);
-    TuyaPanelSDK.init(<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;&#x5E94;&#x7528;Appkey&quot;</span>, <span class="hljs-string">&quot;&#x5E94;&#x7528;&#x5BC6;&#x94A5;AppSecret&quot;</span>);
-    TuyaCameraPanelSDK.init(<span class="hljs-keyword">this</span>);
-    <span class="hljs-comment">// ... &#x5176;&#x4ED6;</span>
-  }
-}
+    <span class="token comment">// ... &#x786E;&#x8BA4; appkey &#xFF0C;appSecret&#x5B58;&#x5728;</span>
+    TuyaWrapper<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    TuyaPanelSDK<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x5E94;&#x7528;Appkey&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x5E94;&#x7528;&#x5BC6;&#x94A5;AppSecret&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    TuyaCameraPanelSDK<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// ... &#x5176;&#x4ED6;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <blockquote>
 <p>&#x6CE8;&#x610F;&#x4E8B;&#x9879; Appkey&#x548C;AppSecret&#x9700;&#x8981;&#x914D;&#x7F6E;AndroidManifest.xml&#x6587;&#x4EF6;&#x91CC;&#xFF0C;&#x6216;&#x8005;&#x5728;build&#x73AF;&#x5883;&#x91CC;&#x914D;&#x7F6E;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x4EE3;&#x7801;&#x91CC;&#x5199;&#x5165;&#x3002;</p>
@@ -604,7 +608,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"TuyaCameraPanelSDK 初始化","level":"1.5","depth":1,"next":{"title":"TuyaCameraPanelSDK 调用","level":"1.6","depth":1,"path":"resource/CallSDK.md","ref":"./resource/CallSDK.md","articles":[{"title":"Native预览面板","level":"1.6.1","depth":2,"path":"resource/NativePanel.md","ref":"./resource/NativePanel.md","articles":[]},{"title":"RN预览面板","level":"1.6.2","depth":2,"path":"resource/RnPanel.md","ref":"./resource/RnPanel.md","articles":[]},{"title":"回放面板","level":"1.6.3","depth":2,"path":"resource/PlaybackPanel.md","ref":"./resource/PlaybackPanel.md","articles":[]},{"title":"云存储面板","level":"1.6.4","depth":2,"path":"resource/CloudStoragePanel.md","ref":"./resource/CloudStoragePanel.md","articles":[]},{"title":"消息中心面板","level":"1.6.5","depth":2,"path":"resource/MessagePanel.md","ref":"./resource/MessagePanel.md","articles":[]},{"title":"相册面板","level":"1.6.6","depth":2,"path":"resource/AlbumPanel.md","ref":"./resource/AlbumPanel.md","articles":[]},{"title":"门铃面板","level":"1.6.7","depth":2,"path":"resource/DoorbellPanel.md","ref":"./resource/DoorbellPanel.md","articles":[]},{"title":"视频流门铃面板","level":"1.6.8","depth":2,"path":"resource/VideoDoorbellPanel.md","ref":"./resource/VideoDoorbellPanel.md","articles":[]},{"title":"设置面板","level":"1.6.9","depth":2,"path":"resource/SetPanel.md","ref":"./resource/SetPanel.md","articles":[]}]},"previous":{"title":"集成 TuyaCameraPanelSDK","level":"1.4","depth":1,"path":"resource/Integrated.md","ref":"./resource/Integrated.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/InitSDK.md","mtime":"2020-03-04T13:31:01.899Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"TuyaCameraPanelSDK 初始化","level":"1.5","depth":1,"next":{"title":"TuyaCameraPanelSDK 调用","level":"1.6","depth":1,"path":"resource/CallSDK.md","ref":"./resource/CallSDK.md","articles":[{"title":"Native预览面板","level":"1.6.1","depth":2,"path":"resource/NativePanel.md","ref":"./resource/NativePanel.md","articles":[]},{"title":"RN预览面板","level":"1.6.2","depth":2,"path":"resource/RnPanel.md","ref":"./resource/RnPanel.md","articles":[]},{"title":"回放面板","level":"1.6.3","depth":2,"path":"resource/PlaybackPanel.md","ref":"./resource/PlaybackPanel.md","articles":[]},{"title":"云存储面板","level":"1.6.4","depth":2,"path":"resource/CloudStoragePanel.md","ref":"./resource/CloudStoragePanel.md","articles":[]},{"title":"消息中心面板","level":"1.6.5","depth":2,"path":"resource/MessagePanel.md","ref":"./resource/MessagePanel.md","articles":[]},{"title":"相册面板","level":"1.6.6","depth":2,"path":"resource/AlbumPanel.md","ref":"./resource/AlbumPanel.md","articles":[]},{"title":"门铃面板","level":"1.6.7","depth":2,"path":"resource/DoorbellPanel.md","ref":"./resource/DoorbellPanel.md","articles":[]},{"title":"视频流门铃面板","level":"1.6.8","depth":2,"path":"resource/VideoDoorbellPanel.md","ref":"./resource/VideoDoorbellPanel.md","articles":[]},{"title":"设置面板","level":"1.6.9","depth":2,"path":"resource/SetPanel.md","ref":"./resource/SetPanel.md","articles":[]}]},"previous":{"title":"集成 TuyaCameraPanelSDK","level":"1.4","depth":1,"path":"resource/Integrated.md","ref":"./resource/Integrated.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/InitSDK.md","mtime":"2020-03-04T13:31:01.899Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
@@ -612,6 +616,14 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

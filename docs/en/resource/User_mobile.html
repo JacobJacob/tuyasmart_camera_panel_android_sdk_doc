@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -1278,180 +1282,180 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="use-mobile-phone-verification-code-for-login">Use Mobile Phone Verification Code for Login</h2>
+                                <h2 id="use-mobile-phone-verification-code-for-login"><a name="use-mobile-phone-verification-code-for-login" class="plugin-anchor" href="#use-mobile-phone-verification-code-for-login"><i class="fa fa-link" aria-hidden="true"></i></a>Use Mobile Phone Verification Code for Login</h2>
 <p>Tuya Smart provides the mobile phone verification code login system. </p>
-<h3 id="1-use-mobile-phone-verification-code-for-login">(1) Use Mobile Phone Verification Code for Login</h3>
+<h3 id="1-use-mobile-phone-verification-code-for-login"><a name="1-use-mobile-phone-verification-code-for-login" class="plugin-anchor" href="#1-use-mobile-phone-verification-code-for-login"><i class="fa fa-link" aria-hidden="true"></i></a>(1) Use Mobile Phone Verification Code for Login</h3>
 <p><strong>[Description]</strong></p>
 <p>The mobile phone verification code login function needs to first call the verification code sending interface and send the verification code. Then call the phone verification code verification interface. Fill in the received verification code into the corresponding parameters.</p>
 <p><strong>[Code Invocation]</strong></p>
-<pre><code class="lang-java">
-<span class="hljs-comment">/** Obtain mobile phone verification code.
-* <span class="hljs-doctag">@param</span> countryCode   Country code
-* <span class="hljs-doctag">@param</span> phoneNumber   Mobile phone number.
+<pre class="language-"><code class="lang-java">
+<span class="token comment">/** Obtain mobile phone verification code.
+* @param countryCode   Country code
+* @param phoneNumber   Mobile phone number.
 */</span>
-TuyaHomeSdk.getUserInstance().getValidateCode(String countryCode, String phoneNumber, <span class="hljs-keyword">final</span> IValidateCallback callback);
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getValidateCode</span><span class="token punctuation">(</span>String countryCode<span class="token punctuation">,</span> String phoneNumber<span class="token punctuation">,</span> <span class="token keyword">final</span> IValidateCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">/** Use mobile phone verification code for login
-* <span class="hljs-doctag">@param</span> countryCode Country code
-* <span class="hljs-doctag">@param</span> phone       Mobile phone number
-* <span class="hljs-doctag">@param</span> code        Verification code
-* <span class="hljs-doctag">@param</span> callback    Login callback interface. 
+<span class="token comment">/** Use mobile phone verification code for login
+* @param countryCode Country code
+* @param phone       Mobile phone number
+* @param code        Verification code
+* @param callback    Login callback interface. 
 */</span>
-TuyaHomeSdk.getUserInstance().loginWithPhone(String countryCode, String phone, String code, <span class="hljs-keyword">final</span> ILoginCallback callback)
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">loginWithPhone</span><span class="token punctuation">(</span>String countryCode<span class="token punctuation">,</span> String phone<span class="token punctuation">,</span> String code<span class="token punctuation">,</span> <span class="token keyword">final</span> ILoginCallback callback<span class="token punctuation">)</span>
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre><code class="lang-java">
-<span class="hljs-comment">// Obtain mobile phone verification code.</span>
+<pre class="language-"><code class="lang-java">
+<span class="token comment">// Obtain mobile phone verification code.</span>
 
-TuyaHomeSdk.getUserInstance().getValidateCode(<span class="hljs-string">&quot;86&quot;</span>,<span class="hljs-string">&quot;13666666666&quot;</span>, <span class="hljs-keyword">new</span> IValidateCallback(){
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
-       Toast.makeText(mContext, <span class="hljs-string">&quot;Obtaining verification code succeeds.&quot;</span>, Toast.LENGTH_SHORT).show();
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
-        Toast.makeText(mContext, <span class="hljs-string">&quot;code: &quot;</span> + code + <span class="hljs-string">&quot;error:&quot;</span> + error, Toast.LENGTH_SHORT).show();
-    }
-});
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getValidateCode</span><span class="token punctuation">(</span><span class="token string">&quot;86&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;13666666666&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IValidateCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;Obtaining verification code succeeds.&quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;code: &quot;</span> <span class="token operator">+</span> code <span class="token operator">+</span> <span class="token string">&quot;error:&quot;</span> <span class="token operator">+</span> error<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Use mobile phone verification code for login</span>
-TuyaHomeSdk.getUserInstance().loginWithPhone(<span class="hljs-string">&quot;86&quot;</span>, <span class="hljs-string">&quot;13355555555&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-keyword">new</span> ILoginCallback() {
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(User user)</span> </span>{
-        Toast.makeText(mContext, <span class="hljs-string">&quot;Login succeeds, username:&quot;</span> +TuyaHomeSdk.getUserInstance().getUser().getUsername(), Toast.LENGTH_SHORT).show();
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
-        Toast.makeText(mContext, error, Toast.LENGTH_SHORT).show();
-    }
-});
+<span class="token comment">// Use mobile phone verification code for login</span>
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">loginWithPhone</span><span class="token punctuation">(</span><span class="token string">&quot;86&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;13355555555&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ILoginCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;Login succeeds, username:&quot;</span> <span class="token operator">+</span>TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> error<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="use-mobile-phone-password-for-login">Use Mobile Phone Password for Login</h2>
+<h2 id="use-mobile-phone-password-for-login"><a name="use-mobile-phone-password-for-login" class="plugin-anchor" href="#use-mobile-phone-password-for-login"><i class="fa fa-link" aria-hidden="true"></i></a>Use Mobile Phone Password for Login</h2>
 <p>Tuya Smart provides the mobile phone password login system.</p>
 <p><strong>(1) Register Password on the Mobile Phone.</strong> </p>
 <p><strong>[Description]</strong></p>
 <p>Register password on the mobile phone.</p>
 <p><strong>[Method Invocation]</strong></p>
-<pre><code class="lang-java">
+<pre class="language-"><code class="lang-java">
 
-<span class="hljs-comment">/** Obtain mobile phone verification code.
-* <span class="hljs-doctag">@param</span> countryCode   Country code
-* <span class="hljs-doctag">@param</span> phoneNumber   Mobile phone number.
+<span class="token comment">/** Obtain mobile phone verification code.
+* @param countryCode   Country code
+* @param phoneNumber   Mobile phone number.
 */</span>
 
-TuyaHomeSdk.getUserInstance().getValidateCode(String countryCode, String phoneNumber, <span class="hljs-keyword">final</span> IValidateCallback callback);
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getValidateCode</span><span class="token punctuation">(</span>String countryCode<span class="token punctuation">,</span> String phoneNumber<span class="token punctuation">,</span> <span class="token keyword">final</span> IValidateCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
 
-<span class="hljs-comment">/** Use your mobile phone to register account and password.
-* <span class="hljs-doctag">@param</span> countryCode Country code
-* <span class="hljs-doctag">@param</span> phone       Mobile phone 
-* <span class="hljs-doctag">@param</span> passwd      Password
-* <span class="hljs-doctag">@param</span> code        Verification code
-* <span class="hljs-doctag">@param</span> callback    Login callback interface. 
+<span class="token comment">/** Use your mobile phone to register account and password.
+* @param countryCode Country code
+* @param phone       Mobile phone 
+* @param passwd      Password
+* @param code        Verification code
+* @param callback    Login callback interface. 
 */</span>
 
-TuyaHomeSdk.getUserInstance().registerAccountWithPhone(<span class="hljs-keyword">final</span> String countryCode, <span class="hljs-keyword">final</span> String phone, <span class="hljs-keyword">final</span> String passwd, <span class="hljs-keyword">final</span> String code, <span class="hljs-keyword">final</span> IRegisterCallback callback);
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">registerAccountWithPhone</span><span class="token punctuation">(</span><span class="token keyword">final</span> String countryCode<span class="token punctuation">,</span> <span class="token keyword">final</span> String phone<span class="token punctuation">,</span> <span class="token keyword">final</span> String passwd<span class="token punctuation">,</span> <span class="token keyword">final</span> String code<span class="token punctuation">,</span> <span class="token keyword">final</span> IRegisterCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre><code class="lang-java">
-<span class="hljs-comment">// Obtain mobile phone verification code.</span>
+<pre class="language-"><code class="lang-java">
+<span class="token comment">// Obtain mobile phone verification code.</span>
 
-TuyaHomeSdk.getUserInstance().getValidateCode(<span class="hljs-string">&quot;86&quot;</span>,<span class="hljs-string">&quot;13666666666&quot;</span>, <span class="hljs-keyword">new</span> IValidateCallback(){
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
-        Toast.makeText(mContext, <span class="hljs-string">&quot;Obtaining verification code succeeds.&quot;</span>, Toast.LENGTH_SHORT).show();
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
-        Toast.makeText(mContext, <span class="hljs-string">&quot;code: &quot;</span> + code + <span class="hljs-string">&quot;error:&quot;</span> + error, Toast.LENGTH_SHORT).show();
-    }
-});
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getValidateCode</span><span class="token punctuation">(</span><span class="token string">&quot;86&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;13666666666&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IValidateCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;Obtaining verification code succeeds.&quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;code: &quot;</span> <span class="token operator">+</span> code <span class="token operator">+</span> <span class="token string">&quot;error:&quot;</span> <span class="token operator">+</span> error<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Use your mobile phone to register account and password.</span>
+<span class="token comment">// Use your mobile phone to register account and password.</span>
 
-TuyaHomeSdk.getUserInstance().registerAccountWithPhone(<span class="hljs-string">&quot;86&quot;</span>,<span class="hljs-string">&quot;13666666666&quot;</span>,<span class="hljs-string">&quot;123456&quot;</span>,<span class="hljs-string">&quot;124332&quot;</span>, <span class="hljs-keyword">new</span> IRegisterCallback() {
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(User user)</span> </span>{
-        Toast.makeText(mContext, <span class="hljs-string">&quot;The registration succeeds.&quot;</span>, Toast.LENGTH_SHORT).show();
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
-        Toast.makeText(mContext, <span class="hljs-string">&quot;code: &quot;</span> + code + <span class="hljs-string">&quot;error:&quot;</span> + error, Toast.LENGTH_SHORT).show();
-    }
-});
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">registerAccountWithPhone</span><span class="token punctuation">(</span><span class="token string">&quot;86&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;13666666666&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;123456&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;124332&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IRegisterCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;The registration succeeds.&quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;code: &quot;</span> <span class="token operator">+</span> code <span class="token operator">+</span> <span class="token string">&quot;error:&quot;</span> <span class="token operator">+</span> error<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="2-mobile-phone-password-login">(2) Mobile Phone Password Login</h3>
+<h3 id="2-mobile-phone-password-login"><a name="2-mobile-phone-password-login" class="plugin-anchor" href="#2-mobile-phone-password-login"><i class="fa fa-link" aria-hidden="true"></i></a>(2) Mobile Phone Password Login</h3>
 <p><strong>[Description]</strong></p>
 <p>Use mobile phone password for login.</p>
 <p><strong>[Method Invocation]</strong></p>
-<pre><code class="lang-java"><span class="hljs-comment">/** Use mobile phone password for login.
-* <span class="hljs-doctag">@param</span> countryCode Country code
-* <span class="hljs-doctag">@param</span> phone       Mobile phone password
-* <span class="hljs-doctag">@param</span> passwd      Password
-* <span class="hljs-doctag">@param</span> callback    Login callback interface. 
+<pre class="language-"><code class="lang-java"><span class="token comment">/** Use mobile phone password for login.
+* @param countryCode Country code
+* @param phone       Mobile phone password
+* @param passwd      Password
+* @param callback    Login callback interface. 
 */</span>
-TuyaHomeSdk.getUserInstance().loginWithPhonePassword(String countryCode, String phone, String passwd, <span class="hljs-keyword">final</span> ILoginCallback callback);
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">loginWithPhonePassword</span><span class="token punctuation">(</span>String countryCode<span class="token punctuation">,</span> String phone<span class="token punctuation">,</span> String passwd<span class="token punctuation">,</span> <span class="token keyword">final</span> ILoginCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre><code class="lang-java">
-<span class="hljs-comment">// Use mobile phone password for login.</span>
-TuyaHomeSdk.getUserInstance().loginWithPhonePassword(<span class="hljs-string">&quot;86&quot;</span>, <span class="hljs-string">&quot;13666666666&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-keyword">new</span> ILoginCallback() {
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(User user)</span> </span>{
-        Toast.makeText(mContext, <span class="hljs-string">&quot;Login succeeds, username:&quot;</span> +TuyaHomeSdk.getUserInstance().getUser().getUsername(), Toast.LENGTH_SHORT).show();
-    }
+<pre class="language-"><code class="lang-java">
+<span class="token comment">// Use mobile phone password for login.</span>
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">loginWithPhonePassword</span><span class="token punctuation">(</span><span class="token string">&quot;86&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;13666666666&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ILoginCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;Login succeeds, username:&quot;</span> <span class="token operator">+</span>TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
-        Toast.makeText(mContext, <span class="hljs-string">&quot;code: &quot;</span> + code + <span class="hljs-string">&quot;error:&quot;</span> + error, Toast.LENGTH_SHORT).show();
-    }
-});
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;code: &quot;</span> <span class="token operator">+</span> code <span class="token operator">+</span> <span class="token string">&quot;error:&quot;</span> <span class="token operator">+</span> error<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="3-reset-app-password-on-the-mobile-phone">(3) Reset App Password on the Mobile Phone</h3>
+<h3 id="3-reset-app-password-on-the-mobile-phone"><a name="3-reset-app-password-on-the-mobile-phone" class="plugin-anchor" href="#3-reset-app-password-on-the-mobile-phone"><i class="fa fa-link" aria-hidden="true"></i></a>(3) Reset App Password on the Mobile Phone</h3>
 <p><strong>[Description]</strong></p>
 <p>Reset App password on the mobile phone.</p>
 <p><strong>[Method Invocation]</strong></p>
-<pre><code class="lang-java"><span class="hljs-comment">/** Obtain mobile phone verification code.
-* <span class="hljs-doctag">@param</span> countryCode   Country code
-* <span class="hljs-doctag">@param</span> phoneNumber   Mobile phone number.
+<pre class="language-"><code class="lang-java"><span class="token comment">/** Obtain mobile phone verification code.
+* @param countryCode   Country code
+* @param phoneNumber   Mobile phone number.
 */</span>
-TuyaHomeSdk.getUserInstance().getValidateCode(String countryCode, String phoneNumber, <span class="hljs-keyword">final</span> IValidateCallback callback);
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getValidateCode</span><span class="token punctuation">(</span>String countryCode<span class="token punctuation">,</span> String phoneNumber<span class="token punctuation">,</span> <span class="token keyword">final</span> IValidateCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
 
-<span class="hljs-comment">/** Reset password
-* <span class="hljs-doctag">@param</span> countryCode Country code
-* <span class="hljs-doctag">@param</span> phone       Mobile phone number
-* <span class="hljs-doctag">@param</span> code        Mobile phone verification code
-* <span class="hljs-doctag">@param</span> newPasswd   New password
-* <span class="hljs-doctag">@param</span> callback    Reset the mobile phone password callback interface. 
+<span class="token comment">/** Reset password
+* @param countryCode Country code
+* @param phone       Mobile phone number
+* @param code        Mobile phone verification code
+* @param newPasswd   New password
+* @param callback    Reset the mobile phone password callback interface. 
 */</span>
-TuyaHomeSdk.getUserInstance().resetPhonePassword(<span class="hljs-keyword">final</span> String countryCode, <span class="hljs-keyword">final</span> String phone, <span class="hljs-keyword">final</span> String code, <span class="hljs-keyword">final</span> String newPasswd, <span class="hljs-keyword">final</span> IResetPasswordCallback callback);
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">resetPhonePassword</span><span class="token punctuation">(</span><span class="token keyword">final</span> String countryCode<span class="token punctuation">,</span> <span class="token keyword">final</span> String phone<span class="token punctuation">,</span> <span class="token keyword">final</span> String code<span class="token punctuation">,</span> <span class="token keyword">final</span> String newPasswd<span class="token punctuation">,</span> <span class="token keyword">final</span> IResetPasswordCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre><code class="lang-java"><span class="hljs-comment">// Obtain the verification code received on your mobile phone.</span>
-TuyaHomeSdk.getUserInstance().getValidateCode(<span class="hljs-string">&quot;86&quot;</span>, <span class="hljs-string">&quot;13555555555&quot;</span>, <span class="hljs-keyword">new</span> IValidateCallback() {
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
-        Toast.makeText(mContext, <span class="hljs-string">&quot;Obtaining verification code succeeds.&quot;</span>, Toast.LENGTH_SHORT).show();
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
-        Toast.makeText(mContext, <span class="hljs-string">&quot;code: &quot;</span> + code + <span class="hljs-string">&quot;error:&quot;</span> + error, Toast.LENGTH_SHORT).show();
-    }
-});
-<span class="hljs-comment">// Reset the App password on your mobile phone.</span>
-TuyaHomeSdk.getUserInstance().resetPhonePassword(<span class="hljs-string">&quot;86&quot;</span>, <span class="hljs-string">&quot;13555555555&quot;</span>, <span class="hljs-string">&quot;123456&quot;</span>, <span class="hljs-string">&quot;123123&quot;</span>, <span class="hljs-keyword">new</span> IResetPasswordCallback(){
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
-        Toast.makeText(mContext, <span class="hljs-string">&quot;Retrieve password succeeds.&quot;</span>, Toast.LENGTH_SHORT).show();
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
-        Toast.makeText(mContext, <span class="hljs-string">&quot;code: &quot;</span> + code + <span class="hljs-string">&quot;error:&quot;</span> + error, Toast.LENGTH_SHORT).show();
-    }
-});
+<pre class="language-"><code class="lang-java"><span class="token comment">// Obtain the verification code received on your mobile phone.</span>
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getValidateCode</span><span class="token punctuation">(</span><span class="token string">&quot;86&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;13555555555&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IValidateCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;Obtaining verification code succeeds.&quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;code: &quot;</span> <span class="token operator">+</span> code <span class="token operator">+</span> <span class="token string">&quot;error:&quot;</span> <span class="token operator">+</span> error<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Reset the App password on your mobile phone.</span>
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">resetPhonePassword</span><span class="token punctuation">(</span><span class="token string">&quot;86&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;13555555555&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;123456&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;123123&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResetPasswordCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;Retrieve password succeeds.&quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;code: &quot;</span> <span class="token operator">+</span> code <span class="token operator">+</span> <span class="token string">&quot;error:&quot;</span> <span class="token operator">+</span> error<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_SHORT<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -1496,7 +1500,7 @@ TuyaHomeSdk.getUserInstance().resetPhonePassword(<span class="hljs-string">&quot
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Use Mobile Phone","level":"1.5.2","depth":2,"next":{"title":"Use Email","level":"1.5.3","depth":2,"path":"resource/User_email.md","ref":"./resource/User_email.md","articles":[]},"previous":{"title":"SDK account upgrade","level":"1.5.1","depth":2,"path":"resource/User_Sdk_Update.md","ref":"./resource/User_Sdk_Update.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/User_mobile.md","mtime":"2019-03-12T02:03:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Use Mobile Phone","level":"1.5.2","depth":2,"next":{"title":"Use Email","level":"1.5.3","depth":2,"path":"resource/User_email.md","ref":"./resource/User_email.md","articles":[]},"previous":{"title":"SDK account upgrade","level":"1.5.1","depth":2,"path":"resource/User_Sdk_Update.md","ref":"./resource/User_Sdk_Update.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/User_mobile.md","mtime":"2019-03-12T02:03:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1504,6 +1508,14 @@ TuyaHomeSdk.getUserInstance().resetPhonePassword(<span class="hljs-string">&quot
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

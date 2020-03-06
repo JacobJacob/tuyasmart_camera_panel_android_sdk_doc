@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -1278,9 +1282,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="home-management-class">Home Management Class</h2>
+                                <h2 id="home-management-class"><a name="home-management-class" class="plugin-anchor" href="#home-management-class"><i class="fa fa-link" aria-hidden="true"></i></a>Home Management Class</h2>
 <p>The ITuyaHomeManager provides changes related to creating home, obtaining the home list and monitoring home, and it can be obtained by invoking the <code>TuyaHomeSdk.getHomeManagerInstance()</code>.</p>
-<h2 id="homebean-field-information">HomeBean Field Information</h2>
+<h2 id="homebean-field-information"><a name="homebean-field-information" class="plugin-anchor" href="#homebean-field-information"><i class="fa fa-link" aria-hidden="true"></i></a>HomeBean Field Information</h2>
 <table>
 <thead>
 <tr>
@@ -1357,202 +1361,202 @@
 </tr>
 </tbody>
 </table>
-<h2 id="create-home">Create Home</h2>
-<pre><code class="lang-java">    <span class="hljs-comment">/**
+<h2 id="create-home"><a name="create-home" class="plugin-anchor" href="#create-home"><i class="fa fa-link" aria-hidden="true"></i></a>Create Home</h2>
+<pre class="language-"><code class="lang-java">    <span class="token comment">/**
     *
-    * <span class="hljs-doctag">@param</span> name     Name of home
-    * <span class="hljs-doctag">@param</span> lon      Longitude
-    * <span class="hljs-doctag">@param</span> lat      Latitude
-    * <span class="hljs-doctag">@param</span> geoName  Name of geographic position
-    * <span class="hljs-doctag">@param</span> rooms    Room list
-    * <span class="hljs-doctag">@param</span> callback
+    * @param name     Name of home
+    * @param lon      Longitude
+    * @param lat      Latitude
+    * @param geoName  Name of geographic position
+    * @param rooms    Room list
+    * @param callback
     */</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">createHome</span><span class="hljs-params">(String name, <span class="hljs-keyword">double</span> lon, <span class="hljs-keyword">double</span> lat, String geoName, List&lt;String&gt; rooms, ITuyaHomeResultCallback callback)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">createHome</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> <span class="token keyword">double</span> lon<span class="token punctuation">,</span> <span class="token keyword">double</span> lat<span class="token punctuation">,</span> String geoName<span class="token punctuation">,</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> rooms<span class="token punctuation">,</span> ITuyaHomeResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="obtain-home-list">Obtain Home List</h2>
-<pre><code class="lang-java">    <span class="hljs-comment">/**
+<h2 id="obtain-home-list"><a name="obtain-home-list" class="plugin-anchor" href="#obtain-home-list"><i class="fa fa-link" aria-hidden="true"></i></a>Obtain Home List</h2>
+<pre class="language-"><code class="lang-java">    <span class="token comment">/**
     *
-    * <span class="hljs-doctag">@param</span> callback
+    * @param callback
     */</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">queryHomeList</span><span class="hljs-params">(ITuyaGetHomeListCallback callback)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">queryHomeList</span><span class="token punctuation">(</span>ITuyaGetHomeListCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="change-of-home-information">Change of home information</h2>
+<h2 id="change-of-home-information"><a name="change-of-home-information" class="plugin-anchor" href="#change-of-home-information"><i class="fa fa-link" aria-hidden="true"></i></a>Change of home information</h2>
 <p>1.register or unRegister Listener</p>
-<pre><code class="lang-java">    <span class="hljs-comment">/**
+<pre class="language-"><code class="lang-java">    <span class="token comment">/**
     * Change of registered home information includes:
     * adding and removing homes, information change, change of shared lists and monitoring of successfully server connection.
     *
-    * <span class="hljs-doctag">@param</span> listener
+    * @param listener
     */</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">registerTuyaHomeChangeListener</span><span class="hljs-params">(ITuyaHomeChangeListener listener)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">registerTuyaHomeChangeListener</span><span class="token punctuation">(</span>ITuyaHomeChangeListener listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
     * Deregistered the information Change of a home.
     *
-    * <span class="hljs-doctag">@param</span> listener
+    * @param listener
     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unRegisterTuyaHomeChangeListener</span><span class="hljs-params">(ITuyaHomeChangeListener listener)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">unRegisterTuyaHomeChangeListener</span><span class="token punctuation">(</span>ITuyaHomeChangeListener listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>2.list of events</p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ITuyaHomeChangeListener</span> </span>{
-    <span class="hljs-comment">/**
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ITuyaHomeChangeListener</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
     * Adding home succeeds Used for data synchronization of multiple devices
     *
-    * <span class="hljs-doctag">@param</span> homeId
+    * @param homeId
     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onHomeAdded</span><span class="hljs-params">(<span class="hljs-keyword">long</span> homeId)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">onHomeAdded</span><span class="token punctuation">(</span><span class="token keyword">long</span> homeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Receive the family invitation 
-     * <span class="hljs-doctag">@param</span> homeId    
-     * <span class="hljs-doctag">@param</span> homeName  
+     * @param homeId    
+     * @param homeName  
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onHomeInvite</span><span class="hljs-params">(<span class="hljs-keyword">long</span> homeId,String homeName)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">onHomeInvite</span><span class="token punctuation">(</span><span class="token keyword">long</span> homeId<span class="token punctuation">,</span>String homeName<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
     * Removing home succeeds Used for data decarbonization of multiple devices
     *
-    * <span class="hljs-doctag">@param</span> homeId
+    * @param homeId
     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onHomeRemoved</span><span class="hljs-params">(<span class="hljs-keyword">long</span> homeId)</span></span>;
-    <span class="hljs-comment">/**
+    <span class="token keyword">void</span> <span class="token function">onHomeRemoved</span><span class="token punctuation">(</span><span class="token keyword">long</span> homeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/**
     * Change of home information
     Used for data decarbonization of multiple devices
     *
-    * <span class="hljs-doctag">@param</span> homeId
+    * @param homeId
     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onHomeInfoChanged</span><span class="hljs-params">(<span class="hljs-keyword">long</span> homeId)</span></span>;
-    <span class="hljs-comment">/**
+    <span class="token keyword">void</span> <span class="token function">onHomeInfoChanged</span><span class="token punctuation">(</span><span class="token keyword">long</span> homeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/**
     * Release the change of device list Used for data decarbonization of multiple devices
     *
-    * <span class="hljs-doctag">@param</span> sharedDeviceList
+    * @param sharedDeviceList
     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onSharedDeviceList</span><span class="hljs-params">(List&lt;DeviceBean&gt; sharedDeviceList)</span></span>;
-    <span class="hljs-comment">/**
+    <span class="token keyword">void</span> <span class="token function">onSharedDeviceList</span><span class="token punctuation">(</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>DeviceBean<span class="token punctuation">&gt;</span></span> sharedDeviceList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/**
     *
     * The mobile phone has been connected successfully to the Tuya Cloud Server. Special attention shall be paid to this message. In some cases, the local data may be inconsistent with the data of servers, the getHomeDetail interface of Home can be invoked to update data. 
     *
     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onServerConnectSuccess</span><span class="hljs-params">()</span></span>;
-    }
+    <span class="token keyword">void</span> <span class="token function">onServerConnectSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 </code></pre>
-<h2 id="operate-cache-data-of-a-home">Operate Cache Data of a Home</h2>
+<h2 id="operate-cache-data-of-a-home"><a name="operate-cache-data-of-a-home" class="plugin-anchor" href="#operate-cache-data-of-a-home"><i class="fa fa-link" aria-hidden="true"></i></a>Operate Cache Data of a Home</h2>
 <p><strong>Attention</strong>: Before obtaining the cache data, the initiation interface of home, TuyaHomeSdk.newHomeInstance(&quot;homeId&quot;).getHomeDetail() or TuyaHomeSdk.newHomeInstance(&quot;homeId&quot;).getHomeLocalCache shall be invoked first.
 Interface entry:<code>TuyaHomeSdk.getDataInstance()</code></p>
-<pre><code class="lang-java">
-    <span class="hljs-comment">/**
+<pre class="language-"><code class="lang-java">
+    <span class="token comment">/**
      * Devices, groups and room list of a home
      *
-     * <span class="hljs-doctag">@param</span> homeId 
-     * <span class="hljs-doctag">@return</span> List&lt;RoomBean&gt;
+     * @param homeId 
+     * @return List&lt;RoomBean&gt;
      */</span>
-    <span class="hljs-function">List&lt;RoomBean&gt; <span class="hljs-title">getHomeRoomList</span><span class="hljs-params">(<span class="hljs-keyword">long</span> homeId)</span></span>;
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>RoomBean<span class="token punctuation">&gt;</span></span> <span class="token function">getHomeRoomList</span><span class="token punctuation">(</span><span class="token keyword">long</span> homeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain the device list of a home.
      *
-     * <span class="hljs-doctag">@param</span> homeId 
-     * <span class="hljs-doctag">@return</span> List&lt;DeviceBean&gt;
+     * @param homeId 
+     * @return List&lt;DeviceBean&gt;
      */</span>
-    <span class="hljs-function">List&lt;DeviceBean&gt; <span class="hljs-title">getHomeDeviceList</span><span class="hljs-params">(<span class="hljs-keyword">long</span> homeId)</span></span>;
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>DeviceBean<span class="token punctuation">&gt;</span></span> <span class="token function">getHomeDeviceList</span><span class="token punctuation">(</span><span class="token keyword">long</span> homeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain the group list of a home.
      *
-     * <span class="hljs-doctag">@param</span> homeId 
-     * <span class="hljs-doctag">@return</span> List&lt;DeviceBean&gt;
+     * @param homeId 
+     * @return List&lt;DeviceBean&gt;
      */</span>
-    <span class="hljs-function">List&lt;GroupBean&gt; <span class="hljs-title">getHomeGroupList</span><span class="hljs-params">(<span class="hljs-keyword">long</span> homeId)</span></span>;
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>GroupBean<span class="token punctuation">&gt;</span></span> <span class="token function">getHomeGroupList</span><span class="token punctuation">(</span><span class="token keyword">long</span> homeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain group
      *
-     * <span class="hljs-doctag">@param</span> groupId 
-     * <span class="hljs-doctag">@return</span> GroupBean
+     * @param groupId 
+     * @return GroupBean
      */</span>
-    <span class="hljs-function">GroupBean <span class="hljs-title">getGroupBean</span><span class="hljs-params">(<span class="hljs-keyword">long</span> groupId)</span></span>;
+    GroupBean <span class="token function">getGroupBean</span><span class="token punctuation">(</span><span class="token keyword">long</span> groupId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain device
      *
-     * <span class="hljs-doctag">@param</span> devId 
-     * <span class="hljs-doctag">@return</span> DeviceBean
+     * @param devId 
+     * @return DeviceBean
      */</span>
-    <span class="hljs-function">DeviceBean <span class="hljs-title">getDeviceBean</span><span class="hljs-params">(String devId)</span></span>;
+    DeviceBean <span class="token function">getDeviceBean</span><span class="token punctuation">(</span>String devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain room according to the group ID
      *
-     * <span class="hljs-doctag">@param</span> groupId 
-     * <span class="hljs-doctag">@return</span> RoomBean
+     * @param groupId 
+     * @return RoomBean
      */</span>
-    <span class="hljs-function">RoomBean <span class="hljs-title">getGroupRoomBean</span><span class="hljs-params">(<span class="hljs-keyword">long</span> groupId)</span></span>;
+    RoomBean <span class="token function">getGroupRoomBean</span><span class="token punctuation">(</span><span class="token keyword">long</span> groupId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain room
      *
-     * <span class="hljs-doctag">@param</span> roomId 
-     * <span class="hljs-doctag">@return</span> RoomBean
+     * @param roomId 
+     * @return RoomBean
      */</span>
-    <span class="hljs-function">RoomBean <span class="hljs-title">getRoomBean</span><span class="hljs-params">(<span class="hljs-keyword">long</span> roomId)</span></span>;
+    RoomBean <span class="token function">getRoomBean</span><span class="token punctuation">(</span><span class="token keyword">long</span> roomId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain room information based on devices
      *
-     * <span class="hljs-doctag">@param</span> devId 
-     * <span class="hljs-doctag">@return</span> RoomBean
+     * @param devId 
+     * @return RoomBean
      */</span>
-    <span class="hljs-function">RoomBean <span class="hljs-title">getDeviceRoomBean</span><span class="hljs-params">(String devId)</span></span>;
+    RoomBean <span class="token function">getDeviceRoomBean</span><span class="token punctuation">(</span>String devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain device list of a group
      *
-     * <span class="hljs-doctag">@param</span> groupId 
-     * <span class="hljs-doctag">@return</span> List&lt;DeviceBean&gt;
+     * @param groupId 
+     * @return List&lt;DeviceBean&gt;
      */</span>
-    <span class="hljs-function">List&lt;DeviceBean&gt; <span class="hljs-title">getGroupDeviceList</span><span class="hljs-params">(<span class="hljs-keyword">long</span> groupId)</span></span>;
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>DeviceBean<span class="token punctuation">&gt;</span></span> <span class="token function">getGroupDeviceList</span><span class="token punctuation">(</span><span class="token keyword">long</span> groupId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain the group list of a mesh
      *
-     * <span class="hljs-doctag">@param</span> meshId meshId
-     * <span class="hljs-doctag">@return</span> List&lt;GroupBean&gt;
+     * @param meshId meshId
+     * @return List&lt;GroupBean&gt;
      */</span>
-    <span class="hljs-function">List&lt;GroupBean&gt; <span class="hljs-title">getMeshGroupList</span><span class="hljs-params">(String meshId)</span></span>;
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>GroupBean<span class="token punctuation">&gt;</span></span> <span class="token function">getMeshGroupList</span><span class="token punctuation">(</span>String meshId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain the device list of a mesh
-     * <span class="hljs-doctag">@param</span> meshId 
-     * <span class="hljs-doctag">@return</span> List&lt;DeviceBean&gt;
+     * @param meshId 
+     * @return List&lt;DeviceBean&gt;
      */</span>
-    <span class="hljs-function">List&lt;DeviceBean&gt; <span class="hljs-title">getMeshDeviceList</span><span class="hljs-params">(String meshId)</span></span>;
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>DeviceBean<span class="token punctuation">&gt;</span></span> <span class="token function">getMeshDeviceList</span><span class="token punctuation">(</span>String meshId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain the following device list of a room according to the room ID.
      *
-     * <span class="hljs-doctag">@param</span> roomId 
-     * <span class="hljs-doctag">@return</span> List&lt;DeviceBean&gt;
+     * @param roomId 
+     * @return List&lt;DeviceBean&gt;
      */</span>
-    <span class="hljs-function">List&lt;DeviceBean&gt; <span class="hljs-title">getRoomDeviceList</span><span class="hljs-params">(<span class="hljs-keyword">long</span> roomId)</span></span>;
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>DeviceBean<span class="token punctuation">&gt;</span></span> <span class="token function">getRoomDeviceList</span><span class="token punctuation">(</span><span class="token keyword">long</span> roomId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain the following group list of a room according to the room ID.
      *
-     * <span class="hljs-doctag">@param</span> roomId room id
-     * <span class="hljs-doctag">@return</span> List&lt;GroupBean&gt;
+     * @param roomId room id
+     * @return List&lt;GroupBean&gt;
      */</span>
-    <span class="hljs-function">List&lt;GroupBean&gt; <span class="hljs-title">getRoomGroupList</span><span class="hljs-params">(<span class="hljs-keyword">long</span> roomId)</span></span>;
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>GroupBean<span class="token punctuation">&gt;</span></span> <span class="token function">getRoomGroupList</span><span class="token punctuation">(</span><span class="token keyword">long</span> roomId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * Obtain the data of home.
      *
-     * <span class="hljs-doctag">@param</span> homeId homeId
-     * <span class="hljs-doctag">@return</span> HomeBean
+     * @param homeId homeId
+     * @return HomeBean
      */</span>
-    <span class="hljs-function">HomeBean <span class="hljs-title">getHomeBean</span><span class="hljs-params">(<span class="hljs-keyword">long</span> homeId)</span></span>;
+    HomeBean <span class="token function">getHomeBean</span><span class="token punctuation">(</span><span class="token keyword">long</span> homeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -1597,7 +1601,7 @@ Interface entry:<code>TuyaHomeSdk.getDataInstance()</code></p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Home management","level":"1.6","depth":1,"next":{"title":"Home Management Class","level":"1.6.1","depth":2,"path":"resource/Home_Manager.md","ref":"./resource/Home_Manager.md","articles":[]},"previous":{"title":"Handling of Expired Session","level":"1.5.10","depth":2,"path":"resource/User_Session.md","ref":"./resource/User_Session.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Home_Manager.md","mtime":"2019-07-13T03:37:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Home management","level":"1.6","depth":1,"next":{"title":"Home Management Class","level":"1.6.1","depth":2,"path":"resource/Home_Manager.md","ref":"./resource/Home_Manager.md","articles":[]},"previous":{"title":"Handling of Expired Session","level":"1.5.10","depth":2,"path":"resource/User_Session.md","ref":"./resource/User_Session.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Home_Manager.md","mtime":"2019-07-13T03:37:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1605,6 +1609,14 @@ Interface entry:<code>TuyaHomeSdk.getDataInstance()</code></p>
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

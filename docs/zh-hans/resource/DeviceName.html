@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -542,11 +546,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x8BBE;&#x5907;&#x540D;&#x79F0;">&#x8BBE;&#x5907;&#x540D;&#x79F0;</h2>
+                                <h2 id="&#x8BBE;&#x5907;&#x540D;&#x79F0;"><a name="&#x8BBE;&#x5907;&#x540D;&#x79F0;" class="plugin-anchor" href="#&#x8BBE;&#x5907;&#x540D;&#x79F0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BBE;&#x5907;&#x540D;&#x79F0;</h2>
 <p>&#x7528;&#x6237;&#x53EF;&#x81EA;&#x884C;&#x4FEE;&#x6539;&#x6444;&#x50CF;&#x673A;&#x8BBE;&#x5907;&#x540D;&#x79F0;</p>
 <p><strong>&#x63A5;&#x53E3;&#x8BF4;&#x660E;</strong></p>
 <p>&#x8C03;&#x7528; TuyaHomeSdk &#x4E0B;&#x9762;&#x7684; renameDevice() &#x8FDB;&#x884C;&#x8BBE;&#x5907;&#x540D;&#x79F0;&#x7684;&#x4FEE;&#x6539;</p>
-<pre><code class="lang-java">TuyaHomeSdk.newDeviceInstance(deviceId).renameDevice(String deviceName, IResultCallback callback);
+<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newDeviceInstance</span><span class="token punctuation">(</span>deviceId<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">renameDevice</span><span class="token punctuation">(</span>String deviceName<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p> <strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
@@ -572,26 +576,26 @@
 </tbody>
 </table>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
  * &#x4FEE;&#x6539;&#x8BBE;&#x5907;&#x540D;&#x79F0;
- * <span class="hljs-doctag">@param</span> context
- * <span class="hljs-doctag">@param</span> deviceId      &#x8BBE;&#x5907;id
- * <span class="hljs-doctag">@param</span> deviceName    &#x8BBE;&#x5907;&#x91CD;&#x547D;&#x540D;&#x540D;&#x79F0;
+ * @param context
+ * @param deviceId      &#x8BBE;&#x5907;id
+ * @param deviceName    &#x8BBE;&#x5907;&#x91CD;&#x547D;&#x540D;&#x540D;&#x79F0;
  */</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">renameDevice</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Context context, String deviceId, String deviceName)</span> </span>{
-    ITuyaDevice mDevice = TuyaHomeSdk.newDeviceInstance(deviceId);
-    mDevice.renameDevice(deviceName, <span class="hljs-keyword">new</span> IResultCallback() {
-        <span class="hljs-meta">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">renameDevice</span><span class="token punctuation">(</span><span class="token keyword">final</span> Context context<span class="token punctuation">,</span> String deviceId<span class="token punctuation">,</span> String deviceName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ITuyaDevice mDevice <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newDeviceInstance</span><span class="token punctuation">(</span>deviceId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    mDevice<span class="token punctuation">.</span><span class="token function">renameDevice</span><span class="token punctuation">(</span>deviceName<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        }
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-meta">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        }
-    });
-}
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -636,7 +640,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"设备名称","level":"1.8.1","depth":2,"next":{"title":"设备图标","level":"1.8.2","depth":2,"path":"resource/DeviceIcon.md","ref":"./resource/DeviceIcon.md","articles":[]},"previous":{"title":"设备信息","level":"1.8","depth":1,"path":"resource/DeviceInfo.md","ref":"./resource/DeviceInfo.md","articles":[{"title":"设备名称","level":"1.8.1","depth":2,"path":"resource/DeviceName.md","ref":"./resource/DeviceName.md","articles":[]},{"title":"设备图标","level":"1.8.2","depth":2,"path":"resource/DeviceIcon.md","ref":"./resource/DeviceIcon.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/DeviceName.md","mtime":"2020-03-06T02:40:49.987Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"设备名称","level":"1.8.1","depth":2,"next":{"title":"设备图标","level":"1.8.2","depth":2,"path":"resource/DeviceIcon.md","ref":"./resource/DeviceIcon.md","articles":[]},"previous":{"title":"设备信息","level":"1.8","depth":1,"path":"resource/DeviceInfo.md","ref":"./resource/DeviceInfo.md","articles":[{"title":"设备名称","level":"1.8.1","depth":2,"path":"resource/DeviceName.md","ref":"./resource/DeviceName.md","articles":[]},{"title":"设备图标","level":"1.8.2","depth":2,"path":"resource/DeviceIcon.md","ref":"./resource/DeviceIcon.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/DeviceName.md","mtime":"2020-03-06T02:40:49.987Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
@@ -644,6 +648,14 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

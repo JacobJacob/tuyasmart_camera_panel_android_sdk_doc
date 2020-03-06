@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -1278,63 +1282,63 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="wifi-group">Wifi Group</h3>
-<h4 id="group-list-acquisition">Group List Acquisition</h4>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+                                <h3 id="wifi-group"><a name="wifi-group" class="plugin-anchor" href="#wifi-group"><i class="fa fa-link" aria-hidden="true"></i></a>Wifi Group</h3>
+<h4 id="group-list-acquisition"><a name="group-list-acquisition" class="plugin-anchor" href="#group-list-acquisition"><i class="fa fa-link" aria-hidden="true"></i></a>Group List Acquisition</h4>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
 * Obtain the device list of product
-* <span class="hljs-doctag">@param</span> homeId home id
-* <span class="hljs-doctag">@param</span> groupId the group is not created, parameter groupId must be an integer -1
-* <span class="hljs-doctag">@param</span> productId the pid of the device what is using to create group
+* @param homeId home id
+* @param groupId the group is not created, parameter groupId must be an integer -1
+* @param productId the pid of the device what is using to create group
 */</span>
-TuyaHomeSdk.newHomeInstance(homeId).queryDeviceListToAddGroup(mGroupId, mProductId, <span class="hljs-keyword">new</span> ITuyaResultCallback&lt;List&lt;GroupDeviceBean&gt;&gt;() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(List&lt;GroupDeviceBean&gt; arrayList)</span> </span>{
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newHomeInstance</span><span class="token punctuation">(</span>homeId<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">queryDeviceListToAddGroup</span><span class="token punctuation">(</span>mGroupId<span class="token punctuation">,</span> mProductId<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaResultCallback</span><span class="token operator">&lt;</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>GroupDeviceBean<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>GroupDeviceBean<span class="token punctuation">&gt;</span></span> arrayList<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            }
+            <span class="token punctuation">}</span>
 
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            }
-        });
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="creating-a-group">Creating a Group</h4>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<h4 id="creating-a-group"><a name="creating-a-group" class="plugin-anchor" href="#creating-a-group"><i class="fa fa-link" aria-hidden="true"></i></a>Creating a Group</h4>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
 * create a group
-* <span class="hljs-doctag">@param</span> homeId home id
-* <span class="hljs-doctag">@param</span> productId the pid of the device what is using to create group
-* <span class="hljs-doctag">@param</span> name a name of the group to be created
-* <span class="hljs-doctag">@param</span> selectedDeviceIds the deviceList choosed
+* @param homeId home id
+* @param productId the pid of the device what is using to create group
+* @param name a name of the group to be created
+* @param selectedDeviceIds the deviceList choosed
 */</span>
-TuyaHomeSdk.newHomeInstance(homeId).createGroup(productId, name, selectedDeviceIds, <span class="hljs-keyword">new</span> ITuyaResultCallback&lt;Long&gt;() {
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Long groupId)</span> </span>{
-        <span class="hljs-comment">//return groupid</span>
-    }
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newHomeInstance</span><span class="token punctuation">(</span>homeId<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createGroup</span><span class="token punctuation">(</span>productId<span class="token punctuation">,</span> name<span class="token punctuation">,</span> selectedDeviceIds<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaResultCallback</span><span class="token generics function"><span class="token punctuation">&lt;</span>Long<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>Long groupId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//return groupid</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    }
-});
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="update-and-save-group">Update and Save Group</h4>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<h4 id="update-and-save-group"><a name="update-and-save-group" class="plugin-anchor" href="#update-and-save-group"><i class="fa fa-link" aria-hidden="true"></i></a>Update and Save Group</h4>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
 * update and save the group
-* <span class="hljs-doctag">@param</span> groupId group id
-* <span class="hljs-doctag">@param</span> deviceIds the choosed ids
+* @param groupId group id
+* @param deviceIds the choosed ids
 */</span>
-TuyaHomeSdk.newGroupInstance(groupId).updateDeviceList(deviceIds, <span class="hljs-keyword">new</span> IResultCallback() {
-                <span class="hljs-meta">@Override</span>
-                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String s, String s1)</span> </span>{
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newGroupInstance</span><span class="token punctuation">(</span>groupId<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">updateDeviceList</span><span class="token punctuation">(</span>deviceIds<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token annotation punctuation">@Override</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String s<span class="token punctuation">,</span> String s1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                }
+                <span class="token punctuation">}</span>
 
-                <span class="hljs-meta">@Override</span>
-                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+                <span class="token annotation punctuation">@Override</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                }
-            });
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -1379,7 +1383,7 @@ TuyaHomeSdk.newGroupInstance(groupId).updateDeviceList(deviceIds, <span class="h
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Wifi Group","level":"1.12.1","depth":2,"next":{"title":"Zigbee Group","level":"1.12.2","depth":2,"path":"resource/Group_zigbee.md","ref":"./resource/Group_zigbee.md","articles":[]},"previous":{"title":"Group Management","level":"1.12","depth":1,"path":"resource/Group.md","ref":"./resource/Group.md","articles":[{"title":"Wifi Group","level":"1.12.1","depth":2,"path":"resource/Group_wifi.md","ref":"./resource/Group_wifi.md","articles":[]},{"title":"Zigbee Group","level":"1.12.2","depth":2,"path":"resource/Group_zigbee.md","ref":"./resource/Group_zigbee.md","articles":[]},{"title":"Group Control","level":"1.12.3","depth":2,"path":"resource/Group_control.md","ref":"./resource/Group_control.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Group_wifi.md","mtime":"2020-02-28T10:25:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Wifi Group","level":"1.12.1","depth":2,"next":{"title":"Zigbee Group","level":"1.12.2","depth":2,"path":"resource/Group_zigbee.md","ref":"./resource/Group_zigbee.md","articles":[]},"previous":{"title":"Group Management","level":"1.12","depth":1,"path":"resource/Group.md","ref":"./resource/Group.md","articles":[{"title":"Wifi Group","level":"1.12.1","depth":2,"path":"resource/Group_wifi.md","ref":"./resource/Group_wifi.md","articles":[]},{"title":"Zigbee Group","level":"1.12.2","depth":2,"path":"resource/Group_zigbee.md","ref":"./resource/Group_zigbee.md","articles":[]},{"title":"Group Control","level":"1.12.3","depth":2,"path":"resource/Group_control.md","ref":"./resource/Group_control.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Group_wifi.md","mtime":"2020-02-28T10:25:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1387,6 +1391,14 @@ TuyaHomeSdk.newGroupInstance(groupId).updateDeviceList(deviceIds, <span class="h
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

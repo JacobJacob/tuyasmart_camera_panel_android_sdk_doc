@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -542,11 +546,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="rn&#x9884;&#x89C8;&#x9762;&#x677F;">RN&#x9884;&#x89C8;&#x9762;&#x677F;</h2>
+                                <h2 id="rn&#x9884;&#x89C8;&#x9762;&#x677F;"><a name="rn&#x9884;&#x89C8;&#x9762;&#x677F;" class="plugin-anchor" href="#rn&#x9884;&#x89C8;&#x9762;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a>RN&#x9884;&#x89C8;&#x9762;&#x677F;</h2>
 <p>&#x6444;&#x50CF;&#x673A; RN &#x9884;&#x89C8;&#x9762;&#x677F;&#xFF0C;&#x5C01;&#x88C5;&#x5728; TuyaPanelSDK &#x91CC;&#x9762;&#xFF0C;&#x53C2;&#x8003; <a href="https://tuyainc.github.io/tuyasmart_panel_android_sdk_doc/" target="_blank">TuyaPanelSDK&#x96C6;&#x6210;&#x6587;&#x6863;</a></p>
 <p><strong>&#x63A5;&#x53E3;&#x8BF4;&#x660E;</strong></p>
 <p>&#x901A;&#x8FC7;&#x63A5;&#x53E3; gotoPanelViewControllerWithDevice() &#x53EF;&#x8DF3;&#x8F6C;&#x5230; RN &#x9762;&#x677F;</p>
-<pre><code class="lang-java">TuyaPanelSDK.getPanelInstance().gotoPanelViewControllerWithDevice(context, homeId, deviceId,  panelLoadCallback);
+<pre class="language-"><code class="lang-java">TuyaPanelSDK<span class="token punctuation">.</span><span class="token function">getPanelInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">gotoPanelViewControllerWithDevice</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> homeId<span class="token punctuation">,</span> deviceId<span class="token punctuation">,</span>  panelLoadCallback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <table>
@@ -576,28 +580,28 @@
 </tbody>
 </table>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
-<pre><code class="lang-java">TuyaPanelSDK.getPanelInstance().gotoPanelViewControllerWithDevice(context, homeId, deviceId,  
-     <span class="hljs-keyword">new</span> ITuyaPanelLoadCallback() {
-             <span class="hljs-meta">@Override</span>
-             <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStart</span><span class="hljs-params">(String s)</span> </span>{
-                 <span class="hljs-comment">//&#x9762;&#x677F;&#x52A0;&#x8F7D;&#x5F00;&#x59CB;</span>
-             }
+<pre class="language-"><code class="lang-java">TuyaPanelSDK<span class="token punctuation">.</span><span class="token function">getPanelInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">gotoPanelViewControllerWithDevice</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> homeId<span class="token punctuation">,</span> deviceId<span class="token punctuation">,</span>  
+     <span class="token keyword">new</span> <span class="token class-name">ITuyaPanelLoadCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             <span class="token annotation punctuation">@Override</span>
+             <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onStart</span><span class="token punctuation">(</span>String s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 <span class="token comment">//&#x9762;&#x677F;&#x52A0;&#x8F7D;&#x5F00;&#x59CB;</span>
+             <span class="token punctuation">}</span>
 
-             <span class="hljs-meta">@Override</span>
-             <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String s, <span class="hljs-keyword">int</span> i, String s1)</span> </span>{
-                 <span class="hljs-comment">//&#x9762;&#x677F;&#x52A0;&#x8F7D;&#x9519;&#x8BEF;</span>
-             }
+             <span class="token annotation punctuation">@Override</span>
+             <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String s<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> String s1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 <span class="token comment">//&#x9762;&#x677F;&#x52A0;&#x8F7D;&#x9519;&#x8BEF;</span>
+             <span class="token punctuation">}</span>
 
-             <span class="hljs-meta">@Override</span>
-             <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(String s)</span> </span>{
-                 <span class="hljs-comment">//&#x9762;&#x677F;&#x52A0;&#x8F7D;&#x6210;&#x529F;</span>
-             }
+             <span class="token annotation punctuation">@Override</span>
+             <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>String s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 <span class="token comment">//&#x9762;&#x677F;&#x52A0;&#x8F7D;&#x6210;&#x529F;</span>
+             <span class="token punctuation">}</span>
 
-             <span class="hljs-meta">@Override</span>
-             <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onProgress</span><span class="hljs-params">(String s, <span class="hljs-keyword">int</span> i)</span> </span>{
-                 <span class="hljs-comment">//&#x9762;&#x677F;&#x52A0;&#x8F7D;&#x4E2D;...</span>
-             }
-         });
+             <span class="token annotation punctuation">@Override</span>
+             <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onProgress</span><span class="token punctuation">(</span>String s<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 <span class="token comment">//&#x9762;&#x677F;&#x52A0;&#x8F7D;&#x4E2D;...</span>
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p><strong>&#x9762;&#x677F;&#x793A;&#x610F;&#x56FE;</strong></p>
 <p><img src="images/camera_panel_rn_preview.png" alt="rn&#x9884;&#x89C8;&#x9762;&#x677F;"></p>
@@ -644,7 +648,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"RN预览面板","level":"1.6.2","depth":2,"next":{"title":"回放面板","level":"1.6.3","depth":2,"path":"resource/PlaybackPanel.md","ref":"./resource/PlaybackPanel.md","articles":[]},"previous":{"title":"Native预览面板","level":"1.6.1","depth":2,"path":"resource/NativePanel.md","ref":"./resource/NativePanel.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/RnPanel.md","mtime":"2020-03-05T10:06:00.704Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"RN预览面板","level":"1.6.2","depth":2,"next":{"title":"回放面板","level":"1.6.3","depth":2,"path":"resource/PlaybackPanel.md","ref":"./resource/PlaybackPanel.md","articles":[]},"previous":{"title":"Native预览面板","level":"1.6.1","depth":2,"path":"resource/NativePanel.md","ref":"./resource/NativePanel.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/RnPanel.md","mtime":"2020-03-05T10:06:00.704Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
@@ -652,6 +656,14 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

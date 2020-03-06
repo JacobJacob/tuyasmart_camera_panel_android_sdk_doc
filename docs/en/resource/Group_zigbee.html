@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -1278,119 +1282,119 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="zigbee-group">Zigbee Group</h3>
-<h4 id="group-list-acquisition">Group List Acquisition</h4>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+                                <h3 id="zigbee-group"><a name="zigbee-group" class="plugin-anchor" href="#zigbee-group"><i class="fa fa-link" aria-hidden="true"></i></a>Zigbee Group</h3>
+<h4 id="group-list-acquisition"><a name="group-list-acquisition" class="plugin-anchor" href="#group-list-acquisition"><i class="fa fa-link" aria-hidden="true"></i></a>Group List Acquisition</h4>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
 * Obtain the device list of product
-* <span class="hljs-doctag">@param</span> homeId home id
-* <span class="hljs-doctag">@param</span> groupId the group is not created, parameter groupId must be an integer -1
-* <span class="hljs-doctag">@param</span> productId the pid of the device what is using to create group
+* @param homeId home id
+* @param groupId the group is not created, parameter groupId must be an integer -1
+* @param productId the pid of the device what is using to create group
 */</span>
-TuyaHomeSdk.newHomeInstance(homeId).queryZigbeeDeviceListToAddGroup(groupId, productId, 
-        <span class="hljs-keyword">new</span> ITuyaResultCallback&lt;List&lt;GroupDeviceBean&gt;&gt;() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(List&lt;GroupDeviceBean&gt; arrayList)</span> </span>{
-            }
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newHomeInstance</span><span class="token punctuation">(</span>homeId<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">queryZigbeeDeviceListToAddGroup</span><span class="token punctuation">(</span>groupId<span class="token punctuation">,</span> productId<span class="token punctuation">,</span> 
+        <span class="token keyword">new</span> <span class="token class-name">ITuyaResultCallback</span><span class="token operator">&lt;</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>GroupDeviceBean<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>GroupDeviceBean<span class="token punctuation">&gt;</span></span> arrayList<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
 
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
-            }
-        });
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="creating-a-group">Creating a Group</h4>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<h4 id="creating-a-group"><a name="creating-a-group" class="plugin-anchor" href="#creating-a-group"><i class="fa fa-link" aria-hidden="true"></i></a>Creating a Group</h4>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
 * create a empty group
-* <span class="hljs-doctag">@param</span> homeId home id
-* <span class="hljs-doctag">@param</span> productId the pid of the device what is using to create group
-* <span class="hljs-doctag">@param</span> meshId deviceBean.getMeshId()
-* <span class="hljs-doctag">@param</span> name a name of the group to be created
+* @param homeId home id
+* @param productId the pid of the device what is using to create group
+* @param meshId deviceBean.getMeshId()
+* @param name a name of the group to be created
 */</span>
-TuyaHomeSdk.newHomeInstance(homeId).createZigbeeGroup(productId, meshId, name, <span class="hljs-keyword">new</span> ITuyaResultCallback&lt;CloudZigbeeGroupCreateBean&gt;() {
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(CloudZigbeeGroupCreateBean cloudZigbeeGroupCreateBean)</span> </span>{
-        <span class="hljs-comment">//out</span>
-        <span class="hljs-keyword">long</span> mGroupId = cloudZigbeeGroupCreateBean.getGroupId();
-        String mGId = cloudZigbeeGroupCreateBean.getLocalId();
-    }
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newHomeInstance</span><span class="token punctuation">(</span>homeId<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createZigbeeGroup</span><span class="token punctuation">(</span>productId<span class="token punctuation">,</span> meshId<span class="token punctuation">,</span> name<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaResultCallback</span><span class="token generics function"><span class="token punctuation">&lt;</span>CloudZigbeeGroupCreateBean<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>CloudZigbeeGroupCreateBean cloudZigbeeGroupCreateBean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//out</span>
+        <span class="token keyword">long</span> mGroupId <span class="token operator">=</span> cloudZigbeeGroupCreateBean<span class="token punctuation">.</span><span class="token function">getGroupId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String mGId <span class="token operator">=</span> cloudZigbeeGroupCreateBean<span class="token punctuation">.</span><span class="token function">getLocalId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
-    }
-});
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="add-devices-to-group">Add Devices to Group</h4>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<h4 id="add-devices-to-group"><a name="add-devices-to-group" class="plugin-anchor" href="#add-devices-to-group"><i class="fa fa-link" aria-hidden="true"></i></a>Add Devices to Group</h4>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
 * add devices to group
-* <span class="hljs-doctag">@param</span> meshId deviceBean.getMeshId()
-* <span class="hljs-doctag">@param</span> selectedDeviceIds the idList of the selected devices
-* <span class="hljs-doctag">@param</span> gid the localId of group&#xFF08;groupBean.getLocalId() or cloudZigbeeGroupCreateBean.getLocalId()&#xFF09;
+* @param meshId deviceBean.getMeshId()
+* @param selectedDeviceIds the idList of the selected devices
+* @param gid the localId of group&#xFF08;groupBean.getLocalId() or cloudZigbeeGroupCreateBean.getLocalId()&#xFF09;
 */</span>
-mITuyaZigbeeGroup.addDeviceToGroup(meshId, selectedDeviceIds, gid, <span class="hljs-keyword">new</span> ITuyaResultCallback&lt;ZigbeeGroupCreateResultBean&gt;() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(ZigbeeGroupCreateResultBean zigbeeGroupCreateResultBean)</span> </span>{
-                <span class="hljs-keyword">if</span> (zigbeeGroupCreateResultBean != <span class="hljs-keyword">null</span>) {
-                    <span class="hljs-comment">//add successfully idlist</span>
-                    <span class="hljs-keyword">if</span> (zigbeeGroupCreateResultBean.getSuccess() != <span class="hljs-keyword">null</span> &amp;&amp; zigbeeGroupCreateResultBean.getSuccess().size() &gt; <span class="hljs-number">0</span>) {
-                        List&lt;String&gt; mAddSuccessDeviceIds = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
-                        mAddSuccessDeviceIds.addAll(zigbeeGroupCreateResultBean.getSuccess());
-                    }
-                    <span class="hljs-comment">//add failure idlist</span>
-                    <span class="hljs-keyword">if</span> (zigbeeGroupCreateResultBean.getFailure() != <span class="hljs-keyword">null</span> &amp;&amp; zigbeeGroupCreateResultBean.getFailure().size() &gt; <span class="hljs-number">0</span>) {
-                        List&lt;String&gt;mAddFailDeviceIds = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
-                        mAddFailDeviceIds.addAll(zigbeeGroupCreateResultBean.getFailure());
-                    }
-                }
-            }
+mITuyaZigbeeGroup<span class="token punctuation">.</span><span class="token function">addDeviceToGroup</span><span class="token punctuation">(</span>meshId<span class="token punctuation">,</span> selectedDeviceIds<span class="token punctuation">,</span> gid<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaResultCallback</span><span class="token generics function"><span class="token punctuation">&lt;</span>ZigbeeGroupCreateResultBean<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>ZigbeeGroupCreateResultBean zigbeeGroupCreateResultBean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>zigbeeGroupCreateResultBean <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">//add successfully idlist</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>zigbeeGroupCreateResultBean<span class="token punctuation">.</span><span class="token function">getSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> zigbeeGroupCreateResultBean<span class="token punctuation">.</span><span class="token function">getSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> mAddSuccessDeviceIds <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        mAddSuccessDeviceIds<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>zigbeeGroupCreateResultBean<span class="token punctuation">.</span><span class="token function">getSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token comment">//add failure idlist</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>zigbeeGroupCreateResultBean<span class="token punctuation">.</span><span class="token function">getFailure</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> zigbeeGroupCreateResultBean<span class="token punctuation">.</span><span class="token function">getFailure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span>mAddFailDeviceIds <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        mAddFailDeviceIds<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>zigbeeGroupCreateResultBean<span class="token punctuation">.</span><span class="token function">getFailure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
 
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
-            }
-        });
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="delete-devices-of-group">Delete Devices of Group</h4>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<h4 id="delete-devices-of-group"><a name="delete-devices-of-group" class="plugin-anchor" href="#delete-devices-of-group"><i class="fa fa-link" aria-hidden="true"></i></a>Delete Devices of Group</h4>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
 * delete devices of group
-* <span class="hljs-doctag">@param</span> meshId deviceBean.getMeshId()
-* <span class="hljs-doctag">@param</span> selectedDeviceIds the idList of the selected devices
-* <span class="hljs-doctag">@param</span> gid the localId of group&#xFF08;groupBean.getLocalId() or cloudZigbeeGroupCreateBean.getLocalId()&#xFF09;
+* @param meshId deviceBean.getMeshId()
+* @param selectedDeviceIds the idList of the selected devices
+* @param gid the localId of group&#xFF08;groupBean.getLocalId() or cloudZigbeeGroupCreateBean.getLocalId()&#xFF09;
 */</span>
-mITuyaZigbeeGroup.delDeviceToGroup(meshId, selectedDeviceIds, gid, <span class="hljs-keyword">new</span> ITuyaResultCallback&lt;ZigbeeGroupCreateResultBean&gt;() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(ZigbeeGroupCreateResultBean zigbeeGroupCreateResultBean)</span> </span>{
-                <span class="hljs-keyword">if</span> (zigbeeGroupCreateResultBean != <span class="hljs-keyword">null</span>) {
-                    <span class="hljs-comment">//delete successfully idlist</span>
-                    <span class="hljs-keyword">if</span> (zigbeeGroupCreateResultBean.getSuccess() != <span class="hljs-keyword">null</span> &amp;&amp; zigbeeGroupCreateResultBean.getSuccess().size() &gt; <span class="hljs-number">0</span>) {
-                        List&lt;String&gt; mDelSuccessDeviceIds = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
-                        mDelSuccessDeviceIds.addAll(zigbeeGroupCreateResultBean.getSuccess());
-                    }
-                    <span class="hljs-comment">//delete failure idlist</span>
-                    <span class="hljs-keyword">if</span> (zigbeeGroupCreateResultBean.getFailure() != <span class="hljs-keyword">null</span> &amp;&amp; zigbeeGroupCreateResultBean.getFailure().size() &gt; <span class="hljs-number">0</span>) {
-                        List&lt;String&gt; mDelFailDeviceIds = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
-                        mDelFailDeviceIds.addAll(zigbeeGroupCreateResultBean.getFailure());
-                    }
-                }
-            }
+mITuyaZigbeeGroup<span class="token punctuation">.</span><span class="token function">delDeviceToGroup</span><span class="token punctuation">(</span>meshId<span class="token punctuation">,</span> selectedDeviceIds<span class="token punctuation">,</span> gid<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaResultCallback</span><span class="token generics function"><span class="token punctuation">&lt;</span>ZigbeeGroupCreateResultBean<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>ZigbeeGroupCreateResultBean zigbeeGroupCreateResultBean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>zigbeeGroupCreateResultBean <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">//delete successfully idlist</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>zigbeeGroupCreateResultBean<span class="token punctuation">.</span><span class="token function">getSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> zigbeeGroupCreateResultBean<span class="token punctuation">.</span><span class="token function">getSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> mDelSuccessDeviceIds <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        mDelSuccessDeviceIds<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>zigbeeGroupCreateResultBean<span class="token punctuation">.</span><span class="token function">getSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token comment">//delete failure idlist</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>zigbeeGroupCreateResultBean<span class="token punctuation">.</span><span class="token function">getFailure</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> zigbeeGroupCreateResultBean<span class="token punctuation">.</span><span class="token function">getFailure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> mDelFailDeviceIds <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        mDelFailDeviceIds<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>zigbeeGroupCreateResultBean<span class="token punctuation">.</span><span class="token function">getFailure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
 
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
-            }
-        });
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="update-and-save-group">Update and Save Group</h4>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<h4 id="update-and-save-group"><a name="update-and-save-group" class="plugin-anchor" href="#update-and-save-group"><i class="fa fa-link" aria-hidden="true"></i></a>Update and Save Group</h4>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
 * update and save the group
-* <span class="hljs-doctag">@param</span> groupId group id
-* <span class="hljs-doctag">@param</span> selectedDeviceIds the ids of the choosed device that to add or del successfully
+* @param groupId group id
+* @param selectedDeviceIds the ids of the choosed device that to add or del successfully
 */</span>
-TuyaHomeSdk.newZigbeeGroupInstance(groupId).updateGroupDeviceList(homeId, selectedDeviceIds, <span class="hljs-keyword">new</span> IResultCallback() {
-        <span class="hljs-meta">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String s, String s1)</span> </span>{
-        }
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newZigbeeGroupInstance</span><span class="token punctuation">(</span>groupId<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">updateGroupDeviceList</span><span class="token punctuation">(</span>homeId<span class="token punctuation">,</span> selectedDeviceIds<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String s<span class="token punctuation">,</span> String s1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-meta">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
-        }
-    });
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -1435,7 +1439,7 @@ TuyaHomeSdk.newZigbeeGroupInstance(groupId).updateGroupDeviceList(homeId, select
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Zigbee Group","level":"1.12.2","depth":2,"next":{"title":"Group Control","level":"1.12.3","depth":2,"path":"resource/Group_control.md","ref":"./resource/Group_control.md","articles":[]},"previous":{"title":"Wifi Group","level":"1.12.1","depth":2,"path":"resource/Group_wifi.md","ref":"./resource/Group_wifi.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Group_zigbee.md","mtime":"2019-09-23T09:57:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Zigbee Group","level":"1.12.2","depth":2,"next":{"title":"Group Control","level":"1.12.3","depth":2,"path":"resource/Group_control.md","ref":"./resource/Group_control.md","articles":[]},"previous":{"title":"Wifi Group","level":"1.12.1","depth":2,"path":"resource/Group_wifi.md","ref":"./resource/Group_wifi.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Group_zigbee.md","mtime":"2019-09-23T09:57:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1443,6 +1447,14 @@ TuyaHomeSdk.newZigbeeGroupInstance(groupId).updateGroupDeviceList(homeId, select
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

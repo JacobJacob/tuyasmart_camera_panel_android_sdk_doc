@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -1278,109 +1282,109 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="firmware-upgrade">Firmware Upgrade</h1>
+                                <h1 id="firmware-upgrade"><a name="firmware-upgrade" class="plugin-anchor" href="#firmware-upgrade"><i class="fa fa-link" aria-hidden="true"></i></a>Firmware Upgrade</h1>
 <p><strong>[Description]</strong></p>
 <p>The firmware upgrade is mainly used to fix device bugs and add new device functions. There are two main types of firmware upgrades, i.e., device upgrade and MCU upgrade. The interface for upgrade is located in ITuyaOta.Zigbee sub-device OTA is available on 2.9.1 and the follow-up version.</p>
-<h2 id="querying-firmware-upgrade-information">Querying Firmware Upgrade Information**</h2>
+<h2 id="querying-firmware-upgrade-information"><a name="querying-firmware-upgrade-information" class="plugin-anchor" href="#querying-firmware-upgrade-information"><i class="fa fa-link" aria-hidden="true"></i></a>Querying Firmware Upgrade Information**</h2>
 <p><strong>[Method Invocation]</strong></p>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
  *    the init OTA method of wifi&#x3001;zigbee gateway&#x3001;camera ect.  Attention:This two constructor methods are not Singleton Pattern
- * <span class="hljs-doctag">@param</span> devId  device id
- * <span class="hljs-doctag">@return</span>
+ * @param devId  device id
+ * @return
  */</span>
-<span class="hljs-function">ITuyaOta <span class="hljs-title">newOTAInstance</span><span class="hljs-params">(String devId)</span>
+ITuyaOta <span class="token function">newOTAInstance</span><span class="token punctuation">(</span>String devId<span class="token punctuation">)</span>
 
-<span class="hljs-comment">/**
+<span class="token comment">/**
  * the init OTA method of zigbee sub-device
  * @param meshId zigbee gateway id
  * @param devId zigbee sub-device id
  * @param nodeId zigbee sub-device mac address&#xFF08;get from the DeviceBean of zigbee sub-device&#xFF09;
  * @return
  */</span>
-ITuyaOta <span class="hljs-title">newOTAInstance</span><span class="hljs-params">(String meshId, String devId, String nodeId)</span></span>;
+ITuyaOta <span class="token function">newOTAInstance</span><span class="token punctuation">(</span>String meshId<span class="token punctuation">,</span> String devId<span class="token punctuation">,</span> String nodeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<pre><code class="lang-java">
-<span class="hljs-comment">// Obtain firmware upgrade information</span>
+<pre class="language-"><code class="lang-java">
+<span class="token comment">// Obtain firmware upgrade information</span>
 
-TuyaHomeSdk.newOTAInstance(mDevId).getOtaInfo(<span class="hljs-keyword">new</span> IGetOtaInfoCallback({
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(List&lt;UpgradeInfoBean&gt; list)</span></span>{
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newOTAInstance</span><span class="token punctuation">(</span>mDevId<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getOtaInfo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">IGetOtaInfoCallback</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>UpgradeInfoBean<span class="token punctuation">&gt;</span></span> list<span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(String code, String error)</span></span>;    
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span><span class="token punctuation">;</span>    
 
-});
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-TuyaHomeSdk.newOTAInstance(<span class="hljs-string">&quot;xxxmeshId&quot;</span>,<span class="hljs-string">&quot;xxxdevId&quot;</span>,<span class="hljs-string">&quot;xxxmac address&quot;</span>).getOtaInfo(<span class="hljs-keyword">new</span> IGetOtaInfoCallback({
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(List&lt;UpgradeInfoBean&gt; list)</span></span>{
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newOTAInstance</span><span class="token punctuation">(</span><span class="token string">&quot;xxxmeshId&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;xxxdevId&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;xxxmac address&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getOtaInfo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">IGetOtaInfoCallback</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>UpgradeInfoBean<span class="token punctuation">&gt;</span></span> list<span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(String code, String error)</span></span>;
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-});
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-UpgradeInfoBean returns information about the firmware upgrade, including:
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> upgradeStatus;<span class="hljs-comment">// upgrade status (0: no new version 1: new version available 2: upgrading)</span>
-    <span class="hljs-keyword">private</span> String version;<span class="hljs-comment">// latest version</span>
-    <span class="hljs-keyword">private</span> String currentVersion;<span class="hljs-comment">//current version</span>
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> timeout;<span class="hljs-comment">// time-out period (unit: s)</span>
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> upgradeType;<span class="hljs-comment">//0: app reminding upgrade; 2-app carrying out forced upgrade; 3-detecting upgrade</span>
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> type;<span class="hljs-comment">//0: wifi device; 1: bluetooth device; 2: GPRS device; 3: zigbee device (currently only zigbee gateway available); 9: MCU</span>
-    <span class="hljs-keyword">private</span> String typeDesc;<span class="hljs-comment">//module description</span>
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> lastUpgradeTime;<span class="hljs-comment">// last upgrade time (unit: ms)</span>
+UpgradeInfoBean returns information about the firmware upgrade<span class="token punctuation">,</span> including<span class="token operator">:</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> upgradeStatus<span class="token punctuation">;</span><span class="token comment">// upgrade status (0: no new version 1: new version available 2: upgrading)</span>
+    <span class="token keyword">private</span> String version<span class="token punctuation">;</span><span class="token comment">// latest version</span>
+    <span class="token keyword">private</span> String currentVersion<span class="token punctuation">;</span><span class="token comment">//current version</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> timeout<span class="token punctuation">;</span><span class="token comment">// time-out period (unit: s)</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> upgradeType<span class="token punctuation">;</span><span class="token comment">//0: app reminding upgrade; 2-app carrying out forced upgrade; 3-detecting upgrade</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> type<span class="token punctuation">;</span><span class="token comment">//0: wifi device; 1: bluetooth device; 2: GPRS device; 3: zigbee device (currently only zigbee gateway available); 9: MCU</span>
+    <span class="token keyword">private</span> String typeDesc<span class="token punctuation">;</span><span class="token comment">//module description</span>
+    <span class="token keyword">private</span> <span class="token keyword">long</span> lastUpgradeTime<span class="token punctuation">;</span><span class="token comment">// last upgrade time (unit: ms)</span>
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre><code class="lang-java">
-iTuyaOta.getOtaInfo(<span class="hljs-keyword">new</span> IGetOtaInfoCallback() {
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(List&lt;UpgradeInfoBean&gt; list)</span> </span>{
+<pre class="language-"><code class="lang-java">
+iTuyaOta<span class="token punctuation">.</span><span class="token function">getOtaInfo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">IGetOtaInfoCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>UpgradeInfoBean<span class="token punctuation">&gt;</span></span> list<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        }
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(String code, String error)</span> </span>{
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        L.e(TAG, <span class="hljs-string">&quot;check error &quot;</span> + code + <span class="hljs-string">&quot;----error=&quot;</span> + error);
-    }
-        });
+        L<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;check error &quot;</span> <span class="token operator">+</span> code <span class="token operator">+</span> <span class="token string">&quot;----error=&quot;</span> <span class="token operator">+</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="setting-upgrade-status-callback">Setting Upgrade Status Callback</h2>
+<h2 id="setting-upgrade-status-callback"><a name="setting-upgrade-status-callback" class="plugin-anchor" href="#setting-upgrade-status-callback"><i class="fa fa-link" aria-hidden="true"></i></a>Setting Upgrade Status Callback</h2>
 <p><strong>[Description]</strong></p>
 <p>Before ota, registration of listener is required to obtain the upgrade status in real time.</p>
 <p><strong>[Method Invocation]</strong></p>
-<pre><code class="lang-java">
-<span class="hljs-comment">// otaType: type of device to be upgraded (identical to the type field of &#x2018;UpgradeInfoBean&#x2019;)</span>
+<pre class="language-"><code class="lang-java">
+<span class="token comment">// otaType: type of device to be upgraded (identical to the type field of &#x2018;UpgradeInfoBean&#x2019;)</span>
 
-iTuyaOta.setOtaListener(<span class="hljs-keyword">new</span> IOtaListener() {
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(<span class="hljs-keyword">int</span> otaType)</span> </span>{
+iTuyaOta<span class="token punctuation">.</span><span class="token function">setOtaListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">IOtaListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> otaType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(<span class="hljs-keyword">int</span> otaType, String code, String error)</span> </span>{
-    }
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> otaType<span class="token punctuation">,</span> String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onProgress</span><span class="hljs-params">(<span class="hljs-keyword">int</span> otaType, <span class="hljs-keyword">int</span> progress)</span> </span>{
-    }
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onProgress</span><span class="token punctuation">(</span><span class="token keyword">int</span> otaType<span class="token punctuation">,</span> <span class="token keyword">int</span> progress<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
 
-});
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p><strong>Start Upgrading</strong></p>
 <p><strong>[Description]</strong></p>
 <p>Invoke to start the upgrade, and the registered ota listener after the invoking will return the upgrade status to facilitate the developer building UI.</p>
 <p><strong>[Method Invocation]</strong></p>
-<pre><code class="lang-java">iTuyaOta.startOta();
+<pre class="language-"><code class="lang-java">iTuyaOta<span class="token punctuation">.</span><span class="token function">startOta</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p><strong>Destroy</strong></p>
 <p><strong>[Description]</strong></p>
 <p>After exiting the upgrade page, destroying is required to release the memory.</p>
 <p><strong>[Method Invocation]</strong></p>
-<pre><code class="lang-java">iTuyaOta.onDestroy();
+<pre class="language-"><code class="lang-java">iTuyaOta<span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -1425,7 +1429,7 @@ iTuyaOta.setOtaListener(<span class="hljs-keyword">new</span> IOtaListener() {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Firmware upgrade","level":"1.8.6","depth":2,"next":{"title":"Gateway","level":"1.8.7","depth":2,"path":"resource/Gateway.md","ref":"./resource/Gateway.md","articles":[]},"previous":{"title":"Obtain Wifi signal strength of device","level":"1.8.5","depth":2,"anchor":"#obtain-wifi-signal-strength-of-device","path":"resource/Device.md","ref":"./resource/Device.md#obtain-wifi-signal-strength-of-device","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/OTA.md","mtime":"2019-03-12T02:03:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Firmware upgrade","level":"1.8.6","depth":2,"next":{"title":"Gateway","level":"1.8.7","depth":2,"path":"resource/Gateway.md","ref":"./resource/Gateway.md","articles":[]},"previous":{"title":"Obtain Wifi signal strength of device","level":"1.8.5","depth":2,"anchor":"#obtain-wifi-signal-strength-of-device","path":"resource/Device.md","ref":"./resource/Device.md#obtain-wifi-signal-strength-of-device","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/OTA.md","mtime":"2019-03-12T02:03:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1433,6 +1437,14 @@ iTuyaOta.setOtaListener(<span class="hljs-keyword">new</span> IOtaListener() {
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -1278,58 +1282,58 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="device-data-stream-channel">Device data stream channel</h1>
+                                <h1 id="device-data-stream-channel"><a name="device-data-stream-channel" class="plugin-anchor" href="#device-data-stream-channel"><i class="fa fa-link" aria-hidden="true"></i></a>Device data stream channel</h1>
 <p>It is mainly used for a large number of real-time reporting scenarios such as sweeper map data.</p>
-<pre><code class="lang-java">ITuyaSingleTransfer singleTransfer = TuyaHomeSdk.getTransferInstance();
+<pre class="language-"><code class="lang-java">ITuyaSingleTransfer singleTransfer <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getTransferInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ITuyaSingleTransfer</span> </span>{
-    <span class="hljs-comment">/**
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ITuyaSingleTransfer</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
      * &#x5F00;&#x59CB;&#x8FDE;&#x63A5;
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">startConnect</span><span class="hljs-params">()</span></span>;
+    <span class="token keyword">void</span> <span class="token function">startConnect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * &#x662F;&#x5426;&#x5728;&#x7EBF;
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isOnline</span><span class="hljs-params">()</span></span>;
+    <span class="token keyword">boolean</span> <span class="token function">isOnline</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * &#x8BA2;&#x9605;&#x8BBE;&#x5907;&#x6570;&#x636E;&#xFF0C;&#x8BA2;&#x9605;&#x8BBE;&#x5907;&#x4E4B;&#x540E;&#xFF0C;&#x8BBE;&#x5907;&#x5982;&#x679C;&#x6709;&#x6570;&#x636E;&#x4E0A;&#x62A5;&#x4E0A;&#x6765;&#xFF0C;&#x4FBF;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; registerTransferDataListener &#x56DE;&#x8C03;&#x4E0A;&#x6765;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x6BCF;&#x6B21;&#x901A;&#x9053;&#x8FDE;&#x63A5;&#x6210;&#x529F;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x8BA2;&#x9605;&#x8BBE;&#x5907;&#x6570;&#x636E;
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">subscribeDevice</span><span class="hljs-params">(String devId)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">subscribeDevice</span><span class="token punctuation">(</span>String devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * &#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#xFF0C;&#x5219;&#x8BBE;&#x5907;&#x6570;&#x636E;&#x4E0D;&#x5728;&#x6536;&#x5230;
      *
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unSubscribeDevice</span><span class="hljs-params">(String devId)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">unSubscribeDevice</span><span class="token punctuation">(</span>String devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * &#x6CE8;&#x518C;&#x8BBE;&#x5907;&#x6570;&#x636E;&#x6D41;&#xFF0C;SDK&#x4E0D;&#x505A;&#x6570;&#x636E;&#x89E3;&#x6790;&#xFF0C;&#x5177;&#x4F53;&#x683C;&#x5F0F;&#x9700;&#x8981;&#x548C;&#x786C;&#x4EF6;&#x4E0A;&#x62A5;&#x65B9;&#x534F;&#x5546;&#x4E00;&#x81F4;&#xFF0C;&#x7136;&#x540E;&#x89E3;&#x6790;&#x3002;
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">registerTransferDataListener</span><span class="hljs-params">(ITuyaDataCallback&lt;TransferDataBean&gt; callback)</span></span>;
-    <span class="hljs-comment">/**
+    <span class="token keyword">void</span> <span class="token function">registerTransferDataListener</span><span class="token punctuation">(</span>ITuyaDataCallback<span class="token generics function"><span class="token punctuation">&lt;</span>TransferDataBean<span class="token punctuation">&gt;</span></span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/**
      * &#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x8BBE;&#x5907;&#x6570;&#x636E;&#x6D41;
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unRegisterTransferDataListener</span><span class="hljs-params">(ITuyaDataCallback&lt;TransferDataBean&gt; callback)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">unRegisterTransferDataListener</span><span class="token punctuation">(</span>ITuyaDataCallback<span class="token generics function"><span class="token punctuation">&lt;</span>TransferDataBean<span class="token punctuation">&gt;</span></span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
      * &#x6CE8;&#x518C;&#x901A;&#x9053;&#x72B6;&#x6001;&#x53D8;&#x5316;&#xFF0C;&#x5728;&#x7F51;&#x7EDC;&#x6CE2;&#x52A8;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x5BFC;&#x81F4;&#x901A;&#x9053;&#x65AD;&#x5F00;&#x91CD;&#x8FDE;&#x7684;&#x60C5;&#x51B5; 
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">registerTransferCallback</span><span class="hljs-params">(ITuyaTransferCallback callback)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">registerTransferCallback</span><span class="token punctuation">(</span>ITuyaTransferCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/** &#x53D6;&#x6D88;&#x6CE8;&#x518C;
+    <span class="token comment">/** &#x53D6;&#x6D88;&#x6CE8;&#x518C;
     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unRegisterTransferCallback</span><span class="hljs-params">(ITuyaTransferCallback callback)</span></span>;
+    <span class="token keyword">void</span> <span class="token function">unRegisterTransferCallback</span><span class="token punctuation">(</span>ITuyaTransferCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment">/**
         &#x65AD;&#x5F00;&#x6570;&#x636E;&#x6D41;&#x901A;&#x9053;
     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">stopConnect</span><span class="hljs-params">()</span></span>;
-}
+    <span class="token keyword">void</span> <span class="token function">stopConnect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<h2 id="data-model">Data Model</h2>
-<h3 id="devicebean">DeviceBean</h3>
+<h2 id="data-model"><a name="data-model" class="plugin-anchor" href="#data-model"><i class="fa fa-link" aria-hidden="true"></i></a>Data Model</h2>
+<h3 id="devicebean"><a name="devicebean" class="plugin-anchor" href="#devicebean"><i class="fa fa-link" aria-hidden="true"></i></a>DeviceBean</h3>
 <ul>
 <li>iconUrl: address of device icon link</li>
 <li>devId: unique id of device</li>
@@ -1390,7 +1394,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Device data channel","level":"1.14","depth":1,"next":{"title":"Message Center","level":"1.15","depth":1,"path":"resource/Message.md","ref":"./resource/Message.md","articles":[{"title":"Message list","level":"1.15.1","depth":2,"path":"resource/Message.md","ref":"./resource/Message.md","articles":[]},{"title":"Message push switch","level":"1.15.2","depth":2,"path":"resource/MessagePush.md","ref":"./resource/MessagePush.md","articles":[]}]},"previous":{"title":"Scene operation","level":"1.13.2","depth":2,"anchor":"#Scene_operation","path":"resource/SmartScene_Manager.md","ref":"./resource/SmartScene_Manager.md#Scene_operation","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Device_Data_Channel.md","mtime":"2019-03-12T02:03:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Device data channel","level":"1.14","depth":1,"next":{"title":"Message Center","level":"1.15","depth":1,"path":"resource/Message.md","ref":"./resource/Message.md","articles":[{"title":"Message list","level":"1.15.1","depth":2,"path":"resource/Message.md","ref":"./resource/Message.md","articles":[]},{"title":"Message push switch","level":"1.15.2","depth":2,"path":"resource/MessagePush.md","ref":"./resource/MessagePush.md","articles":[]}]},"previous":{"title":"Scene operation","level":"1.13.2","depth":2,"anchor":"#Scene_operation","path":"resource/SmartScene_Manager.md","ref":"./resource/SmartScene_Manager.md#Scene_operation","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Device_Data_Channel.md","mtime":"2019-03-12T02:03:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1398,6 +1402,14 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

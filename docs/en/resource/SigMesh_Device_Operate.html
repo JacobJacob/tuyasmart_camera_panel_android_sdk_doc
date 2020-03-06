@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -1278,150 +1282,150 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="control">Control</h2>
+                                <h2 id="control"><a name="control" class="plugin-anchor" href="#control"><i class="fa fa-link" aria-hidden="true"></i></a>Control</h2>
 <p>ITuyaBlueMeshDevice provides operations on Mesh devices</p>
-<h3 id="control-command-publish">Control Command Publish</h3>
-<h5 id="&#x3010;command-format&#x3011;">&#x3010;command format&#x3011;</h5>
-<pre><code class="lang-java"><span class="hljs-comment">// Example for boolean type function point with dpId set to 101. Function: turn on switch. </span>
+<h3 id="control-command-publish"><a name="control-command-publish" class="plugin-anchor" href="#control-command-publish"><i class="fa fa-link" aria-hidden="true"></i></a>Control Command Publish</h3>
+<h5 id="&#x3010;command-format&#x3011;"><a name="&#x3010;command-format&#x3011;" class="plugin-anchor" href="#&#x3010;command-format&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;command format&#x3011;</h5>
+<pre class="language-"><code class="lang-java"><span class="token comment">// Example for boolean type function point with dpId set to 101. Function: turn on switch. </span>
 
-dps = {<span class="hljs-string">&quot;101&quot;</span>: <span class="hljs-keyword">true</span>};
+dps <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;101&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Example of string type function point with dpId set to 102. Function: set RGB to ff5500.</span>
+<span class="token comment">// Example of string type function point with dpId set to 102. Function: set RGB to ff5500.</span>
 
-dps = {<span class="hljs-string">&quot;102&quot;</span>: <span class="hljs-string">&quot;ff5500&quot;</span>};
+dps <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;102&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ff5500&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Example of enumeration type function point with dpId set to 103. Function: set gear to position 2.</span>
+<span class="token comment">// Example of enumeration type function point with dpId set to 103. Function: set gear to position 2.</span>
 
-dps = {<span class="hljs-string">&quot;103&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>};
+dps <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;103&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Example of value type function point with dpId set to 104. Function: set temperature to 20 centigrade degree.</span>
+<span class="token comment">// Example of value type function point with dpId set to 104. Function: set temperature to 20 centigrade degree.</span>
 
-dps = {<span class="hljs-string">&quot;104&quot;</span>: <span class="hljs-number">20</span>};
+dps <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;104&quot;</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Example of transparent (byte array) function point with dpId set to 105. Function: transparently transfer infrared data (i.e., 1122).</span>
+<span class="token comment">// Example of transparent (byte array) function point with dpId set to 105. Function: transparently transfer infrared data (i.e., 1122).</span>
 
-dps = {<span class="hljs-string">&quot;105&quot;</span>: <span class="hljs-string">&quot;1122&quot;</span>};
+dps <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;105&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1122&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Send multiple dp data in one time.</span>
+<span class="token comment">// Send multiple dp data in one time.</span>
 
-dps = {<span class="hljs-string">&quot;101&quot;</span>: <span class="hljs-keyword">true</span>, <span class="hljs-string">&quot;102&quot;</span>: <span class="hljs-string">&quot;ff5500&quot;</span>};
+dps <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;101&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token string">&quot;102&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ff5500&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<h5 id="&#x3010;method-invocation&#x3011;">&#x3010;Method Invocation&#x3011;</h5>
-<pre><code class="lang-java"><span class="hljs-comment">//control device</span>
-* <span class="hljs-meta">@param</span> nodeId   sub-device local number
-* <span class="hljs-meta">@param</span> pcc          device product category
-* <span class="hljs-meta">@param</span> dps          command
-* <span class="hljs-meta">@param</span> <span class="hljs-function">callback
-<span class="hljs-keyword">void</span> <span class="hljs-title">publishDps</span><span class="hljs-params">(String nodeId, String pcc, String dps, IResultCallback callback)</span></span>;
+<h5 id="&#x3010;method-invocation&#x3011;"><a name="&#x3010;method-invocation&#x3011;" class="plugin-anchor" href="#&#x3010;method-invocation&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method Invocation&#x3011;</h5>
+<pre class="language-"><code class="lang-java"><span class="token comment">//control device</span>
+<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> nodeId   sub<span class="token operator">-</span>device local number
+<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> pcc          device product category
+<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> dps          command
+<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> callback
+<span class="token keyword">void</span> <span class="token function">publishDps</span><span class="token punctuation">(</span>String nodeId<span class="token punctuation">,</span> String pcc<span class="token punctuation">,</span> String dps<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-<span class="hljs-comment">//control group</span>
-* <span class="hljs-meta">@param</span> localId   group local number
-* <span class="hljs-meta">@param</span> pcc           product category
-* <span class="hljs-meta">@param</span> dps           command
-* <span class="hljs-meta">@param</span> <span class="hljs-function">callback  
-<span class="hljs-keyword">void</span> <span class="hljs-title">multicastDps</span><span class="hljs-params">(String localId, String pcc, String dps, IResultCallback callback)</span>
-</span></code></pre>
-<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
-<pre><code class="lang-java"><span class="hljs-comment">//control device</span>
-String dps = {<span class="hljs-string">&quot;1&quot;</span>:<span class="hljs-keyword">false</span>};
-ITuyaBlueMeshDevice mTuyaSigMeshDevice=TuyaHomeSdk.newSigMeshDeviceInstance(<span class="hljs-string">&quot;meshId&quot;</span>);
-mTuyaSigMeshDevice.publishDps(devBean.getNodeId(), devBean.getCategory(), dps, <span class="hljs-keyword">new</span> IResultCallback() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String s, String s1)</span> </span>{
-                    Toast.makeText(mContext, <span class="hljs-string">&quot;send fail &quot;</span>+ errorMsg, Toast.LENGTH_LONG).show();
-            }
-
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
-                    Toast.makeText(mContext, <span class="hljs-string">&quot;send success&quot;</span>, Toast.LENGTH_LONG).show();
-            }
-        });
-
-
-<span class="hljs-comment">//control group       </span>
-String dps = {<span class="hljs-string">&quot;1&quot;</span>:<span class="hljs-keyword">false</span>};
-ITuyaBlueMeshDevice mTuyaSigMeshDevice= TuyaHomeSdk.newSigMeshDeviceInstance(<span class="hljs-string">&quot;meshId&quot;</span>);
-mTuyaSigMeshDevice.multicastDps(groupBean.getLocalId(), devBean.getCategory(), dps, <span class="hljs-keyword">new</span> IResultCallback() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
-                    Toast.makeText(mContext, <span class="hljs-string">&quot;send fail &quot;</span>+ errorMsg, Toast.LENGTH_LONG).show();
-            }
-
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
-                    Toast.makeText(mContext, <span class="hljs-string">&quot;send success&quot;</span>, Toast.LENGTH_LONG).show();
-            }
-        });
+<span class="token comment">//control group</span>
+<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> localId   group local number
+<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> pcc           product category
+<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> dps           command
+<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> callback  
+<span class="token keyword">void</span> <span class="token function">multicastDps</span><span class="token punctuation">(</span>String localId<span class="token punctuation">,</span> String pcc<span class="token punctuation">,</span> String dps<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span>
 </code></pre>
-<h3 id="data-callback">Data Callback</h3>
-<h5 id="&#x3010;description&#x3011;">&#x3010;Description&#x3011;</h5>
+<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
+<pre class="language-"><code class="lang-java"><span class="token comment">//control device</span>
+String dps <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;1&quot;</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+ITuyaBlueMeshDevice mTuyaSigMeshDevice<span class="token operator">=</span>TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newSigMeshDeviceInstance</span><span class="token punctuation">(</span><span class="token string">&quot;meshId&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mTuyaSigMeshDevice<span class="token punctuation">.</span><span class="token function">publishDps</span><span class="token punctuation">(</span>devBean<span class="token punctuation">.</span><span class="token function">getNodeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> devBean<span class="token punctuation">.</span><span class="token function">getCategory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dps<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String s<span class="token punctuation">,</span> String s1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;send fail &quot;</span><span class="token operator">+</span> errorMsg<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;send success&quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">//control group       </span>
+String dps <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;1&quot;</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+ITuyaBlueMeshDevice mTuyaSigMeshDevice<span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newSigMeshDeviceInstance</span><span class="token punctuation">(</span><span class="token string">&quot;meshId&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mTuyaSigMeshDevice<span class="token punctuation">.</span><span class="token function">multicastDps</span><span class="token punctuation">(</span>groupBean<span class="token punctuation">.</span><span class="token function">getLocalId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> devBean<span class="token punctuation">.</span><span class="token function">getCategory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dps<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;send fail &quot;</span><span class="token operator">+</span> errorMsg<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;send success&quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="data-callback"><a name="data-callback" class="plugin-anchor" href="#data-callback"><i class="fa fa-link" aria-hidden="true"></i></a>Data Callback</h3>
+<h5 id="&#x3010;description&#x3011;"><a name="&#x3010;description&#x3011;" class="plugin-anchor" href="#&#x3010;description&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Description&#x3011;</h5>
 <p>Relevant information (dp data, status change, device name, device removal) in the mesh network will be synchronized to IMeshDevListener in real time</p>
-<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
-<pre><code class="lang-java">mTuyaSigMeshDevice.registerMeshDevListener(<span class="hljs-keyword">new</span> IMeshDevListener() {
+<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
+<pre class="language-"><code class="lang-java">mTuyaSigMeshDevice<span class="token punctuation">.</span><span class="token function">registerMeshDevListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">IMeshDevListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        <span class="hljs-comment">/**
+        <span class="token comment">/**
          * dp update
-         * <span class="hljs-doctag">@param</span> nodeId    update the nodeId of the device
-         * <span class="hljs-doctag">@param</span> dps       dp data
-         * <span class="hljs-doctag">@param</span> isFromLocal   data source true means from local Bluetooth and false means from cloud
+         * @param nodeId    update the nodeId of the device
+         * @param dps       dp data
+         * @param isFromLocal   data source true means from local Bluetooth and false means from cloud
          */</span>
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDpUpdate</span><span class="hljs-params">(String nodeId, String dps,<span class="hljs-keyword">boolean</span> isFromLocal)</span> </span>{
-                <span class="hljs-comment">//You can find the DeviceBean by nodeId</span>
-                DeviceBean deviceBean = mTuyaBlueMeshDevice.getMeshSubDevBeanByNodeId(nodeId);
-            }
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onDpUpdate</span><span class="token punctuation">(</span>String nodeId<span class="token punctuation">,</span> String dps<span class="token punctuation">,</span><span class="token keyword">boolean</span> isFromLocal<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">//You can find the DeviceBean by nodeId</span>
+                DeviceBean deviceBean <span class="token operator">=</span> mTuyaBlueMeshDevice<span class="token punctuation">.</span><span class="token function">getMeshSubDevBeanByNodeId</span><span class="token punctuation">(</span>nodeId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
 
-         <span class="hljs-comment">/**
+         <span class="token comment">/**
          * &#x8BBE;&#x5907;&#x72B6;&#x6001;&#x7684;&#x4E0A;&#x62A5;
-         * <span class="hljs-doctag">@param</span> online    onlins
-         * <span class="hljs-doctag">@param</span> offline   offlines
-         * <span class="hljs-doctag">@param</span> gwId      The source of the status gwId is not empty means it is from the cloud (gwId is the gateway ID for reporting data). It is empty means it is from the local Bluetooth
+         * @param online    onlins
+         * @param offline   offlines
+         * @param gwId      The source of the status gwId is not empty means it is from the cloud (gwId is the gateway ID for reporting data). It is empty means it is from the local Bluetooth
          */</span>
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStatusChanged</span><span class="hljs-params">(List&lt;String&gt; online, List&lt;String&gt; offline,String gwId)</span> </span>{
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onStatusChanged</span><span class="token punctuation">(</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> online<span class="token punctuation">,</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> offline<span class="token punctuation">,</span>String gwId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            }
+            <span class="token punctuation">}</span>
 
-        <span class="hljs-comment">/**
+        <span class="token comment">/**
          * network status change
-         * <span class="hljs-doctag">@param</span> devId
-         * <span class="hljs-doctag">@param</span> status
+         * @param devId
+         * @param status
          */</span>
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNetworkStatusChanged</span><span class="hljs-params">(String devId, <span class="hljs-keyword">boolean</span> status)</span> </span>{
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onNetworkStatusChanged</span><span class="token punctuation">(</span>String devId<span class="token punctuation">,</span> <span class="token keyword">boolean</span> status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            }
+            <span class="token punctuation">}</span>
 
 
-        <span class="hljs-comment">/**
+        <span class="token comment">/**
          * report raw data
-         * <span class="hljs-doctag">@param</span> bytes
+         * @param bytes
          */</span>
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRawDataUpdate</span><span class="hljs-params">(<span class="hljs-keyword">byte</span>[] bytes)</span> </span>{
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onRawDataUpdate</span><span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            }
+            <span class="token punctuation">}</span>
 
 
-        <span class="hljs-comment">/**
+        <span class="token comment">/**
          * change of device information (name, etc.)
-         * <span class="hljs-doctag">@param</span> bytes
+         * @param bytes
          */</span>            
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDevInfoUpdate</span><span class="hljs-params">(String devId)</span> </span>{
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onDevInfoUpdate</span><span class="token punctuation">(</span>String devId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            }
+            <span class="token punctuation">}</span>
 
-        <span class="hljs-comment">/**
+        <span class="token comment">/**
          * Device removal
-         * <span class="hljs-doctag">@param</span> devId
+         * @param devId
          */</span>
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRemoved</span><span class="hljs-params">(String devId)</span> </span>{
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onRemoved</span><span class="token punctuation">(</span>String devId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            }
-        });
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -1466,7 +1470,7 @@ mTuyaSigMeshDevice.multicastDps(groupBean.getLocalId(), devBean.getCategory(), d
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Control","level":"1.21.7","depth":2,"next":{"title":"Firmware Upgrade","level":"1.21.8","depth":2,"path":"resource/SigMesh_OTA.md","ref":"./resource/SigMesh_OTA.md","articles":[]},"previous":{"title":"Group","level":"1.21.6","depth":2,"path":"resource/SigMesh_Group_Operate.md","ref":"./resource/SigMesh_Group_Operate.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/SigMesh_Device_Operate.md","mtime":"2019-12-14T15:07:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Control","level":"1.21.7","depth":2,"next":{"title":"Firmware Upgrade","level":"1.21.8","depth":2,"path":"resource/SigMesh_OTA.md","ref":"./resource/SigMesh_OTA.md","articles":[]},"previous":{"title":"Group","level":"1.21.6","depth":2,"path":"resource/SigMesh_Group_Operate.md","ref":"./resource/SigMesh_Group_Operate.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/SigMesh_Device_Operate.md","mtime":"2019-12-14T15:07:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1474,6 +1478,14 @@ mTuyaSigMeshDevice.multicastDps(groupBean.getLocalId(), devBean.getCategory(), d
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

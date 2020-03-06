@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -542,7 +546,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x8BBE;&#x7F6E;&#x9762;&#x677F;">&#x8BBE;&#x7F6E;&#x9762;&#x677F;</h2>
+                                <h2 id="&#x8BBE;&#x7F6E;&#x9762;&#x677F;"><a name="&#x8BBE;&#x7F6E;&#x9762;&#x677F;" class="plugin-anchor" href="#&#x8BBE;&#x7F6E;&#x9762;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BBE;&#x7F6E;&#x9762;&#x677F;</h2>
 <p>&#x6444;&#x50CF;&#x673A;&#x8BBE;&#x7F6E;&#x9762;&#x677F;&#xFF0C;&#x53EF;&#x901A;&#x8FC7;&#x540E;&#x53F0;dp&#x70B9;&#x914D;&#x7F6E;&#x5C55;&#x793A;&#xFF08;<a href="https://tuyainc.github.io/tuyasmart_camera_android_sdk_doc/zh-hans/resource/camera_device_points" target="_blank">TuyaCameraSDK &#x5F00;&#x53D1;&#x6587;&#x6863; - &#x8BBE;&#x5907;&#x529F;&#x80FD;&#x70B9;</a>)&#xFF0C;&#x4E3B;&#x8981;&#x5305;&#x542B;&#xFF1A;</p>
 <ul>
 <li>&#x8BBE;&#x5907;&#x56FE;&#x6807;/&#x540D;&#x79F0;</li>
@@ -574,9 +578,9 @@
 </tbody>
 </table>
 <p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
-<pre><code class="lang-java">Intent intent = <span class="hljs-keyword">new</span> Intent(context, CameraSettingActivity.class);
-intent.putExtra(<span class="hljs-string">&quot;extra_camera_uuid&quot;</span>, deviceId);
-context.startActivity(intent);
+<pre class="language-"><code class="lang-java">Intent intent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> CameraSettingActivity<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token string">&quot;extra_camera_uuid&quot;</span><span class="token punctuation">,</span> deviceId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+context<span class="token punctuation">.</span><span class="token function">startActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p><strong>&#x9762;&#x677F;&#x793A;&#x610F;&#x56FE;</strong></p>
 <p><img src="images/camera_panel_set.png" alt="&#x9762;&#x677F;&#x793A;&#x610F;&#x56FE;"></p>
@@ -623,7 +627,7 @@ context.startActivity(intent);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"设置面板","level":"1.6.9","depth":2,"next":{"title":"TuyaCameraPanelSDK 自定义","level":"1.7","depth":1,"path":"resource/CustomPanel.md","ref":"./resource/CustomPanel.md","articles":[{"title":"自定义主题","level":"1.7.1","depth":2,"path":"resource/CustomTheme.md","ref":"./resource/CustomTheme.md","articles":[]},{"title":"自定义回放","level":"1.7.2","depth":2,"path":"resource/CustomPlayback.md","ref":"./resource/CustomPlayback.md","articles":[]},{"title":"自定义云存储","level":"1.7.3","depth":2,"path":"resource/CustomCloudStorage.md","ref":"./resource/CustomCloudStorage.md","articles":[]},{"title":"自定义相册","level":"1.7.4","depth":2,"path":"resource/CustomAlbum.md","ref":"./resource/CustomAlbum.md","articles":[]},{"title":"自定义消息中心","level":"1.7.5","depth":2,"path":"resource/CustomMessage.md","ref":"./resource/CustomMessage.md","articles":[]},{"title":"自定义设置","level":"1.7.6","depth":2,"path":"resource/CustomSet.md","ref":"./resource/CustomSet.md","articles":[]},{"title":"设置面板 - 设备信息","level":"1.7.7","depth":2,"path":"resource/CustomDeviceInfo.md","ref":"./resource/CustomDeviceInfo.md","articles":[]},{"title":"设置面板 - 意见反馈","level":"1.7.8","depth":2,"path":"resource/CustomFeedback.md","ref":"./resource/CustomFeedback.md","articles":[]}]},"previous":{"title":"视频流门铃面板","level":"1.6.8","depth":2,"path":"resource/VideoDoorbellPanel.md","ref":"./resource/VideoDoorbellPanel.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/SetPanel.md","mtime":"2020-03-05T12:04:26.549Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"设置面板","level":"1.6.9","depth":2,"next":{"title":"TuyaCameraPanelSDK 自定义","level":"1.7","depth":1,"path":"resource/CustomPanel.md","ref":"./resource/CustomPanel.md","articles":[{"title":"自定义主题","level":"1.7.1","depth":2,"path":"resource/CustomTheme.md","ref":"./resource/CustomTheme.md","articles":[]},{"title":"自定义回放","level":"1.7.2","depth":2,"path":"resource/CustomPlayback.md","ref":"./resource/CustomPlayback.md","articles":[]},{"title":"自定义云存储","level":"1.7.3","depth":2,"path":"resource/CustomCloudStorage.md","ref":"./resource/CustomCloudStorage.md","articles":[]},{"title":"自定义相册","level":"1.7.4","depth":2,"path":"resource/CustomAlbum.md","ref":"./resource/CustomAlbum.md","articles":[]},{"title":"自定义消息中心","level":"1.7.5","depth":2,"path":"resource/CustomMessage.md","ref":"./resource/CustomMessage.md","articles":[]},{"title":"自定义设置","level":"1.7.6","depth":2,"path":"resource/CustomSet.md","ref":"./resource/CustomSet.md","articles":[]},{"title":"设置面板 - 设备信息","level":"1.7.7","depth":2,"path":"resource/CustomDeviceInfo.md","ref":"./resource/CustomDeviceInfo.md","articles":[]},{"title":"设置面板 - 意见反馈","level":"1.7.8","depth":2,"path":"resource/CustomFeedback.md","ref":"./resource/CustomFeedback.md","articles":[]}]},"previous":{"title":"视频流门铃面板","level":"1.6.8","depth":2,"path":"resource/VideoDoorbellPanel.md","ref":"./resource/VideoDoorbellPanel.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/SetPanel.md","mtime":"2020-03-05T12:04:26.549Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
@@ -631,6 +635,14 @@ context.startActivity(intent);
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

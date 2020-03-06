@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
                 
@@ -1278,27 +1282,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="activator-device">Activator Device</h1>
+                                <h1 id="activator-device"><a name="activator-device" class="plugin-anchor" href="#activator-device"><i class="fa fa-link" aria-hidden="true"></i></a>Activator Device</h1>
 <p>Two steps are required to activate the device. The first step is to scan the device. The second step is to activate the device.</p>
-<h3 id="1scan-the-device">1.Scan the device</h3>
+<h3 id="1scan-the-device"><a name="1scan-the-device" class="plugin-anchor" href="#1scan-the-device"><i class="fa fa-link" aria-hidden="true"></i></a>1.Scan the device</h3>
 <blockquote>
 <p>Prior to scanning, you need to check the permissions of the scan first. For details, see  [BLE Prepare]</p>
 </blockquote>
-<pre><code class="lang-java">
-<span class="hljs-comment">/**
+<pre class="language-"><code class="lang-java">
+<span class="token comment">/**
   *SCAN_TIME_OUT :Scan timeout time, 60s is recommended.
   *ScanType.SINGLE:scan type
   *response:callback
   */</span>
-  TuyaHomeSdk.getBleOperator().startLeScan(
-  SCAN_TIME_OUT, ScanType.SINGLE, <span class="hljs-keyword">new</span> TyBleScanResponse() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onResult</span><span class="hljs-params">(ScanDeviceBean bean)</span> </span>{
+  TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getBleOperator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">startLeScan</span><span class="token punctuation">(</span>
+  SCAN_TIME_OUT<span class="token punctuation">,</span> ScanType<span class="token punctuation">.</span>SINGLE<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">TyBleScanResponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onResult</span><span class="token punctuation">(</span>ScanDeviceBean bean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            }
-        });
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="11-callback-description">1.1 Callback Description</h3>
+<h3 id="11-callback-description"><a name="11-callback-description" class="plugin-anchor" href="#11-callback-description"><i class="fa fa-link" aria-hidden="true"></i></a>1.1 Callback Description</h3>
 <table>
 <thead>
 <tr>
@@ -1349,37 +1353,37 @@
 </tr>
 </tbody>
 </table>
-<h3 id="12-stop-scan">1.2 Stop Scan</h3>
-<pre><code class="lang-java"> TuyaHomeSdk.getBleOperator().stopLeScan();
- When the device is start to activator, it is recommended to stop scanning.
+<h3 id="12-stop-scan"><a name="12-stop-scan" class="plugin-anchor" href="#12-stop-scan"><i class="fa fa-link" aria-hidden="true"></i></a>1.2 Stop Scan</h3>
+<pre class="language-"><code class="lang-java"> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getBleOperator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stopLeScan</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ When the device is start to activator<span class="token punctuation">,</span> it is recommended to stop scanning<span class="token punctuation">.</span>
 </code></pre>
-<h3 id="2normal-ble-device-activator">2.Normal BLE device Activator</h3>
-<pre><code class="lang-java">  <span class="hljs-comment">/**
+<h3 id="2normal-ble-device-activator"><a name="2normal-ble-device-activator" class="plugin-anchor" href="#2normal-ble-device-activator"><i class="fa fa-link" aria-hidden="true"></i></a>2.Normal BLE device Activator</h3>
+<pre class="language-"><code class="lang-java">  <span class="token comment">/**
          * homeId:current Home&apos;s Id
          * uuid:Device unique code from scan
          * params:not need for normal ble device
          * configListener:callback
          */</span>
- TuyaHomeSdk.getBleManager().startBleConfig(FamilyManager.getInstance().getCurrentHomeId(), uuid, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">new</span> ITuyaBleConfigListener() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(DeviceBean bean)</span> </span>{
+ TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getBleManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">startBleConfig</span><span class="token punctuation">(</span>FamilyManager<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCurrentHomeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> uuid<span class="token punctuation">,</span> null<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaBleConfigListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>DeviceBean bean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            }
+            <span class="token punctuation">}</span>
 
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(String code, String msg, Object handle)</span> </span>{
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFail</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String msg<span class="token punctuation">,</span> Object handle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            }
-        });
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="21-cancel-activator">2.1 cancel activator</h3>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<h3 id="21-cancel-activator"><a name="21-cancel-activator" class="plugin-anchor" href="#21-cancel-activator"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 cancel activator</h3>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
  *  uuid: Device unique code from scan
  */</span>
-TuyaHomeSdk.getBleManager().stopBleConfig(uuid);
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getBleManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stopBleConfig</span><span class="token punctuation">(</span>uuid<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="3blewifi-dual-mode-device-activator">3.BLE+WIFI Dual-mode Device Activator</h3>
-<pre><code class="lang-java">    <span class="hljs-comment">/**
+<h3 id="3blewifi-dual-mode-device-activator"><a name="3blewifi-dual-mode-device-activator" class="plugin-anchor" href="#3blewifi-dual-mode-device-activator"><i class="fa fa-link" aria-hidden="true"></i></a>3.BLE+WIFI Dual-mode Device Activator</h3>
+<pre class="language-"><code class="lang-java">    <span class="token comment">/**
      * homeId:current Home&apos;s Id
      * uuid:Device unique code from scan
      * param:
@@ -1389,23 +1393,23 @@ TuyaHomeSdk.getBleManager().stopBleConfig(uuid);
      *          param.put(&quot;token&quot;, token); // use token&#xFF0C;The method of obtaining the token is the same as that of the wifi device activator.
      * configListener:callback
      */</span>
- TuyaHomeSdk.getBleManager().startBleConfig(FamilyManager.getInstance().getCurrentHomeId(), uuid, param, <span class="hljs-keyword">new</span> ITuyaBleConfigListener() {
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(DeviceBean bean)</span> </span>{
+ TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getBleManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">startBleConfig</span><span class="token punctuation">(</span>FamilyManager<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCurrentHomeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> uuid<span class="token punctuation">,</span> param<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaBleConfigListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>DeviceBean bean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            }
+            <span class="token punctuation">}</span>
 
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(String code, String msg, Object handle)</span> </span>{
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFail</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String msg<span class="token punctuation">,</span> Object handle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-            }
-        });
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="31-cancel-blewifi-dual-mode-device-activator">3.1 Cancel BLE+WIFI Dual-mode Device Activator</h3>
-<pre><code class="lang-java"><span class="hljs-comment">/**
+<h3 id="31-cancel-blewifi-dual-mode-device-activator"><a name="31-cancel-blewifi-dual-mode-device-activator" class="plugin-anchor" href="#31-cancel-blewifi-dual-mode-device-activator"><i class="fa fa-link" aria-hidden="true"></i></a>3.1 Cancel BLE+WIFI Dual-mode Device Activator</h3>
+<pre class="language-"><code class="lang-java"><span class="token comment">/**
  *   uuid:Device unique code from scan
  */</span>
-TuyaHomeSdk.getBleManager().stopBleConfig(uuid);
+TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getBleManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stopBleConfig</span><span class="token punctuation">(</span>uuid<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -1450,7 +1454,7 @@ TuyaHomeSdk.getBleManager().stopBleConfig(uuid);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"BLE Scan And Activator","level":"1.17.2","depth":2,"next":{"title":"BLE Device Operate","level":"1.17.3","depth":2,"path":"resource/BLE_Operator.md","ref":"./resource/BLE_Operator.md","articles":[]},"previous":{"title":"BLE Prepare","level":"1.17.1","depth":2,"path":"resource/BLE_Prepare.md","ref":"./resource/BLE_Prepare.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/BLE_Activator.md","mtime":"2019-12-24T04:49:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"BLE Scan And Activator","level":"1.17.2","depth":2,"next":{"title":"BLE Device Operate","level":"1.17.3","depth":2,"path":"resource/BLE_Operator.md","ref":"./resource/BLE_Operator.md","articles":[]},"previous":{"title":"BLE Prepare","level":"1.17.1","depth":2,"path":"resource/BLE_Prepare.md","ref":"./resource/BLE_Prepare.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/BLE_Activator.md","mtime":"2019-12-24T04:49:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:32:42.301Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1458,6 +1462,14 @@ TuyaHomeSdk.getBleManager().stopBleConfig(uuid);
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
