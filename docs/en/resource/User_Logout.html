@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1282,123 +1278,123 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="change-nickname"><a name="change-nickname" class="plugin-anchor" href="#change-nickname"><i class="fa fa-link" aria-hidden="true"></i></a>Change NickName</h2>
+                                <h2 id="change-nickname">Change NickName</h2>
 <p>[Method Prototype]</p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
 * change nickname
 *
-* @param name   nickname
-* @param callback
+* <span class="hljs-doctag">@param</span> name   nickname
+* <span class="hljs-doctag">@param</span> callback
 */</span>
-<span class="token keyword">void</span> <span class="token function">reRickName</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> <span class="token keyword">final</span> IReNickNameCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">reRickName</span><span class="hljs-params">(String name, <span class="hljs-keyword">final</span> IReNickNameCallback callback)</span></span>;
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reRickName</span><span class="token punctuation">(</span>
-    nickName<span class="token punctuation">,</span> 
-    <span class="token keyword">new</span> <span class="token class-name">IReNickNameCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token punctuation">}</span>
+<pre><code class="lang-java">TuyaHomeSdk.getUserInstance().reRickName(
+    nickName, 
+    <span class="hljs-keyword">new</span> IReNickNameCallback() {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+        }
 
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
 
-        <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        }
+});
 </code></pre>
-<h2 id="update-users-time-zone"><a name="update-users-time-zone" class="plugin-anchor" href="#update-users-time-zone"><i class="fa fa-link" aria-hidden="true"></i></a>Update user&apos;s time zone</h2>
+<h2 id="update-users-time-zone">Update user&apos;s time zone</h2>
 <p>[Method Prototype]</p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
 * Update user&apos;s time zone
 *
-* @param timezoneId   time zone id
-* @param callback
+* <span class="hljs-doctag">@param</span> timezoneId   time zone id
+* <span class="hljs-doctag">@param</span> callback
 */</span>
- <span class="token keyword">void</span> <span class="token function">updateTimeZone</span><span class="token punctuation">(</span>String timezoneId<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">updateTimeZone</span><span class="hljs-params">(String timezoneId, IResultCallback callback)</span></span>;
 </code></pre>
 <p><strong>&#x4EE3;&#x7801;&#x8303;&#x4F8B;</strong></p>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">updateTimeZone</span><span class="token punctuation">(</span>
-    timezoneId<span class="token punctuation">,</span> 
-    <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token punctuation">}</span>
+<pre><code class="lang-java">TuyaHomeSdk.getUserInstance().updateTimeZone(
+    timezoneId, 
+    <span class="hljs-keyword">new</span> IResultCallback() {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+        }
 
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
 
-        <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        }
+});
 </code></pre>
-<h2 id="upload-the-user-account-picture"><a name="upload-the-user-account-picture" class="plugin-anchor" href="#upload-the-user-account-picture"><i class="fa fa-link" aria-hidden="true"></i></a>Upload the User Account Picture</h2>
+<h2 id="upload-the-user-account-picture">Upload the User Account Picture</h2>
 <p><strong>[Description]</strong></p>
 <p>It is for user to upload his/her self-defined account image. </p>
 <p><strong>[Method Prototype]</strong></p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
  * Upload user account picture
- * @param file     user account picture file
- * @param callback
+ * <span class="hljs-doctag">@param</span> file     user account picture file
+ * <span class="hljs-doctag">@param</span> callback
  */</span>
-<span class="token keyword">void</span> <span class="token function">uploadUserAvatar</span><span class="token punctuation">(</span>File file<span class="token punctuation">,</span> IBooleanCallback callback<span class="token punctuation">)</span>
-</code></pre>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">uploadUserAvatar</span><span class="hljs-params">(File file, IBooleanCallback callback)</span>
+</span></code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">uploadUserAvatar</span><span class="token punctuation">(</span>
-    file<span class="token punctuation">,</span> 
-    <span class="token keyword">new</span> <span class="token class-name">IBooleanCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token punctuation">}</span>
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre><code class="lang-java">TuyaHomeSdk.getUserInstance().uploadUserAvatar(
+    file, 
+    <span class="hljs-keyword">new</span> IBooleanCallback() {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+        }
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
 
-        <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        }
+});
 </code></pre>
-<h2 id="set-the-unit-of-temperature"><a name="set-the-unit-of-temperature" class="plugin-anchor" href="#set-the-unit-of-temperature"><i class="fa fa-link" aria-hidden="true"></i></a>Set the Unit of Temperature</h2>
+<h2 id="set-the-unit-of-temperature">Set the Unit of Temperature</h2>
 <p>Select the centigrade or Fahrenheit.</p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
  * TempUnitEnum.Celsius and TempUnitEnum.Fahrenheit *
- * @param unit
- * @param callback
+ * <span class="hljs-doctag">@param</span> unit
+ * <span class="hljs-doctag">@param</span> callback
  */</span>
-<span class="token keyword">void</span> <span class="token function">setTempUnit</span><span class="token punctuation">(</span>TempUnitEnum unit<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setTempUnit</span><span class="hljs-params">(TempUnitEnum unit, IResultCallback callback)</span></span>;
 </code></pre>
-<h2 id="update-user-location-information"><a name="update-user-location-information" class="plugin-anchor" href="#update-user-location-information"><i class="fa fa-link" aria-hidden="true"></i></a>Update user location information</h2>
+<h2 id="update-user-location-information">Update user location information</h2>
 <p>If necessary, the positioning information can be reported through the following interfaces:</p>
-<pre class="language-"><code class="lang-java">TuyaSdk<span class="token punctuation">.</span><span class="token function">setLatAndLong</span><span class="token punctuation">(</span>lat<span class="token punctuation">,</span>lon<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-java">TuyaSdk.setLatAndLong(lat,lon);
 </code></pre>
-<h2 id="log-out-of-the-login-interface"><a name="log-out-of-the-login-interface" class="plugin-anchor" href="#log-out-of-the-login-interface"><i class="fa fa-link" aria-hidden="true"></i></a>Log Out of the Login Interface</h2>
+<h2 id="log-out-of-the-login-interface">Log Out of the Login Interface</h2>
 <p>The logout interface has to be invoked for account switching. </p>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">logout</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ILogoutCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// Logout succeeds</span>
-    <span class="token punctuation">}</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre><code class="lang-java">TuyaHomeSdk.getUserInstance().logout(<span class="hljs-keyword">new</span> ILogoutCallback() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// Logout succeeds</span>
+    }
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
 
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    }
+});
 </code></pre>
-<h2 id="disable-account-deregister-user"><a name="disable-account-deregister-user" class="plugin-anchor" href="#disable-account-deregister-user"><i class="fa fa-link" aria-hidden="true"></i></a>Disable account (deregister user)</h2>
+<h2 id="disable-account-deregister-user">Disable account (deregister user)</h2>
 <p>After one week, the account will be permanently disabled, and all information in the account will be deleted. If you log in to the account again before it is permanently disabled, your deregistration will be canceled.</p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
 * Deregister account
 * Account cancellation
-* @param callback
+* <span class="hljs-doctag">@param</span> callback
 */</span>
 
-<span class="token keyword">void</span> <span class="token function">cancelAccount</span><span class="token punctuation">(</span>IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">cancelAccount</span><span class="hljs-params">(IResultCallback callback)</span></span>;
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getUserInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">cancelAccount</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-java">TuyaHomeSdk.getUserInstance().cancelAccount(<span class="hljs-keyword">new</span> IResultCallback() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
+    }
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+    }
+});
 </code></pre>
 
                                 
@@ -1443,7 +1439,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Modify user information","level":"1.5.6","depth":2,"next":{"title":"Sign out","level":"1.5.7","depth":2,"anchor":"#log-out-of-the-login-interface","path":"resource/User_Logout.md","ref":"./resource/User_Logout.md#log-out-of-the-login-interface","articles":[]},"previous":{"title":"Third Party Login","level":"1.5.5","depth":2,"path":"resource/User_Third_Login.md","ref":"./resource/User_Third_Login.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/User_Logout.md","mtime":"2019-09-07T03:08:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T12:29:14.513Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Modify user information","level":"1.5.6","depth":2,"next":{"title":"Sign out","level":"1.5.7","depth":2,"anchor":"#log-out-of-the-login-interface","path":"resource/User_Logout.md","ref":"./resource/User_Logout.md#log-out-of-the-login-interface","articles":[]},"previous":{"title":"Third Party Login","level":"1.5.5","depth":2,"path":"resource/User_Third_Login.md","ref":"./resource/User_Third_Login.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/User_Logout.md","mtime":"2019-09-07T03:08:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1451,18 +1447,6 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

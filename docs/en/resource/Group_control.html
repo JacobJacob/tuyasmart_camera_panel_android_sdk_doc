@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1282,99 +1278,99 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="group-operation"><a name="group-operation" class="plugin-anchor" href="#group-operation"><i class="fa fa-link" aria-hidden="true"></i></a>Group Operation</h3>
-<h4 id="instantiation"><a name="instantiation" class="plugin-anchor" href="#instantiation"><i class="fa fa-link" aria-hidden="true"></i></a>Instantiation</h4>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+                                <h3 id="group-operation">Group Operation</h3>
+<h4 id="instantiation">Instantiation</h4>
+<pre><code class="lang-java"><span class="hljs-comment">/**
 * Instantiation of groups
-* @param groupId    group Id
+* <span class="hljs-doctag">@param</span> groupId    group Id
 */</span>
-ITuyaGroup mITuyaGroup<span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newGroupInstance</span><span class="token punctuation">(</span>groupId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ITuyaGroup mITuyaGroup= TuyaHomeSdk.newGroupInstance(groupId);
 </code></pre>
-<h4 id="modifying-group-name"><a name="modifying-group-name" class="plugin-anchor" href="#modifying-group-name"><i class="fa fa-link" aria-hidden="true"></i></a>Modifying group name</h4>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newGroupInstance</span><span class="token punctuation">(</span>groupId<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">renameGroup</span><span class="token punctuation">(</span>titleName<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String s<span class="token punctuation">,</span> String s1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h4 id="modifying-group-name">Modifying group name</h4>
+<pre><code class="lang-java">TuyaHomeSdk.newGroupInstance(groupId).renameGroup(titleName, <span class="hljs-keyword">new</span> IResultCallback() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String s, String s1)</span> </span>{
 
-            <span class="token punctuation">}</span>
+            }
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                           <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+                           }
+        });
 </code></pre>
-<h4 id="dismiss-group"><a name="dismiss-group" class="plugin-anchor" href="#dismiss-group"><i class="fa fa-link" aria-hidden="true"></i></a>Dismiss Group</h4>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newGroupInstance</span><span class="token punctuation">(</span>groupId<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">dismissGroup</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token annotation punctuation">@Override</span>
-                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String s<span class="token punctuation">,</span> String s1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h4 id="dismiss-group">Dismiss Group</h4>
+<pre><code class="lang-java">TuyaHomeSdk.newGroupInstance(groupId).dismissGroup(<span class="hljs-keyword">new</span> IResultCallback() {
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String s, String s1)</span> </span>{
 
-                <span class="token punctuation">}</span>
+                }
 
-                <span class="token annotation punctuation">@Override</span>
-                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
 
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                }
+            });
 </code></pre>
-<h4 id="group-callback-event"><a name="group-callback-event" class="plugin-anchor" href="#group-callback-event"><i class="fa fa-link" aria-hidden="true"></i></a>Group callback event</h4>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<h4 id="group-callback-event">Group callback event</h4>
+<pre><code class="lang-java"><span class="hljs-comment">/**
 * Registering group callback event
-* @param listener callback
+* <span class="hljs-doctag">@param</span> listener callback
 */</span>
-mITuyaGroup<span class="token punctuation">.</span><span class="token function">registerGroupListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">IGroupListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onDpUpdate</span><span class="token punctuation">(</span><span class="token keyword">long</span> l<span class="token punctuation">,</span> String s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+mITuyaGroup.registerGroupListener(<span class="hljs-keyword">new</span> IGroupListener() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDpUpdate</span><span class="hljs-params">(<span class="hljs-keyword">long</span> l, String s)</span> </span>{
 
-            <span class="token punctuation">}</span>
+            }
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onGroupInfoUpdate</span><span class="token punctuation">(</span><span class="token keyword">long</span> l<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onGroupInfoUpdate</span><span class="hljs-params">(<span class="hljs-keyword">long</span> l)</span> </span>{
 
-            <span class="token punctuation">}</span>
+            }
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onGroupRemoved</span><span class="token punctuation">(</span><span class="token keyword">long</span> l<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onGroupRemoved</span><span class="hljs-params">(<span class="hljs-keyword">long</span> l)</span> </span>{
 
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            }
+        });
 
-<span class="token operator">*</span> Cancel group callback event
-mITuyaGroup<span class="token punctuation">.</span><span class="token function">unRegisterGroupListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+* Cancel group callback event
+mITuyaGroup.unRegisterGroupListener();
 </code></pre>
-<h4 id="sending-group-control-command"><a name="sending-group-control-command" class="plugin-anchor" href="#sending-group-control-command"><i class="fa fa-link" aria-hidden="true"></i></a>Sending group control command</h4>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<h4 id="sending-group-control-command">Sending group control command</h4>
+<pre><code class="lang-java"><span class="hljs-comment">/**
 * Sending group control command
-* @param command    control command
-* @param listener callback
+* <span class="hljs-doctag">@param</span> command    control command
+* <span class="hljs-doctag">@param</span> listener callback
 */</span>
-mTuyaGroup<span class="token punctuation">.</span><span class="token function">publishDps</span><span class="token punctuation">(</span>String command<span class="token punctuation">,</span>IControlCallback listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+mTuyaGroup.publishDps(String command,IControlCallback listener);
 </code></pre>
 <p>Example Codes</p>
-<pre class="language-"><code class="lang-java"><span class="token comment">//Code segment for switching on the light in a group</span>
-LampBean bean <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LampBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-bean<span class="token punctuation">.</span><span class="token function">setOpen</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-HashMap<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span> hashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-hashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>STHEME_LAMP_DPID_1<span class="token punctuation">,</span> bean<span class="token punctuation">.</span><span class="token function">isOpen</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-mTuyaGroup<span class="token punctuation">.</span><span class="token function">publishDps</span><span class="token punctuation">(</span>JSONObject<span class="token punctuation">.</span><span class="token function">toJSONString</span><span class="token punctuation">(</span>hashMap<span class="token punctuation">)</span><span class="token punctuation">,</span>callback<span class="token punctuation">)</span>&#xFF1B;
+<pre><code class="lang-java"><span class="hljs-comment">//Code segment for switching on the light in a group</span>
+LampBean bean = <span class="hljs-keyword">new</span> LampBean();
+bean.setOpen(<span class="hljs-keyword">true</span>);
+HashMap&lt;String, Object&gt; hashMap = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+hashMap.put(STHEME_LAMP_DPID_1, bean.isOpen());
+mTuyaGroup.publishDps(JSONObject.toJSONString(hashMap),callback)&#xFF1B;
 </code></pre>
 <p>Notes</p>
 <p>The returned result of a command sent from a group means that the command is sent to the cloud successfully, and it does not mean that the device has been actually controlled.</p>
-<h4 id="group-data-acquisition"><a name="group-data-acquisition" class="plugin-anchor" href="#group-data-acquisition"><i class="fa fa-link" aria-hidden="true"></i></a>Group data acquisition</h4>
+<h4 id="group-data-acquisition">Group data acquisition</h4>
 <p>For obtaining the group data locally, the data cannot be obtained before the initialization of Home (invoking getHomeDetail() or getHomeLocalCache).</p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
 * Obtaining group data bean locally
-* @param groupId    group Id
-* @return GroupBean  class of group data
+* <span class="hljs-doctag">@param</span> groupId    group Id
+* <span class="hljs-doctag">@return</span> GroupBean  class of group data
 */</span>
-TuyaHomeDataManager<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getGroupBean</span><span class="token punctuation">(</span><span class="token keyword">long</span> groupId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">/**
+TuyaHomeDataManager.getInstance().getGroupBean(<span class="hljs-keyword">long</span> groupId);
+<span class="hljs-comment">/**
 * Obtaining a list of group data locally
-* @return  List&lt;GroupBean&gt;  group list
+* <span class="hljs-doctag">@return</span>  List&lt;GroupBean&gt;  group list
 */</span>
-TuyaHomeDataManager<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getGroupDeviceList</span><span class="token punctuation">(</span><span class="token keyword">long</span> groupId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+TuyaHomeDataManager.getInstance().getGroupDeviceList(<span class="hljs-keyword">long</span> groupId);
 </code></pre>
-<h4 id="group-data-destruction"><a name="group-data-destruction" class="plugin-anchor" href="#group-data-destruction"><i class="fa fa-link" aria-hidden="true"></i></a>Group data destruction</h4>
-<pre class="language-"><code class="lang-java"><span class="token comment">//It is recommended to invoke the group data destruction function when exiting the group control page.</span>
-mITuyaGroup<span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h4 id="group-data-destruction">Group data destruction</h4>
+<pre><code class="lang-java"><span class="hljs-comment">//It is recommended to invoke the group data destruction function when exiting the group control page.</span>
+mITuyaGroup.onDestroy();
 </code></pre>
 
                                 
@@ -1419,7 +1415,7 @@ mITuyaGroup<span class="token punctuation">.</span><span class="token function">
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Group Control","level":"1.12.3","depth":2,"next":{"title":"Smart scene","level":"1.13","depth":1,"path":"resource/SmartScene_Manager.md","ref":"./resource/SmartScene_Manager.md","articles":[{"title":"Smart scene","level":"1.13.1","depth":2,"anchor":"#Smart","path":"resource/SmartScene_Manager.md","ref":"./resource/SmartScene_Manager.md#Smart","articles":[]},{"title":"Scene operation","level":"1.13.2","depth":2,"anchor":"#Scene_operation","path":"resource/SmartScene_Manager.md","ref":"./resource/SmartScene_Manager.md#Scene_operation","articles":[]}]},"previous":{"title":"Zigbee Group","level":"1.12.2","depth":2,"path":"resource/Group_zigbee.md","ref":"./resource/Group_zigbee.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Group_control.md","mtime":"2019-09-23T09:57:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T12:29:14.513Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Group Control","level":"1.12.3","depth":2,"next":{"title":"Smart scene","level":"1.13","depth":1,"path":"resource/SmartScene_Manager.md","ref":"./resource/SmartScene_Manager.md","articles":[{"title":"Smart scene","level":"1.13.1","depth":2,"anchor":"#Smart","path":"resource/SmartScene_Manager.md","ref":"./resource/SmartScene_Manager.md#Smart","articles":[]},{"title":"Scene operation","level":"1.13.2","depth":2,"anchor":"#Scene_operation","path":"resource/SmartScene_Manager.md","ref":"./resource/SmartScene_Manager.md#Scene_operation","articles":[]}]},"previous":{"title":"Zigbee Group","level":"1.12.2","depth":2,"path":"resource/Group_zigbee.md","ref":"./resource/Group_zigbee.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Group_control.md","mtime":"2019-09-23T09:57:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1427,18 +1423,6 @@ mITuyaGroup<span class="token punctuation">.</span><span class="token function">
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

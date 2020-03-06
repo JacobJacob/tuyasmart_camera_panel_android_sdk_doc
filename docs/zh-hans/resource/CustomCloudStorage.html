@@ -1,0 +1,653 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>自定义云存储 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="CustomAlbum.html" />
+    
+    
+    <link rel="prev" href="CustomPlayback.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Overview.html">
+            
+                <a href="Overview.html">
+            
+                    
+                    功能概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    集成准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Integrated.html">
+            
+                <a href="Integrated.html">
+            
+                    
+                    集成 TuyaCameraPanelSDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="InitSDK.html">
+            
+                <a href="InitSDK.html">
+            
+                    
+                    TuyaCameraPanelSDK 初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="CallSDK.html">
+            
+                <a href="CallSDK.html">
+            
+                    
+                    TuyaCameraPanelSDK 调用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="NativePanel.html">
+            
+                <a href="NativePanel.html">
+            
+                    
+                    Native预览面板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="RnPanel.html">
+            
+                <a href="RnPanel.html">
+            
+                    
+                    RN预览面板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="PlaybackPanel.html">
+            
+                <a href="PlaybackPanel.html">
+            
+                    
+                    回放面板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="CloudStoragePanel.html">
+            
+                <a href="CloudStoragePanel.html">
+            
+                    
+                    云存储面板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="MessagePanel.html">
+            
+                <a href="MessagePanel.html">
+            
+                    
+                    消息中心面板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="AlbumPanel.html">
+            
+                <a href="AlbumPanel.html">
+            
+                    
+                    相册面板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="DoorbellPanel.html">
+            
+                <a href="DoorbellPanel.html">
+            
+                    
+                    门铃面板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="VideoDoorbellPanel.html">
+            
+                <a href="VideoDoorbellPanel.html">
+            
+                    
+                    视频流门铃面板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="SetPanel.html">
+            
+                <a href="SetPanel.html">
+            
+                    
+                    设置面板
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="CustomPanel.html">
+            
+                <a href="CustomPanel.html">
+            
+                    
+                    TuyaCameraPanelSDK 自定义
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="CustomTheme.html">
+            
+                <a href="CustomTheme.html">
+            
+                    
+                    自定义主题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="CustomPlayback.html">
+            
+                <a href="CustomPlayback.html">
+            
+                    
+                    自定义回放
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.3" data-path="CustomCloudStorage.html">
+            
+                <a href="CustomCloudStorage.html">
+            
+                    
+                    自定义云存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="CustomAlbum.html">
+            
+                <a href="CustomAlbum.html">
+            
+                    
+                    自定义相册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="CustomMessage.html">
+            
+                <a href="CustomMessage.html">
+            
+                    
+                    自定义消息中心
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="CustomSet.html">
+            
+                <a href="CustomSet.html">
+            
+                    
+                    自定义设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="CustomDeviceInfo.html">
+            
+                <a href="CustomDeviceInfo.html">
+            
+                    
+                    设置面板 - 设备信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="CustomFeedback.html">
+            
+                <a href="CustomFeedback.html">
+            
+                    
+                    设置面板 - 意见反馈
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="DeviceInfo.html">
+            
+                <a href="DeviceInfo.html">
+            
+                    
+                    设备信息
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="DeviceName.html">
+            
+                <a href="DeviceName.html">
+            
+                    
+                    设备名称
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="DeviceIcon.html">
+            
+                <a href="DeviceIcon.html">
+            
+                    
+                    设备图标
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="PushHelper.html">
+            
+                <a href="PushHelper.html">
+            
+                    
+                    消息推送辅助协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="FAQ.html">
+            
+                <a href="FAQ.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Update-Log.html">
+            
+                <a href="Update-Log.html">
+            
+                    
+                    更新日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >自定义云存储</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x4E91;&#x5B58;&#x50A8;">&#x81EA;&#x5B9A;&#x4E49;&#x4E91;&#x5B58;&#x50A8;</h2>
+<p>&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;&#x4E91;&#x5B58;&#x50A8;&#x9762;&#x677F;</p>
+<p><strong>&#x63A5;&#x53E3;&#x8BF4;&#x660E;</strong></p>
+<p>&#x8BBE;&#x7F6E; CloudStoragePanelListener &#x76D1;&#x542C;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x9762;&#x677F;&#x53BB;&#x5B9E;&#x73B0;&#x4E91;&#x5B58;&#x50A8;&#x89C6;&#x9891;&#x64AD;&#x653E;</p>
+<pre><code class="lang-java">TuyaCameraPanelSDK.setCustomCloudStoragePanelListener(CloudStoragePanelListener cloudStoragePanelListener);
+</code></pre>
+<p> <strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cloudStoragePanelListener</td>
+<td style="text-align:left">CloudStoragePanelListener&#x63A5;&#x53E3;&#xFF0C;&#x8BBE;&#x7F6E;&#x6B64;&#x76D1;&#x542C;&#xFF0C;&#x53EF;&#x81EA;&#x5B9A;&#x4E49;&#x4E91;&#x5B58;&#x50A8;&#x9762;&#x677F;&#xFF1B;&#x4E0D;&#x8BBE;&#x7F6E;&#x5219;&#x8DF3;&#x8F6C;&#x5230;&#x9ED8;&#x8BA4;&#x6D82;&#x9E26;&#x6444;&#x50CF;&#x673A;&#x4E91;&#x5B58;&#x50A8;&#x9762;&#x677F;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x793A;&#x4F8B;&#x4EE3;&#x7801;</strong></p>
+<pre><code class="lang-java">TuyaCameraPanelSDK.setCustomCloudStoragePanelListener(<span class="hljs-keyword">new</span> CloudStoragePanelListener() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCloudStoragePanelClick</span><span class="hljs-params">(String deviceId)</span> </span>{
+        L.d(TAG, <span class="hljs-string">&quot;&#x4E91;&#x5B58;&#x50A8;&#x9762;&#x677F; -&#x81EA;&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;&quot;</span> + deviceId);
+    }
+});
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="CustomPlayback.html" class="navigation navigation-prev " aria-label="Previous page: 自定义回放">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="CustomAlbum.html" class="navigation navigation-next " aria-label="Next page: 自定义相册">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"自定义云存储","level":"1.7.3","depth":2,"next":{"title":"自定义相册","level":"1.7.4","depth":2,"path":"resource/CustomAlbum.md","ref":"./resource/CustomAlbum.md","articles":[]},"previous":{"title":"自定义回放","level":"1.7.2","depth":2,"path":"resource/CustomPlayback.md","ref":"./resource/CustomPlayback.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/CustomCloudStorage.md","mtime":"2020-03-06T02:19:21.304Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"zh-hans"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

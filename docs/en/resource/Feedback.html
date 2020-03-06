@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1282,287 +1278,287 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="feedback"><a name="feedback" class="plugin-anchor" href="#feedback"><i class="fa fa-link" aria-hidden="true"></i></a>Feedback</h2>
+                                <h2 id="feedback">Feedback</h2>
 <p>It is used to provide a communication channel between users and businesses/developers.</p>
 <p>ITuyaFeedbackManager is classified into a feedback management class, and provides interfaces like adding feedback and obtaining feedback lists. Invoked method: </p>
-<pre class="language-"><code class="lang-java">
-ITuyaFeedbackManager <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getTuyaFeekback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFeedbackManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<pre><code class="lang-java">
+ITuyaFeedbackManager = TuyaHomeSdk.getTuyaFeekback().getFeedbackManager()
 </code></pre>
 <p>ITuyaFeedbackMag is classified as a feedback management class for some conversation, and also provides new feedback and obtain a list of messages from the current conversation. Invoked method:</p>
-<pre class="language-"><code class="lang-java">
-ITuyaFeedbackMag <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getTuyaFeekback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFeedbackMsg</span><span class="token punctuation">(</span>String hdId<span class="token punctuation">,</span> <span class="token keyword">int</span> hdType<span class="token punctuation">)</span>
+<pre><code class="lang-java">
+ITuyaFeedbackMag = TuyaHomeSdk.getTuyaFeekback().getFeedbackMsg(String hdId, <span class="hljs-keyword">int</span> hdType)
 </code></pre>
-<h2 id="obtain-feedback-list"><a name="obtain-feedback-list" class="plugin-anchor" href="#obtain-feedback-list"><i class="fa fa-link" aria-hidden="true"></i></a>Obtain feedback list</h2>
+<h2 id="obtain-feedback-list">Obtain feedback list</h2>
 <p><strong>[Description]</strong></p>
 <p>Obtain all feedback from the user.</p>
 <p><strong>[Method Prototype]</strong></p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
  * Obtain feedback list
  *
- * @param callback
+ * <span class="hljs-doctag">@param</span> callback
  */</span>
-<span class="token keyword">void</span> <span class="token function">getFeedbackList</span><span class="token punctuation">(</span><span class="token keyword">final</span> ITuyaDataCallback<span class="token operator">&lt;</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackBean<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getFeedbackList</span><span class="hljs-params">(<span class="hljs-keyword">final</span> ITuyaDataCallback&lt;List&lt;FeedbackBean&gt;&gt; callback)</span></span>;
 </code></pre>
 <p>Among, FeedbackBean class provides the following interfaces:</p>
-<pre class="language-"><code class="lang-java">
-<span class="token comment">/**
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
  * Obtain date and time  Format: 2018-06-08 17:12:45
  * 
- * @return date and time
+ * <span class="hljs-doctag">@return</span> date and time
  */</span>
-<span class="token keyword">public</span> String <span class="token function">getDateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> dateTime<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getDateTime</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> dateTime;
+}
 
-<span class="token comment">/**
+<span class="hljs-comment">/**
  * Obtain the latest feedback to display in the list
  *
- * @return Feedback content 
+ * <span class="hljs-doctag">@return</span> Feedback content 
  */</span> 
-<span class="token keyword">public</span> String <span class="token function">getContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> content<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getContent</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> content;
+}
 
-<span class="token comment">/**
+<span class="hljs-comment">/**
  *  Obtain feedback category id
  *
- * @return Feedback category id
+ * <span class="hljs-doctag">@return</span> Feedback category id
  */</span>
-<span class="token keyword">public</span> String <span class="token function">getHdId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> hdId<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getHdId</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> hdId;
+}
 
-<span class="token comment">/**
+<span class="hljs-comment">/**
  * Obtain feedback category
  * 2: Device fault
  * 7: Miscellaneous
- * @return Feedback class
+ * <span class="hljs-doctag">@return</span> Feedback class
  */</span>
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getHdType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> hdType<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getHdType</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> hdType;
+}
 
-<span class="token comment">/**
+<span class="hljs-comment">/**
  * Obtain feedback category titles (if device fault occurs, the device name will be fed back.)
  *
- * @return category title
+ * <span class="hljs-doctag">@return</span> category title
  */</span>
 
-<span class="token keyword">public</span> String <span class="token function">getTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> title<span class="token punctuation">;</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getTitle</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> title;
 
-<span class="token punctuation">}</span>
+}
 </code></pre>
 <p>FeedbackTypeBean class provides the following interfaces:</p>
-<pre class="language-"><code class="lang-java">
-<span class="token comment">/**
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
  * Obtain feedback category id
  *
- * @return Feedback class id
+ * <span class="hljs-doctag">@return</span> Feedback class id
  */</span>
-<span class="token keyword">public</span> String <span class="token function">getHdId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> hdId<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getHdId</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> hdId;
+}
 
-<span class="token comment">/**
+<span class="hljs-comment">/**
  * Obtain feedback category
  * 2: Device fault
  * 7: Miscellaneous
  *
- * @return Feedback class
+ * <span class="hljs-doctag">@return</span> Feedback class
  */</span>
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getHdType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> hdType<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getHdType</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> hdType;
+}
 
-<span class="token comment">/**
+<span class="hljs-comment">/**
  * Obtain feedback class titles (if device fault occurs, the device name will be fed back.)
  *
- * @return class title
+ * <span class="hljs-doctag">@return</span> class title
  */</span>
-<span class="token keyword">public</span> String <span class="token function">getTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> title<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getTitle</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> title;
+}
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getTuyaFeekback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFeedbackManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFeedbackList</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ITuyaDataCallback</span><span class="token operator">&lt;</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackBean<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token annotation punctuation">@Override</span>
-     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackBean<span class="token punctuation">&gt;</span></span> feedbackTalkBeans<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token punctuation">}</span>
-     <span class="token annotation punctuation">@Override</span>
-     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMessage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-java">TuyaHomeSdk.getTuyaFeekback().getFeedbackManager().getFeedbackList(<span class="hljs-keyword">new</span> ITuyaDataCallback&lt;List&lt;FeedbackBean&gt;&gt;() {
+     <span class="hljs-meta">@Override</span>
+     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(List&lt;FeedbackBean&gt; feedbackTalkBeans)</span> </span>{
+     }
+     <span class="hljs-meta">@Override</span>
+     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMessage)</span> </span>{
+     }
+});
 </code></pre>
-<h2 id="obtain-feedback-type-list"><a name="obtain-feedback-type-list" class="plugin-anchor" href="#obtain-feedback-type-list"><i class="fa fa-link" aria-hidden="true"></i></a>Obtain feedback type list</h2>
+<h2 id="obtain-feedback-type-list">Obtain feedback type list</h2>
 <p><strong>[Description]</strong></p>
 <p>Obtain a list of selectable feedback type to create choices  before feedback.</p>
 <p><strong>[Method Prototype]</strong></p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
  * Obtain feedback type list
  *
- * @param callback
+ * <span class="hljs-doctag">@param</span> callback
  */</span>
-<span class="token keyword">void</span> <span class="token function">getFeedbackType</span><span class="token punctuation">(</span><span class="token keyword">final</span> ITuyaDataCallback<span class="token operator">&lt;</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackTypeRespBean<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getFeedbackType</span><span class="hljs-params">(<span class="hljs-keyword">final</span> ITuyaDataCallback&lt;List&lt;FeedbackTypeRespBean&gt;&gt; callback)</span></span>;
 </code></pre>
 <p>Among, FeedbackTypeRespBean class provides the following interfaces:</p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
  * Obtain a list of feedback type (device list and other lists)
- * @return class list
+ * <span class="hljs-doctag">@return</span> class list
  */</span>
-<span class="token keyword">public</span> ArrayList<span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackTypeBean<span class="token punctuation">&gt;</span></span> <span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> list<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment">/**
+<span class="hljs-function"><span class="hljs-keyword">public</span> ArrayList&lt;FeedbackTypeBean&gt; <span class="hljs-title">getList</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> list;
+}
+<span class="hljs-comment">/**
  * Obtain list category (Currently, only device and other lists are available)
- * @return list category
+ * <span class="hljs-doctag">@return</span> list category
  */</span>
-<span class="token keyword">public</span> String <span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> type<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getType</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> type;
+}
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getTuyaFeekback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFeedbackManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFeedbackType</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ITuyaDataCallback</span><span class="token operator">&lt;</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackTypeRespBean<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token annotation punctuation">@Override</span>
-     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackTypeRespBean<span class="token punctuation">&gt;</span></span> feedbackTypeRespBeans<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token punctuation">}</span>
-     <span class="token annotation punctuation">@Override</span>
-     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre><code class="lang-java">TuyaHomeSdk.getTuyaFeekback().getFeedbackManager().getFeedbackType(<span class="hljs-keyword">new</span> ITuyaDataCallback&lt;List&lt;FeedbackTypeRespBean&gt;&gt;() {
+     <span class="hljs-meta">@Override</span>
+     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(List&lt;FeedbackTypeRespBean&gt; feedbackTypeRespBeans)</span> </span>{
+     }
+     <span class="hljs-meta">@Override</span>
+     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
 
-     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     }
+});
 </code></pre>
 <p><strong>Add feedback</strong></p>
 <p><strong>[Description]</strong></p>
 <p>Add a new feedback.</p>
 <p><strong>[Method Prototype]</strong></p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
  * Add feedback
  *
- * @param message feedback content
- * @param contact  contact (phone or e-mail)
- * @param hdId     Feedback category id
- * @param hdType   Feedback class 
- * @param callback
+ * <span class="hljs-doctag">@param</span> message feedback content
+ * <span class="hljs-doctag">@param</span> contact  contact (phone or e-mail)
+ * <span class="hljs-doctag">@param</span> hdId     Feedback category id
+ * <span class="hljs-doctag">@param</span> hdType   Feedback class 
+ * <span class="hljs-doctag">@param</span> callback
  */</span>
 
-<span class="token keyword">void</span> <span class="token function">addFeedback</span><span class="token punctuation">(</span><span class="token keyword">final</span> String message<span class="token punctuation">,</span>String contact<span class="token punctuation">,</span> String hdId<span class="token punctuation">,</span> <span class="token keyword">int</span> hdType<span class="token punctuation">,</span> <span class="token keyword">final</span> ITuyaDataCallback<span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackMsgBean<span class="token punctuation">&gt;</span></span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addFeedback</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String message,String contact, String hdId, <span class="hljs-keyword">int</span> hdType, <span class="hljs-keyword">final</span> ITuyaDataCallback&lt;FeedbackMsgBean&gt; callback)</span></span>;
 </code></pre>
 <p>Note hdId, hdTypevariable can be obtained from the FeedbackTypeBean class fed back by<a href="https://github.com/TuyaInc/tuyasmart_home_android_sdk/blob/master/TuyaSmartHomeSdkDemo/doc" target="_blank"> Obtain a List of Feedback Type</a> interface.</p>
 <p><strong>[Example Codes]</strong></p>
-<pre class="language-"><code class="lang-java">
-TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getTuyaFeekback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFeedbackManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addFeedback</span><span class="token punctuation">(</span>
-     &#x201C;Thedevice fails &quot;<span class="token punctuation">,</span> <span class="token comment">//feedback</span>
-     <span class="token string">&quot;abc@qq.com&quot;</span><span class="token punctuation">,</span>
-     feebackTypeBean<span class="token punctuation">.</span><span class="token function">getHdId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
-     feebackTypeBean<span class="token punctuation">.</span><span class="token function">getHdType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
-     <span class="token keyword">new</span> <span class="token class-name">ITuyaDataCallback</span><span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackMsgBean<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-         <span class="token annotation punctuation">@Override</span>
-         <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>FeedbackMsgBean feedbackMsgBean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-         <span class="token punctuation">}</span>
-         <span class="token annotation punctuation">@Override</span>
-         <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-         <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-java">
+TuyaHomeSdk.getTuyaFeekback().getFeedbackManager().addFeedback(
+     &#x201C;Thedevice fails &quot;, //feedback
+     &quot;abc@qq.com&quot;,
+     feebackTypeBean.getHdId(), 
+     feebackTypeBean.getHdType(), 
+     new ITuyaDataCallback&lt;FeedbackMsgBean&gt;() {
+         @Override
+         public void onSuccess(FeedbackMsgBean feedbackMsgBean) {
+         }
+         @Override
+         public void onError(String errorCode, String errorMsg) {
+         }
+});
 </code></pre>
-<h2 id="message-management-feedback"><a name="message-management-feedback" class="plugin-anchor" href="#message-management-feedback"><i class="fa fa-link" aria-hidden="true"></i></a>Message management feedback</h2>
+<h2 id="message-management-feedback">Message management feedback</h2>
 <p>From the feedback list fed by<a href="https://github.com/TuyaInc/tuyasmart_home_android_sdk/blob/master/TuyaSmartHomeSdkDemo/doc/tuyahome.md#%23%23" target="_blank">Obtain Feedback List</a>interface, Each feedback object corresponds to a group of messages (conversations). Please use parameters of FeedbackBean object fed back by the interface to invoke TuyaHomeSdk.getTuyaFeekback().getFeedbackMsg(String hdId, int hdType) for initializing the message management class.</p>
 <p>For example:</p>
-<pre class="language-"><code class="lang-java">ITuyaFeedbackMag mFeedbackMag <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getTuyaFeekback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFeedbackMsg</span><span class="token punctuation">(</span>
-     feedbackBean<span class="token punctuation">.</span><span class="token function">getHdId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-     feedbackBean<span class="token punctuation">.</span><span class="token function">getHdType</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-java">ITuyaFeedbackMag mFeedbackMag = TuyaHomeSdk.getTuyaFeekback().getFeedbackMsg(
+     feedbackBean.getHdId(),
+     feedbackBean.getHdType()
+);
 </code></pre>
 <p>Among, FeedbackTalkBean provides the following interfaces:</p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
  *  Obtain message content
- * @return Message content 
+ * <span class="hljs-doctag">@return</span> Message content 
  */</span>
-<span class="token keyword">public</span> String <span class="token function">getContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> content<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getContent</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> content;
+}
 
-<span class="token comment">/**
+<span class="hljs-comment">/**
  *  Obtain message time
- * @return message time
+ * <span class="hljs-doctag">@return</span> message time
  */</span>
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getCtime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> ctime<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment">/**
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getCtime</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> ctime;
+}
+<span class="hljs-comment">/**
  * Distinguish messages sent between users and backstage supporter.
  * 0 represents user
  */</span>
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> type<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getType</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> type;
+}
 
-<span class="token comment">/**
+<span class="hljs-comment">/**
  *  Obtain feedback category id
  *
- * @return Feedback category id
+ * <span class="hljs-doctag">@return</span> Feedback category id
  */</span>
-<span class="token keyword">public</span> String <span class="token function">getHdId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">return</span> hdId<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getHdId</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> hdId;
+}
 
-<span class="token comment">/**
+<span class="hljs-comment">/**
  * Obtain feedback category
  * 2: Device fault
  * 7: Miscellaneous
- * @return Feedback class
+ * <span class="hljs-doctag">@return</span> Feedback class
  */</span>
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getHdType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> hdType<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getHdType</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> hdType;
+}
 </code></pre>
-<h2 id="obtain-a-list-of-feedback-messages"><a name="obtain-a-list-of-feedback-messages" class="plugin-anchor" href="#obtain-a-list-of-feedback-messages"><i class="fa fa-link" aria-hidden="true"></i></a>Obtain a list of feedback messages</h2>
+<h2 id="obtain-a-list-of-feedback-messages">Obtain a list of feedback messages</h2>
 <p><strong>[Description]</strong></p>
 <p>It is used to obtain a list of messages for the current feedback topic (conversation scene).</p>
 <p><strong>[Method Prototype]</strong></p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
  * Obtain a list of feedback messages
  *
- *  @param callback callback
+ *  <span class="hljs-doctag">@param</span> callback callback
  */</span>
 
-<span class="token keyword">void</span> <span class="token function">getMsgList</span><span class="token punctuation">(</span>ITuyaDataCallback<span class="token operator">&lt;</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackMsgBean<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getMsgList</span><span class="hljs-params">(ITuyaDataCallback&lt;List&lt;FeedbackMsgBean&gt;&gt; callback)</span></span>;
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre class="language-"><code class="lang-java">mFeedbackMsg<span class="token punctuation">.</span><span class="token function">getMsgList</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ITuyaDataCallback</span><span class="token operator">&lt;</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackMsgBean<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token annotation punctuation">@Override</span>
-     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackMsgBean<span class="token punctuation">&gt;</span></span> result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token punctuation">}</span>
-     <span class="token annotation punctuation">@Override</span>
-     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMessage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-java">mFeedbackMsg.getMsgList(<span class="hljs-keyword">new</span> ITuyaDataCallback&lt;List&lt;FeedbackMsgBean&gt;&gt;() {
+     <span class="hljs-meta">@Override</span>
+     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(List&lt;FeedbackMsgBean&gt; result)</span> </span>{
+     }
+     <span class="hljs-meta">@Override</span>
+     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMessage)</span> </span>{
+     }
+});
 </code></pre>
-<h2 id="add-new-feedback"><a name="add-new-feedback" class="plugin-anchor" href="#add-new-feedback"><i class="fa fa-link" aria-hidden="true"></i></a>Add new feedback</h2>
+<h2 id="add-new-feedback">Add new feedback</h2>
 <p><strong>[Description]</strong></p>
 <p>It is used to add a new feedback message to the current conversation.</p>
 <p><strong>[Method Prototype]</strong></p>
-<pre class="language-"><code class="lang-java"><span class="token comment">/**
+<pre><code class="lang-java"><span class="hljs-comment">/**
  * Add new feedback
  *
- * @param msg      Feedback content 
- * @param contact  contact 
- * @param callback
+ * <span class="hljs-doctag">@param</span> msg      Feedback content 
+ * <span class="hljs-doctag">@param</span> contact  contact 
+ * <span class="hljs-doctag">@param</span> callback
  */</span>
-<span class="token keyword">void</span> <span class="token function">addMsg</span><span class="token punctuation">(</span>String msg<span class="token punctuation">,</span> String  contact<span class="token punctuation">,</span>ITuyaDataCallback<span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackMsgBean<span class="token punctuation">&gt;</span></span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addMsg</span><span class="hljs-params">(String msg, String  contact,ITuyaDataCallback&lt;FeedbackMsgBean&gt; callback)</span></span>;
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre class="language-"><code class="lang-java">mFeedbackMsg<span class="token punctuation">.</span><span class="token function">addMsg</span><span class="token punctuation">(</span>
-    &#x201C;Question feedback again<span class="token string">&quot;,&quot;</span>abc<span class="token annotation punctuation">@qq</span><span class="token punctuation">.</span>com&quot;<span class="token punctuation">,</span> 
-    <span class="token keyword">new</span> <span class="token class-name">ITuyaDataCallback</span><span class="token generics function"><span class="token punctuation">&lt;</span>FeedbackMsgBean<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>FeedbackMsgBean result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token punctuation">}</span>
+<pre><code class="lang-java">mFeedbackMsg.addMsg(
+    &#x201C;Question feedback again&quot;,&quot;abc@qq.com&quot;, 
+    new ITuyaDataCallback&lt;FeedbackMsgBean&gt;() {
+        @Override
+        public void onSuccess(FeedbackMsgBean result) {
+        }
 
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMessage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        @Override
+        public void onError(String errorCode, String errorMessage) {
+        }
+});
 </code></pre>
 
                                 
@@ -1607,7 +1603,7 @@ TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Feedback","level":"1.16","depth":1,"next":{"title":"Bluetooth Low Energy","level":"1.17","depth":1,"path":"resource/BLE.md","ref":"./resource/BLE.md","articles":[{"title":"BLE Prepare","level":"1.17.1","depth":2,"path":"resource/BLE_Prepare.md","ref":"./resource/BLE_Prepare.md","articles":[]},{"title":"BLE Scan And Activator","level":"1.17.2","depth":2,"path":"resource/BLE_Activator.md","ref":"./resource/BLE_Activator.md","articles":[]},{"title":"BLE Device Operate","level":"1.17.3","depth":2,"path":"resource/BLE_Operator.md","ref":"./resource/BLE_Operator.md","articles":[]},{"title":"BLE OTA","level":"1.17.4","depth":2,"path":"resource/BLE_OTA.md","ref":"./resource/BLE_OTA.md","articles":[]}]},"previous":{"title":"Message push switch","level":"1.15.2","depth":2,"path":"resource/MessagePush.md","ref":"./resource/MessagePush.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Feedback.md","mtime":"2019-03-12T02:03:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T12:29:14.513Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Feedback","level":"1.16","depth":1,"next":{"title":"Bluetooth Low Energy","level":"1.17","depth":1,"path":"resource/BLE.md","ref":"./resource/BLE.md","articles":[{"title":"BLE Prepare","level":"1.17.1","depth":2,"path":"resource/BLE_Prepare.md","ref":"./resource/BLE_Prepare.md","articles":[]},{"title":"BLE Scan And Activator","level":"1.17.2","depth":2,"path":"resource/BLE_Activator.md","ref":"./resource/BLE_Activator.md","articles":[]},{"title":"BLE Device Operate","level":"1.17.3","depth":2,"path":"resource/BLE_Operator.md","ref":"./resource/BLE_Operator.md","articles":[]},{"title":"BLE OTA","level":"1.17.4","depth":2,"path":"resource/BLE_OTA.md","ref":"./resource/BLE_OTA.md","articles":[]}]},"previous":{"title":"Message push switch","level":"1.15.2","depth":2,"path":"resource/MessagePush.md","ref":"./resource/MessagePush.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Feedback.md","mtime":"2019-03-12T02:03:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1615,18 +1611,6 @@ TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

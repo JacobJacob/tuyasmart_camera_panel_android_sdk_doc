@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1282,29 +1278,29 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="device-operation"><a name="device-operation" class="plugin-anchor" href="#device-operation"><i class="fa fa-link" aria-hidden="true"></i></a>Device operation</h1>
+                                <h1 id="device-operation">Device operation</h1>
 <p>1&#x3001;Operating device includes , status query, connection, and sending command, modifying name and unbinding , etc.
 2&#x3001;After successful activator, deviceBean will be obtained, and devId can be obtained. Subsequent operations are mainly based on devId.</p>
-<h3 id="1judging-device-status"><a name="1judging-device-status" class="plugin-anchor" href="#1judging-device-status"><i class="fa fa-link" aria-hidden="true"></i></a>1.Judging device status</h3>
+<h3 id="1judging-device-status">1.Judging device status</h3>
 <ul>
-<li>Query in a common way Consistent with wifi<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getDataInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeviceBean</span><span class="token punctuation">(</span>devId<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getIsOnline</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<li>Query in a common way Consistent with wifi<pre><code class="lang-java">TuyaHomeSdk.getDataInstance().getDeviceBean(devId).getIsOnline();
 </code></pre>
 </li>
-<li>Query whether the device&apos;s local Bluetooth is connected<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getBleManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isBleLocalOnline</span><span class="token punctuation">(</span>devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<li>Query whether the device&apos;s local Bluetooth is connected<pre><code class="lang-java">TuyaHomeSdk.getBleManager().isBleLocalOnline(devId);
 </code></pre>
 </li>
 </ul>
-<h3 id="2connect-the-device"><a name="2connect-the-device" class="plugin-anchor" href="#2connect-the-device"><i class="fa fa-link" aria-hidden="true"></i></a>2.Connect the device</h3>
+<h3 id="2connect-the-device">2.Connect the device</h3>
 <p>If the device is offline, you can call the connection method to connect the device.</p>
-<pre class="language-"><code class="lang-java"> List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> devIdList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- devIdList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>devId1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//device1 devId</span>
- devIdList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>devId2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//device2 devId</span>
+<pre><code class="lang-java"> List&lt;String&gt; devIdList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+ devIdList.add(devId1); <span class="hljs-comment">//device1 devId</span>
+ devIdList.add(devId2); <span class="hljs-comment">//device2 devId</span>
 
- String ids <span class="token operator">=</span> JSONObject<span class="token punctuation">.</span><span class="token function">toJSONString</span><span class="token punctuation">(</span>devIdList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ String ids = JSONObject.toJSONString(devIdList);
 
- TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getBleManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addScanLinkTaskIds</span><span class="token punctuation">(</span>ids<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ TuyaHomeSdk.getBleManager().addScanLinkTaskIds(ids);
 </code></pre>
-<h3 id="3-device-control"><a name="3-device-control" class="plugin-anchor" href="#3-device-control"><i class="fa fa-link" aria-hidden="true"></i></a>3. Device Control</h3>
+<h3 id="3-device-control">3. Device Control</h3>
 <p>Consistent with wifi device operation&#xFF0C;see above</p>
 
                                 
@@ -1349,7 +1345,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"BLE Device Operate","level":"1.17.3","depth":2,"next":{"title":"BLE OTA","level":"1.17.4","depth":2,"path":"resource/BLE_OTA.md","ref":"./resource/BLE_OTA.md","articles":[]},"previous":{"title":"BLE Scan And Activator","level":"1.17.2","depth":2,"path":"resource/BLE_Activator.md","ref":"./resource/BLE_Activator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/BLE_Operator.md","mtime":"2019-12-24T04:43:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T12:29:14.513Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"BLE Device Operate","level":"1.17.3","depth":2,"next":{"title":"BLE OTA","level":"1.17.4","depth":2,"path":"resource/BLE_OTA.md","ref":"./resource/BLE_OTA.md","articles":[]},"previous":{"title":"BLE Scan And Activator","level":"1.17.2","depth":2,"path":"resource/BLE_Activator.md","ref":"./resource/BLE_Activator.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/BLE_Operator.md","mtime":"2019-12-24T04:43:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1357,18 +1353,6 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1282,33 +1278,33 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="common-interface"><a name="common-interface" class="plugin-anchor" href="#common-interface"><i class="fa fa-link" aria-hidden="true"></i></a>Common interface</h2>
+                                <h2 id="common-interface">Common interface</h2>
 <p>The server api calls the common function interface in the interface<code>ITuyaSmartRequest</code></p>
 <p>There are the following interfaces available for calling</p>
-<pre class="language-"><code class="lang-java">  <span class="token comment">/**
+<pre><code class="lang-java">  <span class="hljs-comment">/**
  * Applicable to api interface request with session
- * @param apiName: api name
- * @param version: api version
- * @param postData: Post sent data
- * @param object: Data object returned by the server
- * @param callback: callback
- * @param &lt;T&gt;
+ * <span class="hljs-doctag">@param</span> apiName: api name
+ * <span class="hljs-doctag">@param</span> version: api version
+ * <span class="hljs-doctag">@param</span> postData: Post sent data
+ * <span class="hljs-doctag">@param</span> object: Data object returned by the server
+ * <span class="hljs-doctag">@param</span> callback: callback
+ * <span class="hljs-doctag">@param</span> &lt;T&gt;
  */</span>
-<span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> <span class="token keyword">void</span> <span class="token function">requestWithApiName</span><span class="token punctuation">(</span>String apiName<span class="token punctuation">,</span> String version<span class="token punctuation">,</span> Map<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span> postData<span class="token punctuation">,</span> Class<span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> object<span class="token punctuation">,</span> <span class="token keyword">final</span> ITuyaDataCallback<span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+&lt;T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">requestWithApiName</span><span class="hljs-params">(String apiName, String version, Map&lt;String, Object&gt; postData, Class&lt;T&gt; object, <span class="hljs-keyword">final</span> ITuyaDataCallback&lt;T&gt; callback)</span></span>;
 
-<span class="token comment">/**
+<span class="hljs-comment">/**
  * Applies to api interface requests without session
- * @param apiName: api name
- * @param version: api version
- * @param postData: Post sent data
- * @param object: Data object returned by the server
- * @param callback: callback
- * @param &lt;T&gt;
+ * <span class="hljs-doctag">@param</span> apiName: api name
+ * <span class="hljs-doctag">@param</span> version: api version
+ * <span class="hljs-doctag">@param</span> postData: Post sent data
+ * <span class="hljs-doctag">@param</span> object: Data object returned by the server
+ * <span class="hljs-doctag">@param</span> callback: callback
+ * <span class="hljs-doctag">@param</span> &lt;T&gt;
  */</span>
-<span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> <span class="token keyword">void</span> <span class="token function">requestWithApiNameWithoutSession</span><span class="token punctuation">(</span>String apiName<span class="token punctuation">,</span> String version<span class="token punctuation">,</span> Map<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span> postData<span class="token punctuation">,</span> Class<span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> object<span class="token punctuation">,</span> <span class="token keyword">final</span> ITuyaDataCallback<span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+&lt;T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">requestWithApiNameWithoutSession</span><span class="hljs-params">(String apiName, String version, Map&lt;String, Object&gt; postData, Class&lt;T&gt; object, <span class="hljs-keyword">final</span> ITuyaDataCallback&lt;T&gt; callback)</span></span>;
 </code></pre>
 <p>The calling method is as follows:<code>TuyaHomeSdk.getRequestInstance()</code></p>
-<h2 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example</h2>
+<h2 id="example">Example</h2>
 <p>Take the following interface as an example:</p>
 <table>
 <thead>
@@ -1328,19 +1324,19 @@
 </tr>
 </tbody>
 </table>
-<pre class="language-"><code class="lang-java">Map<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span> postData <span class="token operator">=</span> null<span class="token punctuation">;</span>
+<pre><code class="lang-java">Map&lt;String, Object&gt; postData = <span class="hljs-keyword">null</span>;
 
-TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getRequestInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">requestWithApiNameWithoutSession</span><span class="token punctuation">(</span><span class="token string">&quot;tuya.m.country.list&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;1.0&quot;</span><span class="token punctuation">,</span> postData<span class="token punctuation">,</span> String<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ITuyaDataCallback</span><span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>String result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        Log<span class="token punctuation">.</span><span class="token function">i</span><span class="token punctuation">(</span><span class="token string">&quot;TAG&quot;</span> <span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+TuyaHomeSdk.getRequestInstance().requestWithApiNameWithoutSession(<span class="hljs-string">&quot;tuya.m.country.list&quot;</span>, <span class="hljs-string">&quot;1.0&quot;</span>, postData, String.class, <span class="hljs-keyword">new</span> ITuyaDataCallback&lt;String&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(String result)</span> </span>{
+        Log.i(<span class="hljs-string">&quot;TAG&quot;</span> , result);
+    }
 
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMessage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        Log<span class="token punctuation">.</span><span class="token function">i</span><span class="token punctuation">(</span><span class="token string">&quot;TAG&quot;</span> <span class="token punctuation">,</span> errorCode<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMessage)</span> </span>{
+        Log.i(<span class="hljs-string">&quot;TAG&quot;</span> , errorCode);
+    }
+});
 </code></pre>
 
                                 
@@ -1385,7 +1381,7 @@ TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Common Interface","level":"1.19","depth":1,"next":{"title":"Bluetooth Mesh (TUYA)","level":"1.20","depth":1,"path":"resource/Mesh.md","ref":"./resource/Mesh.md","articles":[{"title":"Prepare","level":"1.20.1","depth":2,"path":"resource/Mesh_Prepare.md","ref":"./resource/Mesh_Prepare.md","articles":[]},{"title":"Basic Notion","level":"1.20.2","depth":2,"path":"resource/Mesh_IDEA.md","ref":"./resource/Mesh_IDEA.md","articles":[]},{"title":"Management","level":"1.20.3","depth":2,"path":"resource/Mesh_Admin.md","ref":"./resource/Mesh_Admin.md","articles":[]},{"title":"Configuration","level":"1.20.4","depth":2,"path":"resource/Mesh_Config.md","ref":"./resource/Mesh_Config.md","articles":[]},{"title":"Device","level":"1.20.5","depth":2,"path":"resource/Mesh_Device.md","ref":"./resource/Mesh_Device.md","articles":[]},{"title":"Group","level":"1.20.6","depth":2,"path":"resource/Mesh_Group_Operate.md","ref":"./resource/Mesh_Group_Operate.md","articles":[]},{"title":"Control","level":"1.20.7","depth":2,"path":"resource/Mesh_Device_Operate.md","ref":"./resource/Mesh_Device_Operate.md","articles":[]},{"title":"Firmware Upgrade","level":"1.20.8","depth":2,"path":"resource/Mesh_OTA.md","ref":"./resource/Mesh_OTA.md","articles":[]}]},"previous":{"title":"Umeng","level":"1.18.2","depth":2,"path":"resource/Push_umeng.md","ref":"./resource/Push_umeng.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/CommonInterface.md","mtime":"2019-07-26T03:03:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T12:29:14.513Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Common Interface","level":"1.19","depth":1,"next":{"title":"Bluetooth Mesh (TUYA)","level":"1.20","depth":1,"path":"resource/Mesh.md","ref":"./resource/Mesh.md","articles":[{"title":"Prepare","level":"1.20.1","depth":2,"path":"resource/Mesh_Prepare.md","ref":"./resource/Mesh_Prepare.md","articles":[]},{"title":"Basic Notion","level":"1.20.2","depth":2,"path":"resource/Mesh_IDEA.md","ref":"./resource/Mesh_IDEA.md","articles":[]},{"title":"Management","level":"1.20.3","depth":2,"path":"resource/Mesh_Admin.md","ref":"./resource/Mesh_Admin.md","articles":[]},{"title":"Configuration","level":"1.20.4","depth":2,"path":"resource/Mesh_Config.md","ref":"./resource/Mesh_Config.md","articles":[]},{"title":"Device","level":"1.20.5","depth":2,"path":"resource/Mesh_Device.md","ref":"./resource/Mesh_Device.md","articles":[]},{"title":"Group","level":"1.20.6","depth":2,"path":"resource/Mesh_Group_Operate.md","ref":"./resource/Mesh_Group_Operate.md","articles":[]},{"title":"Control","level":"1.20.7","depth":2,"path":"resource/Mesh_Device_Operate.md","ref":"./resource/Mesh_Device_Operate.md","articles":[]},{"title":"Firmware Upgrade","level":"1.20.8","depth":2,"path":"resource/Mesh_OTA.md","ref":"./resource/Mesh_OTA.md","articles":[]}]},"previous":{"title":"Umeng","level":"1.18.2","depth":2,"path":"resource/Push_umeng.md","ref":"./resource/Push_umeng.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/CommonInterface.md","mtime":"2019-07-26T03:03:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1393,18 +1389,6 @@ TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

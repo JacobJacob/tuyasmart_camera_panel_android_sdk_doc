@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1282,156 +1278,156 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="configuration"><a name="configuration" class="plugin-anchor" href="#configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration</h2>
-<h3 id="scan-nearby-sub-devices-to-be-configured"><a name="scan-nearby-sub-devices-to-be-configured" class="plugin-anchor" href="#scan-nearby-sub-devices-to-be-configured"><i class="fa fa-link" aria-hidden="true"></i></a>Scan nearby sub-devices to be configured</h3>
-<h5 id="&#x3010;description&#x3011;"><a name="&#x3010;description&#x3011;" class="plugin-anchor" href="#&#x3010;description&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Description&#x3011;</h5>
+                                <h2 id="configuration">Configuration</h2>
+<h3 id="scan-nearby-sub-devices-to-be-configured">Scan nearby sub-devices to be configured</h3>
+<h5 id="&#x3010;description&#x3011;">&#x3010;Description&#x3011;</h5>
 <p>Need to check Bluetooth and location permissions before scanning</p>
-<h5 id="&#x3010;method-invocation&#x3011;"><a name="&#x3010;method-invocation&#x3011;" class="plugin-anchor" href="#&#x3010;method-invocation&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method Invocation&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token comment">//start search</span>
-mMeshSearch<span class="token punctuation">.</span><span class="token function">startSearch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//stop search</span>
-mMeshSearch<span class="token punctuation">.</span><span class="token function">stopSearch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h5 id="&#x3010;method-invocation&#x3011;">&#x3010;Method Invocation&#x3011;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">//start search</span>
+mMeshSearch.startSearch();
+<span class="hljs-comment">//stop search</span>
+mMeshSearch.stopSearch();
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java">ITuyaBlueMeshSearchListener iTuyaBlueMeshSearchListener<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ITuyaBlueMeshSearchListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSearched</span><span class="token punctuation">(</span>SearchDeviceBean deviceBean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java">ITuyaBlueMeshSearchListener iTuyaBlueMeshSearchListener=<span class="hljs-keyword">new</span> ITuyaBlueMeshSearchListener() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSearched</span><span class="hljs-params">(SearchDeviceBean deviceBean)</span> </span>{
 
-    <span class="token punctuation">}</span>
+    }
 
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSearchFinish</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSearchFinish</span><span class="hljs-params">()</span> </span>{
 
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+    }
+};
 
-SearchBuilder searchBuilder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SearchBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setMeshName</span><span class="token punctuation">(</span><span class="token string">&quot;out_of_mesh&quot;</span><span class="token punctuation">)</span>        <span class="token comment">//To scan the name of the device (the default will be out_of_mesh, the name of the device in the unconfigured state)</span>
-                <span class="token punctuation">.</span><span class="token function">setTimeOut</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>        <span class="token comment">//Scan duration in seconds</span>
-                <span class="token punctuation">.</span><span class="token function">setTuyaBlueMeshSearchListener</span><span class="token punctuation">(</span>iTuyaBlueMeshSearchListener<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+SearchBuilder searchBuilder = <span class="hljs-keyword">new</span> SearchBuilder()
+                .setMeshName(<span class="hljs-string">&quot;out_of_mesh&quot;</span>)        <span class="hljs-comment">//To scan the name of the device (the default will be out_of_mesh, the name of the device in the unconfigured state)</span>
+                .setTimeOut(<span class="hljs-number">100</span>)        <span class="hljs-comment">//Scan duration in seconds</span>
+                .setTuyaBlueMeshSearchListener(iTuyaBlueMeshSearchListener).build();
 
-ITuyaBlueMeshSearch mMeshSearch <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getTuyaBlueMeshConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">newTuyaBlueMeshSearch</span><span class="token punctuation">(</span>searchBuilder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ITuyaBlueMeshSearch mMeshSearch = TuyaHomeSdk.getTuyaBlueMeshConfig().newTuyaBlueMeshSearch(searchBuilder);
 
-<span class="token comment">//start search</span>
-mMeshSearch<span class="token punctuation">.</span><span class="token function">startSearch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">//start search</span>
+mMeshSearch.startSearch();
 
-<span class="token comment">//stop search</span>
-mMeshSearch<span class="token punctuation">.</span><span class="token function">stopSearch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">//stop search</span>
+mMeshSearch.stopSearch();
 </code></pre>
-<h3 id="sub-device-configuration"><a name="sub-device-configuration" class="plugin-anchor" href="#sub-device-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Sub-device Configuration</h3>
-<h5 id="&#x3010;description&#x3011;"><a name="&#x3010;description&#x3011;" class="plugin-anchor" href="#&#x3010;description&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Description&#x3011;</h5>
+<h3 id="sub-device-configuration">Sub-device Configuration</h3>
+<h5 id="&#x3010;description&#x3011;">&#x3010;Description&#x3011;</h5>
 <p>There are two types of sub-device configuration, one is common device access, and the other is mesh gateway access.</p>
-<h5 id="&#x3010;initial-parameter-configuration&#x3011;"><a name="&#x3010;initial-parameter-configuration&#x3011;" class="plugin-anchor" href="#&#x3010;initial-parameter-configuration&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Initial parameter configuration&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token comment">//common sub-device configuration parameter</span>
-TuyaBlueMeshActivatorBuilder tuyaBlueMeshActivatorBuilder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TuyaBlueMeshActivatorBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setSearchDeviceBeans</span><span class="token punctuation">(</span>mSearchDeviceBeanList<span class="token punctuation">)</span>
-            <span class="token comment">//default version number</span>
-            <span class="token punctuation">.</span><span class="token function">setVersion</span><span class="token punctuation">(</span><span class="token string">&quot;1.0&quot;</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setBlueMeshBean</span><span class="token punctuation">(</span>mMeshBean<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setTimeOut</span><span class="token punctuation">(</span>CONFIG_TIME_OUT<span class="token punctuation">)</span>  <span class="token comment">//scan duration in seconds</span>
-            <span class="token punctuation">.</span><span class="token function">setTuyaBlueMeshActivatorListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h5 id="&#x3010;initial-parameter-configuration&#x3011;">&#x3010;Initial parameter configuration&#x3011;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">//common sub-device configuration parameter</span>
+TuyaBlueMeshActivatorBuilder tuyaBlueMeshActivatorBuilder = <span class="hljs-keyword">new</span> TuyaBlueMeshActivatorBuilder()
+            .setSearchDeviceBeans(mSearchDeviceBeanList)
+            <span class="hljs-comment">//default version number</span>
+            .setVersion(<span class="hljs-string">&quot;1.0&quot;</span>)
+            .setBlueMeshBean(mMeshBean)
+            .setTimeOut(CONFIG_TIME_OUT)  <span class="hljs-comment">//scan duration in seconds</span>
+            .setTuyaBlueMeshActivatorListener();
 
-<span class="token comment">//Mesh gateway configuration parameter    </span>
-TuyaBlueMeshActivatorBuilder tuyaBlueMeshActivatorBuilder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TuyaBlueMeshActivatorBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setWifiSsid</span><span class="token punctuation">(</span>mSsid<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setWifiPassword</span><span class="token punctuation">(</span>mPassword<span class="token punctuation">)</span>     
-            <span class="token punctuation">.</span><span class="token function">setSearchDeviceBeans</span><span class="token punctuation">(</span>mSearchDeviceBeanList<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setVersion</span><span class="token punctuation">(</span><span class="token string">&quot;2.2&quot;</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setBlueMeshBean</span><span class="token punctuation">(</span>mMeshBean<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setHomeId</span><span class="token punctuation">(</span><span class="token string">&quot;homeId&quot;</span><span class="token punctuation">)</span>
-              <span class="token punctuation">.</span><span class="token function">setTimeOut</span><span class="token punctuation">(</span>CONFIG_TIME_OUT<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setTuyaBlueMeshActivatorListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">//Mesh gateway configuration parameter    </span>
+TuyaBlueMeshActivatorBuilder tuyaBlueMeshActivatorBuilder = <span class="hljs-keyword">new</span> TuyaBlueMeshActivatorBuilder()
+            .setWifiSsid(mSsid)
+            .setWifiPassword(mPassword)     
+            .setSearchDeviceBeans(mSearchDeviceBeanList)
+            .setVersion(<span class="hljs-string">&quot;2.2&quot;</span>)
+            .setBlueMeshBean(mMeshBean)
+            .setHomeId(<span class="hljs-string">&quot;homeId&quot;</span>)
+              .setTimeOut(CONFIG_TIME_OUT)
+            .setTuyaBlueMeshActivatorListener();
 </code></pre>
-<h5 id="&#x3010;&#x53C2;&#x6570;&#x8BF4;&#x660E;&#x3011;"><a name="&#x3010;&#x53C2;&#x6570;&#x8BF4;&#x660E;&#x3011;" class="plugin-anchor" href="#&#x3010;&#x53C2;&#x6570;&#x8BF4;&#x660E;&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;&#x53C2;&#x6570;&#x8BF4;&#x660E;&#x3011;</h5>
-<h6 id="&#x3010;&#x5165;&#x53C2;&#x3011;"><a name="&#x3010;&#x5165;&#x53C2;&#x3011;" class="plugin-anchor" href="#&#x3010;&#x5165;&#x53C2;&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;&#x5165;&#x53C2;&#x3011;</h6>
-<pre class="language-"><code class="lang-java"><span class="token operator">*</span> <span class="token annotation punctuation">@param</span> mSearchDeviceBeans     list of device to be configured
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> timeout   Timeout setting <span class="token keyword">for</span> network configuration<span class="token punctuation">,</span> <span class="token keyword">default</span> is <span class="token number">100</span>s
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> ssid        Name of the Wifi used by devices in working after the network isconfigured<span class="token punctuation">.</span>  <span class="token punctuation">(</span>Home network<span class="token punctuation">)</span>
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> password   Password of the Wifi used by devices in working after the network is configured<span class="token punctuation">.</span>  <span class="token punctuation">(</span>Home network<span class="token punctuation">)</span>
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> mMeshBean  MeshBean 
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> homeId     join homeId
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> version    Common device is <span class="token number">1.0</span> <span class="token punctuation">,</span> gateway is <span class="token number">2.2</span>
+<h5 id="&#x3010;&#x53C2;&#x6570;&#x8BF4;&#x660E;&#x3011;">&#x3010;&#x53C2;&#x6570;&#x8BF4;&#x660E;&#x3011;</h5>
+<h6 id="&#x3010;&#x5165;&#x53C2;&#x3011;">&#x3010;&#x5165;&#x53C2;&#x3011;</h6>
+<pre><code class="lang-java">* <span class="hljs-meta">@param</span> mSearchDeviceBeans     list of device to be configured
+* <span class="hljs-meta">@param</span> timeout   Timeout setting <span class="hljs-keyword">for</span> network configuration, <span class="hljs-keyword">default</span> is <span class="hljs-number">100</span>s
+* <span class="hljs-meta">@param</span> ssid        Name of the Wifi used by devices in working after the network isconfigured.  (Home network)
+* <span class="hljs-meta">@param</span> password   Password of the Wifi used by devices in working after the network is configured.  (Home network)
+* <span class="hljs-meta">@param</span> mMeshBean  MeshBean 
+* <span class="hljs-meta">@param</span> homeId     join homeId
+* <span class="hljs-meta">@param</span> version    Common device is <span class="hljs-number">1.0</span> , gateway is <span class="hljs-number">2.2</span>
 </code></pre>
-<h6 id="&#x3010;&#x51FA;&#x53C2;&#x3011;"><a name="&#x3010;&#x51FA;&#x53C2;&#x3011;" class="plugin-anchor" href="#&#x3010;&#x51FA;&#x53C2;&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;&#x51FA;&#x53C2;&#x3011;</h6>
+<h6 id="&#x3010;&#x51FA;&#x53C2;&#x3011;">&#x3010;&#x51FA;&#x53C2;&#x3011;</h6>
 <p>ITuyaBlueMeshActivatorListener listener configuration callback</p>
-<pre class="language-"><code class="lang-java"><span class="token comment">//single device configuration failed callback</span>
-<span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-java"><span class="hljs-comment">//single device configuration failed callback</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span></span>;
 
-<span class="token annotation punctuation">@param</span> errorCode<span class="token operator">:</span>
-<span class="token number">13007</span>       login failed
-<span class="token number">13004</span>       reset device address failed
-<span class="token number">13005</span>       device address allocation is full
-<span class="token number">13007</span>       ssid is empty 
-<span class="token number">13011</span>       configuration time out
+<span class="hljs-meta">@param</span> errorCode:
+<span class="hljs-number">13007</span>       login failed
+<span class="hljs-number">13004</span>       reset device address failed
+<span class="hljs-number">13005</span>       device address allocation is full
+<span class="hljs-number">13007</span>       ssid is empty 
+<span class="hljs-number">13011</span>       configuration time out
 
-<span class="token comment">//single device configuration success callback</span>
-<span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>DeviceBean deviceBean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">//single device configuration success callback</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(DeviceBean deviceBean)</span></span>;
 
-<span class="token comment">//configuration finish callback</span>
-<span class="token keyword">void</span> <span class="token function">onFinish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">//configuration finish callback</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onFinish</span><span class="hljs-params">()</span></span>;
 </code></pre>
-<h5 id="&#x3010;method-invocation&#x3011;"><a name="&#x3010;method-invocation&#x3011;" class="plugin-anchor" href="#&#x3010;method-invocation&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method Invocation&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token comment">//start activator</span>
-iTuyaBlueMeshActivator<span class="token punctuation">.</span><span class="token function">startActivator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h5 id="&#x3010;method-invocation&#x3011;">&#x3010;Method Invocation&#x3011;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">//start activator</span>
+iTuyaBlueMeshActivator.startActivator();
 
-<span class="token comment">//stop activator</span>
-iTuyaBlueMeshActivator<span class="token punctuation">.</span><span class="token function">stopActivator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">//stop activator</span>
+iTuyaBlueMeshActivator.stopActivator();
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token comment">//common sub-device configuration</span>
-TuyaBlueMeshActivatorBuilder tuyaBlueMeshActivatorBuilder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TuyaBlueMeshActivatorBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setSearchDeviceBeans</span><span class="token punctuation">(</span>foundDevices<span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setVersion</span><span class="token punctuation">(</span><span class="token string">&quot;1.0&quot;</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setBlueMeshBean</span><span class="token punctuation">(</span>mMeshBean<span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setTimeOut</span><span class="token punctuation">(</span>timeOut<span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setTuyaBlueMeshActivatorListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ITuyaBlueMeshActivatorListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>DeviceBean deviceBean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        L<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;subDevBean onSuccess: &quot;</span> <span class="token operator">+</span> deviceBean<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">//common sub-device configuration</span>
+TuyaBlueMeshActivatorBuilder tuyaBlueMeshActivatorBuilder = <span class="hljs-keyword">new</span> TuyaBlueMeshActivatorBuilder()
+                .setSearchDeviceBeans(foundDevices)
+                .setVersion(<span class="hljs-string">&quot;1.0&quot;</span>)
+                .setBlueMeshBean(mMeshBean)
+                .setTimeOut(timeOut)
+                .setTuyaBlueMeshActivatorListener(<span class="hljs-keyword">new</span> ITuyaBlueMeshActivatorListener() {
+                    <span class="hljs-meta">@Override</span>
+                    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(DeviceBean deviceBean)</span> </span>{
+                        L.d(TAG, <span class="hljs-string">&quot;subDevBean onSuccess: &quot;</span> + deviceBean.getName());
+                    }
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        L<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;config mesh error&quot;</span> <span class="token operator">+</span> errorCode <span class="token operator">+</span> <span class="token string">&quot; &quot;</span> <span class="token operator">+</span> errorMsg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+                    <span class="hljs-meta">@Override</span>
+                    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
+                        L.d(TAG, <span class="hljs-string">&quot;config mesh error&quot;</span> + errorCode + <span class="hljs-string">&quot; &quot;</span> + errorMsg);
+                    }
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFinish</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        L<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;config mesh onFinish&#xFF1A; &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-ITuyaBlueMeshActivator iTuyaBlueMeshActivator <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getTuyaBlueMeshConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">newActivator</span><span class="token punctuation">(</span>tuyaBlueMeshActivatorBuilder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="hljs-meta">@Override</span>
+                    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFinish</span><span class="hljs-params">()</span> </span>{
+                        L.d(TAG, <span class="hljs-string">&quot;config mesh onFinish&#xFF1A; &quot;</span>);
+                    }
+                });
+ITuyaBlueMeshActivator iTuyaBlueMeshActivator = TuyaHomeSdk.getTuyaBlueMeshConfig().newActivator(tuyaBlueMeshActivatorBuilder);
 
-iTuyaBlueMeshActivator<span class="token punctuation">.</span><span class="token function">startActivator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+iTuyaBlueMeshActivator.startActivator();
 
 
-<span class="token comment">//gateway sub-device configuration</span>
-TuyaBlueMeshActivatorBuilder tuyaBlueMeshActivatorBuilder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TuyaBlueMeshActivatorBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setWifiSsid</span><span class="token punctuation">(</span>mSsid<span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setWifiPassword</span><span class="token punctuation">(</span>mPassword<span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setSearchDeviceBeans</span><span class="token punctuation">(</span>foundDevices<span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setVersion</span><span class="token punctuation">(</span><span class="token string">&quot;2.2&quot;</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setBlueMeshBean</span><span class="token punctuation">(</span>mMeshBean<span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setHomeId</span><span class="token punctuation">(</span><span class="token string">&quot;homeId&quot;</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">setTuyaBlueMeshActivatorListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ITuyaBlueMeshActivatorListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="hljs-comment">//gateway sub-device configuration</span>
+TuyaBlueMeshActivatorBuilder tuyaBlueMeshActivatorBuilder = <span class="hljs-keyword">new</span> TuyaBlueMeshActivatorBuilder()
+                .setWifiSsid(mSsid)
+                .setWifiPassword(mPassword)
+                .setSearchDeviceBeans(foundDevices)
+                .setVersion(<span class="hljs-string">&quot;2.2&quot;</span>)
+                .setBlueMeshBean(mMeshBean)
+                .setHomeId(<span class="hljs-string">&quot;homeId&quot;</span>)
+                .setTuyaBlueMeshActivatorListener(<span class="hljs-keyword">new</span> ITuyaBlueMeshActivatorListener() {
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>DeviceBean devBean<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        L<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;startConfig  success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+                    <span class="hljs-meta">@Override</span>
+                    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(DeviceBean devBean)</span> </span>{
+                        L.d(TAG, <span class="hljs-string">&quot;startConfig  success&quot;</span>);
+                    }
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        L<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;errorCode: &quot;</span> <span class="token operator">+</span> errorCode <span class="token operator">+</span> <span class="token string">&quot; errorMsg: &quot;</span> <span class="token operator">+</span> errorMsg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+                    <span class="hljs-meta">@Override</span>
+                    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
+                        L.d(TAG, <span class="hljs-string">&quot;errorCode: &quot;</span> + errorCode + <span class="hljs-string">&quot; errorMsg: &quot;</span> + errorMsg);
+                    }
 
-                    <span class="token annotation punctuation">@Override</span>
-                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFinish</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        L<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;subDevBean onFinish: &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-ITuyaBlueMeshActivator iTuyaBlueMeshActivator <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getTuyaBlueMeshConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">newWifiActivator</span><span class="token punctuation">(</span>tuyaBlueMeshActivatorBuilder<span class="token punctuation">)</span><span class="token punctuation">;</span>
-iTuyaBlueMeshActivator<span class="token punctuation">.</span><span class="token function">startActivator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="hljs-meta">@Override</span>
+                    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFinish</span><span class="hljs-params">()</span> </span>{
+                        L.d(TAG, <span class="hljs-string">&quot;subDevBean onFinish: &quot;</span>);             
+                    }
+                });
+ITuyaBlueMeshActivator iTuyaBlueMeshActivator = TuyaHomeSdk.getTuyaBlueMeshConfig().newWifiActivator(tuyaBlueMeshActivatorBuilder);
+iTuyaBlueMeshActivator.startActivator();
 </code></pre>
 
                                 
@@ -1476,7 +1472,7 @@ iTuyaBlueMeshActivator<span class="token punctuation">.</span><span class="token
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Configuration","level":"1.20.4","depth":2,"next":{"title":"Device","level":"1.20.5","depth":2,"path":"resource/Mesh_Device.md","ref":"./resource/Mesh_Device.md","articles":[]},"previous":{"title":"Management","level":"1.20.3","depth":2,"path":"resource/Mesh_Admin.md","ref":"./resource/Mesh_Admin.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Mesh_Config.md","mtime":"2019-12-14T15:07:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T12:29:14.513Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Configuration","level":"1.20.4","depth":2,"next":{"title":"Device","level":"1.20.5","depth":2,"path":"resource/Mesh_Device.md","ref":"./resource/Mesh_Device.md","articles":[]},"previous":{"title":"Management","level":"1.20.3","depth":2,"path":"resource/Mesh_Admin.md","ref":"./resource/Mesh_Admin.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Mesh_Config.md","mtime":"2019-12-14T15:07:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1484,18 +1480,6 @@ iTuyaBlueMeshActivator<span class="token punctuation">.</span><span class="token
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

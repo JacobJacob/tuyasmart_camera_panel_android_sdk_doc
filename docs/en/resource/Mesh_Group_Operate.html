@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1282,96 +1278,96 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="group"><a name="group" class="plugin-anchor" href="#group"><i class="fa fa-link" aria-hidden="true"></i></a>Group</h2>
+                                <h2 id="group">Group</h2>
 <p>ITuyaGroup class provides operations on Mesh groups</p>
-<h3 id="mesh-group-judgment-method"><a name="mesh-group-judgment-method" class="plugin-anchor" href="#mesh-group-judgment-method"><i class="fa fa-link" aria-hidden="true"></i></a>Mesh Group Judgment Method</h3>
+<h3 id="mesh-group-judgment-method">Mesh Group Judgment Method</h3>
 <p>ITuyaGroup class provides operations on Mesh groups</p>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java">GroupBean groupBean<span class="token operator">=</span>TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getDataInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getGroupBean</span><span class="token punctuation">(</span><span class="token string">&quot;groupId&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>TextUtils<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>groupBean<span class="token punctuation">.</span><span class="token function">getMeshId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    
-    L<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;This group is mesh group&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java">GroupBean groupBean=TuyaHomeSdk.getDataInstance().getGroupBean(<span class="hljs-string">&quot;groupId&quot;</span>);
+<span class="hljs-keyword">if</span>(!TextUtils.isEmpty(groupBean.getMeshId())){    
+    L.d(TAG, <span class="hljs-string">&quot;This group is mesh group&quot;</span>);
+}<span class="hljs-keyword">else</span>{
 
-<span class="token punctuation">}</span>
+}
 </code></pre>
-<h3 id="add-sub-devices-to-group"><a name="add-sub-devices-to-group" class="plugin-anchor" href="#add-sub-devices-to-group"><i class="fa fa-link" aria-hidden="true"></i></a>Add Sub-devices To Group</h3>
-<h5 id="&#x3010;method-invocation&#x3011;"><a name="&#x3010;method-invocation&#x3011;" class="plugin-anchor" href="#&#x3010;method-invocation&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method Invocation&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token operator">*</span> <span class="token annotation punctuation">@param</span> devId        device Id
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> callback    
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addDevice</span><span class="token punctuation">(</span>String devId<span class="token punctuation">,</span>IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="add-sub-devices-to-group">Add Sub-devices To Group</h3>
+<h5 id="&#x3010;method-invocation&#x3011;">&#x3010;Method Invocation&#x3011;</h5>
+<pre><code class="lang-java">* <span class="hljs-meta">@param</span> devId        device Id
+* <span class="hljs-meta">@param</span> <span class="hljs-function">callback    
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addDevice</span><span class="hljs-params">(String devId,IResultCallback callback)</span></span>;
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java">ITuyaGroup mGroup <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newBlueMeshGroupInstance</span><span class="token punctuation">(</span>groupId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-mGroup<span class="token punctuation">.</span><span class="token function">addDevice</span><span class="token punctuation">(</span><span class="token string">&quot;devId&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;Adding device to group failed &quot;</span><span class="token operator">+</span> errorMsg<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java">ITuyaGroup mGroup = TuyaHomeSdk.newBlueMeshGroupInstance(groupId);
+mGroup.addDevice(<span class="hljs-string">&quot;devId&quot;</span>, <span class="hljs-keyword">new</span> IResultCallback() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String errorMsg)</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;Adding device to group failed &quot;</span>+ errorMsg, Toast.LENGTH_LONG).show();
+            }
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;Adding device to group success&quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;Adding device to group success&quot;</span>, Toast.LENGTH_LONG).show();
+            }
+        });
 </code></pre>
-<h3 id="remove-sub-devices-from-group"><a name="remove-sub-devices-from-group" class="plugin-anchor" href="#remove-sub-devices-from-group"><i class="fa fa-link" aria-hidden="true"></i></a>Remove Sub-devices from Group</h3>
-<h5 id="&#x3010;method-invocation&#x3011;"><a name="&#x3010;method-invocation&#x3011;" class="plugin-anchor" href="#&#x3010;method-invocation&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method Invocation&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token operator">*</span> <span class="token annotation punctuation">@param</span> devId        device id
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> callback    
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">removeDevice</span><span class="token punctuation">(</span>String devId<span class="token punctuation">,</span>IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="remove-sub-devices-from-group">Remove Sub-devices from Group</h3>
+<h5 id="&#x3010;method-invocation&#x3011;">&#x3010;Method Invocation&#x3011;</h5>
+<pre><code class="lang-java">* <span class="hljs-meta">@param</span> devId        device id
+* <span class="hljs-meta">@param</span> <span class="hljs-function">callback    
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">removeDevice</span><span class="hljs-params">(String devId,IResultCallback callback)</span></span>;
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java">ITuyaGroup mGroup <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newBlueMeshGroupInstance</span><span class="token punctuation">(</span>groupId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-mGroup<span class="token punctuation">.</span><span class="token function">removeDevice</span><span class="token punctuation">(</span><span class="token string">&quot;devId&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;Remove device from group failed &quot;</span><span class="token operator">+</span> errorMsg<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java">ITuyaGroup mGroup = TuyaHomeSdk.newBlueMeshGroupInstance(groupId);
+mGroup.removeDevice(<span class="hljs-string">&quot;devId&quot;</span>, <span class="hljs-keyword">new</span> IResultCallback() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String errorMsg)</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;Remove device from group failed &quot;</span>+ errorMsg, Toast.LENGTH_LONG).show();
+            }
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;Remove device from group success &quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;Remove device from group success &quot;</span>, Toast.LENGTH_LONG).show();
+            }
+        });
 </code></pre>
-<h3 id="dismiss-group"><a name="dismiss-group" class="plugin-anchor" href="#dismiss-group"><i class="fa fa-link" aria-hidden="true"></i></a>Dismiss Group</h3>
-<h5 id="&#x3010;method-invocation&#x3011;"><a name="&#x3010;method-invocation&#x3011;" class="plugin-anchor" href="#&#x3010;method-invocation&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method Invocation&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token operator">*</span> <span class="token annotation punctuation">@param</span> callback    
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">dismissGroup</span><span class="token punctuation">(</span>IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="dismiss-group">Dismiss Group</h3>
+<h5 id="&#x3010;method-invocation&#x3011;">&#x3010;Method Invocation&#x3011;</h5>
+<pre><code class="lang-java">* <span class="hljs-meta">@param</span> <span class="hljs-function">callback    
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">dismissGroup</span><span class="hljs-params">(IResultCallback callback)</span></span>;
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java">ITuyaGroup mGroup <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newBlueMeshGroupInstance</span><span class="token punctuation">(</span>groupId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-mGroup<span class="token punctuation">.</span><span class="token function">dismissGroup</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;dismiss group failed &quot;</span><span class="token operator">+</span> errorMsg<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java">ITuyaGroup mGroup = TuyaHomeSdk.newBlueMeshGroupInstance(groupId);
+mGroup.dismissGroup(<span class="hljs-keyword">new</span> IResultCallback() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String errorMsg)</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;dismiss group failed &quot;</span>+ errorMsg, Toast.LENGTH_LONG).show();
+            }
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;dismiss group success&quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;dismiss group success&quot;</span>, Toast.LENGTH_LONG).show();
+            }
+        });
 </code></pre>
-<h3 id="rename-group"><a name="rename-group" class="plugin-anchor" href="#rename-group"><i class="fa fa-link" aria-hidden="true"></i></a>Rename Group</h3>
-<h5 id="&#x3010;method-invocation&#x3011;"><a name="&#x3010;method-invocation&#x3011;" class="plugin-anchor" href="#&#x3010;method-invocation&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method Invocation&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token operator">*</span> <span class="token annotation punctuation">@param</span> groupName    rename name
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> callback    
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">renameGroup</span><span class="token punctuation">(</span>String groupName<span class="token punctuation">,</span>IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="rename-group">Rename Group</h3>
+<h5 id="&#x3010;method-invocation&#x3011;">&#x3010;Method Invocation&#x3011;</h5>
+<pre><code class="lang-java">* <span class="hljs-meta">@param</span> groupName    rename name
+* <span class="hljs-meta">@param</span> <span class="hljs-function">callback    
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">renameGroup</span><span class="hljs-params">(String groupName,IResultCallback callback)</span></span>;
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java">ITuyaGroup mGroup <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newBlueMeshGroupInstance</span><span class="token punctuation">(</span>groupId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-mGroup<span class="token punctuation">.</span><span class="token function">renameGroup</span><span class="token punctuation">(</span><span class="token string">&quot;new group name&quot;</span><span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;rename group failed &quot;</span><span class="token operator">+</span> errorMsg<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java">ITuyaGroup mGroup = TuyaHomeSdk.newBlueMeshGroupInstance(groupId);
+mGroup.renameGroup(<span class="hljs-string">&quot;new group name&quot;</span>,<span class="hljs-keyword">new</span> IResultCallback() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String errorMsg)</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;rename group failed &quot;</span>+ errorMsg, Toast.LENGTH_LONG).show();
+            }
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;rename group success&quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;rename group success&quot;</span>, Toast.LENGTH_LONG).show();
+            }
+        });
 </code></pre>
 
                                 
@@ -1416,7 +1412,7 @@ mGroup<span class="token punctuation">.</span><span class="token function">renam
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Group","level":"1.20.6","depth":2,"next":{"title":"Control","level":"1.20.7","depth":2,"path":"resource/Mesh_Device_Operate.md","ref":"./resource/Mesh_Device_Operate.md","articles":[]},"previous":{"title":"Device","level":"1.20.5","depth":2,"path":"resource/Mesh_Device.md","ref":"./resource/Mesh_Device.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Mesh_Group_Operate.md","mtime":"2019-12-14T15:07:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T12:29:14.513Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Group","level":"1.20.6","depth":2,"next":{"title":"Control","level":"1.20.7","depth":2,"path":"resource/Mesh_Device_Operate.md","ref":"./resource/Mesh_Device_Operate.md","articles":[]},"previous":{"title":"Device","level":"1.20.5","depth":2,"path":"resource/Mesh_Device.md","ref":"./resource/Mesh_Device.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Mesh_Group_Operate.md","mtime":"2019-12-14T15:07:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1424,18 +1420,6 @@ mGroup<span class="token punctuation">.</span><span class="token function">renam
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

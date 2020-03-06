@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1282,82 +1278,82 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="device"><a name="device" class="plugin-anchor" href="#device"><i class="fa fa-link" aria-hidden="true"></i></a>Device</h2>
-<h3 id="mesh-device-judgment-method"><a name="mesh-device-judgment-method" class="plugin-anchor" href="#mesh-device-judgment-method"><i class="fa fa-link" aria-hidden="true"></i></a>Mesh Device Judgment Method</h3>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java">DeviceBean deviceBean<span class="token operator">=</span>TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getDataInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeviceBean</span><span class="token punctuation">(</span>mDevId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// Determine whether it is a bluemesh device (child device + gateway)</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>deviceBean<span class="token punctuation">.</span><span class="token function">isBlueMesh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    L<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;This device is blue mesh device&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
+                                <h2 id="device">Device</h2>
+<h3 id="mesh-device-judgment-method">Mesh Device Judgment Method</h3>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java">DeviceBean deviceBean=TuyaHomeSdk.getDataInstance().getDeviceBean(mDevId);
+<span class="hljs-comment">// Determine whether it is a bluemesh device (child device + gateway)</span>
+<span class="hljs-keyword">if</span>(deviceBean.isBlueMesh()){
+    L.d(TAG, <span class="hljs-string">&quot;This device is blue mesh device&quot;</span>);
+ }
 
-<span class="token comment">// Determine if it is a bluemesh gateway device</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>deviceBean<span class="token punctuation">.</span><span class="token function">isBlueMeshWifi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    L<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">&quot;This device is blue mesh wifi device&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
+<span class="hljs-comment">// Determine if it is a bluemesh gateway device</span>
+<span class="hljs-keyword">if</span>(deviceBean.isBlueMeshWifi()){
+    L.d(TAG, <span class="hljs-string">&quot;This device is blue mesh wifi device&quot;</span>);
+ }
 </code></pre>
-<h3 id="sub-device-rename"><a name="sub-device-rename" class="plugin-anchor" href="#sub-device-rename"><i class="fa fa-link" aria-hidden="true"></i></a>Sub-device Rename</h3>
-<h5 id="&#x3010;method-invocation&#x3011;"><a name="&#x3010;method-invocation&#x3011;" class="plugin-anchor" href="#&#x3010;method-invocation&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method Invocation&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token operator">*</span> <span class="token annotation punctuation">@param</span> devId         device id
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> name             <span class="token keyword">new</span> <span class="token class-name">name</span>
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> callback    
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">renameMeshSubDev</span><span class="token punctuation">(</span>String devId<span class="token punctuation">,</span> String name<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="sub-device-rename">Sub-device Rename</h3>
+<h5 id="&#x3010;method-invocation&#x3011;">&#x3010;Method Invocation&#x3011;</h5>
+<pre><code class="lang-java">* <span class="hljs-meta">@param</span> devId         device id
+* <span class="hljs-meta">@param</span> name             <span class="hljs-keyword">new</span> name
+* <span class="hljs-meta">@param</span> <span class="hljs-function">callback    
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">renameMeshSubDev</span><span class="hljs-params">(String devId, String name, IResultCallback callback)</span></span>;
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java">mTuyaBlueMesh<span class="token punctuation">.</span><span class="token function">renameMeshSubDev</span><span class="token punctuation">(</span>devBean<span class="token punctuation">.</span><span class="token function">getDevId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">&quot;new name&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;rename failed &quot;</span><span class="token operator">+</span> errorMsg<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java">mTuyaBlueMesh.renameMeshSubDev(devBean.getDevId(),<span class="hljs-string">&quot;new name&quot;</span>, <span class="hljs-keyword">new</span> IResultCallback() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String errorMsg)</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;rename failed &quot;</span>+ errorMsg, Toast.LENGTH_LONG).show();
+            }
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;rename success&quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;rename success&quot;</span>, Toast.LENGTH_LONG).show();
+            }
+        });
 </code></pre>
-<h3 id="sub-device-remove"><a name="sub-device-remove" class="plugin-anchor" href="#sub-device-remove"><i class="fa fa-link" aria-hidden="true"></i></a>Sub-device Remove</h3>
-<h5 id="&#x3010;method-invocation&#x3011;"><a name="&#x3010;method-invocation&#x3011;" class="plugin-anchor" href="#&#x3010;method-invocation&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method Invocation&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token operator">*</span> <span class="token annotation punctuation">@param</span> devId         device id
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> pcc             device category
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> callback    
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">removeMeshSubDev</span><span class="token punctuation">(</span>String devId<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+<h3 id="sub-device-remove">Sub-device Remove</h3>
+<h5 id="&#x3010;method-invocation&#x3011;">&#x3010;Method Invocation&#x3011;</h5>
+<pre><code class="lang-java">* <span class="hljs-meta">@param</span> devId         device id
+* <span class="hljs-meta">@param</span> pcc             device category
+* <span class="hljs-meta">@param</span> <span class="hljs-function">callback    
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">removeMeshSubDev</span><span class="hljs-params">(String devId, IResultCallback callback)</span> </span>;
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java">mTuyaBlueMesh<span class="token punctuation">.</span><span class="token function">removeMeshSubDev</span><span class="token punctuation">(</span>devBean<span class="token punctuation">.</span><span class="token function">getDevId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>devBean<span class="token punctuation">.</span><span class="token function">getCategory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;remove fail &quot;</span><span class="token operator">+</span> errorMsg<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java">mTuyaBlueMesh.removeMeshSubDev(devBean.getDevId(),devBean.getCategory(), <span class="hljs-keyword">new</span> IResultCallback() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String errorMsg)</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;remove fail &quot;</span>+ errorMsg, Toast.LENGTH_LONG).show();
 
-            <span class="token punctuation">}</span>
+            }
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;remove success&quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;remove success&quot;</span>, Toast.LENGTH_LONG).show();
+            }
+        });
 </code></pre>
-<h3 id="query-of-a-single-sub-device-information"><a name="query-of-a-single-sub-device-information" class="plugin-anchor" href="#query-of-a-single-sub-device-information"><i class="fa fa-link" aria-hidden="true"></i></a>Query of a Single Sub-device Information</h3>
-<h5 id="&#x3010;description&#x3011;"><a name="&#x3010;description&#x3011;" class="plugin-anchor" href="#&#x3010;description&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Description&#x3011;</h5>
+<h3 id="query-of-a-single-sub-device-information">Query of a Single Sub-device Information</h3>
+<h5 id="&#x3010;description&#x3011;">&#x3010;Description&#x3011;</h5>
 <p>The dp point data obtained in the cloud may not be the real-time data of the current device. You can use this command to query the current data value of the device. The result is returned by the onDpUpdate method of IMeshDevListener.</p>
-<h5 id="&#x3010;method-invocation&#x3011;"><a name="&#x3010;method-invocation&#x3011;" class="plugin-anchor" href="#&#x3010;method-invocation&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Method Invocation&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token operator">*</span> <span class="token annotation punctuation">@param</span> pcc             device categoty
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> nodeId         device nodeId
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> callback
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">querySubDevStatusByLocal</span><span class="token punctuation">(</span>String pcc<span class="token punctuation">,</span> <span class="token keyword">final</span> String nodeId<span class="token punctuation">,</span> <span class="token keyword">final</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h5 id="&#x3010;method-invocation&#x3011;">&#x3010;Method Invocation&#x3011;</h5>
+<pre><code class="lang-java">* <span class="hljs-meta">@param</span> pcc             device categoty
+* <span class="hljs-meta">@param</span> nodeId         device nodeId
+* <span class="hljs-meta">@param</span> <span class="hljs-function">callback
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">querySubDevStatusByLocal</span><span class="hljs-params">(String pcc, <span class="hljs-keyword">final</span> String nodeId, <span class="hljs-keyword">final</span> IResultCallback callback)</span></span>;
 </code></pre>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java"> mTuyaBlueMeshDevice<span class="token punctuation">.</span><span class="token function">querySubDevStatusByLocal</span><span class="token punctuation">(</span>devBean<span class="token punctuation">.</span><span class="token function">getCategory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> devBean<span class="token punctuation">.</span><span class="token function">getNodeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;query failed &quot;</span><span class="token operator">+</span> errorMsg<span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java"> mTuyaBlueMeshDevice.querySubDevStatusByLocal(devBean.getCategory(), devBean.getNodeId(), <span class="hljs-keyword">new</span> IResultCallback() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String errorMsg)</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;query failed &quot;</span>+ errorMsg, Toast.LENGTH_LONG).show();
+            }
 
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    Toast<span class="token punctuation">.</span><span class="token function">makeText</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> <span class="token string">&quot;query success &quot;</span><span class="token punctuation">,</span> Toast<span class="token punctuation">.</span>LENGTH_LONG<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+                    Toast.makeText(mContext, <span class="hljs-string">&quot;query success &quot;</span>, Toast.LENGTH_LONG).show();
+            }
+        });
 </code></pre>
 
                                 
@@ -1402,7 +1398,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Device","level":"1.20.5","depth":2,"next":{"title":"Group","level":"1.20.6","depth":2,"path":"resource/Mesh_Group_Operate.md","ref":"./resource/Mesh_Group_Operate.md","articles":[]},"previous":{"title":"Configuration","level":"1.20.4","depth":2,"path":"resource/Mesh_Config.md","ref":"./resource/Mesh_Config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Mesh_Device.md","mtime":"2019-12-14T15:07:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T12:29:14.513Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Device","level":"1.20.5","depth":2,"next":{"title":"Group","level":"1.20.6","depth":2,"path":"resource/Mesh_Group_Operate.md","ref":"./resource/Mesh_Group_Operate.md","articles":[]},"previous":{"title":"Configuration","level":"1.20.4","depth":2,"path":"resource/Mesh_Config.md","ref":"./resource/Mesh_Config.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Mesh_Device.md","mtime":"2019-12-14T15:07:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1410,18 +1406,6 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

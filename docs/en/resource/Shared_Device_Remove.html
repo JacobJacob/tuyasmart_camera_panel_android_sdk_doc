@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1282,93 +1278,93 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="removing-sharing"><a name="removing-sharing" class="plugin-anchor" href="#removing-sharing"><i class="fa fa-link" aria-hidden="true"></i></a>Removing Sharing</h1>
-<h2 id="1-deleting-the-shared-relationship"><a name="1-deleting-the-shared-relationship" class="plugin-anchor" href="#1-deleting-the-shared-relationship"><i class="fa fa-link" aria-hidden="true"></i></a>(1) Deleting the shared relationship</h2>
+                                <h1 id="removing-sharing">Removing Sharing</h1>
+<h2 id="1-deleting-the-shared-relationship">(1) Deleting the shared relationship</h2>
 <p><strong>[Description]</strong></p>
 <p>The sharer deletes all shared relationships with the relationship user via memberId (deleting user dimension).</p>
 <p><strong>[Method Invocation]</strong></p>
-<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@param</span> memberId     user member Id <span class="token punctuation">(</span>obtained from SharedUserInfoBean<span class="token punctuation">)</span>
+<pre><code class="lang-java"><span class="hljs-meta">@param</span> <span class="hljs-function">memberId     user member <span class="hljs-title">Id</span> <span class="hljs-params">(obtained from SharedUserInfoBean)</span>
 
-<span class="token keyword">void</span> <span class="token function">removeUserShare</span><span class="token punctuation">(</span><span class="token keyword">long</span> memberId<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title">removeUserShare</span><span class="hljs-params">(<span class="hljs-keyword">long</span> memberId, IResultCallback callback)</span></span>;
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getDeviceShareInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">removeUserShare</span><span class="token punctuation">(</span>memberId<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
+<pre><code class="lang-java">TuyaHomeSdk.getDeviceShareInstance().removeUserShare(memberId, <span class="hljs-keyword">new</span> IResultCallback() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
+    }
 
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+    }
 
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+})
 </code></pre>
-<h2 id="2-deleting-the-received-relationship-for-sharing"><a name="2-deleting-the-received-relationship-for-sharing" class="plugin-anchor" href="#2-deleting-the-received-relationship-for-sharing"><i class="fa fa-link" aria-hidden="true"></i></a>(2) Deleting the received relationship for sharing</h2>
+<h2 id="2-deleting-the-received-relationship-for-sharing">(2) Deleting the received relationship for sharing</h2>
 <p><strong>[Description]</strong></p>
 <p>The receiver deletes all shared relationships with the relationship user via memberId (deleting user dimension).
 `
 <strong>[Method Invocation]</strong></p>
-<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@param</span> memberId     user member Id <span class="token punctuation">(</span>obtained from SharedUserInfoBean<span class="token punctuation">)</span>
-<span class="token keyword">void</span> <span class="token function">removeReceivedUserShare</span><span class="token punctuation">(</span><span class="token keyword">long</span> memberId<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-java"><span class="hljs-meta">@param</span> <span class="hljs-function">memberId     user member <span class="hljs-title">Id</span> <span class="hljs-params">(obtained from SharedUserInfoBean)</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title">removeReceivedUserShare</span><span class="hljs-params">(<span class="hljs-keyword">long</span> memberId, IResultCallback callback)</span></span>;
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getDeviceShareInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">removeReceivedUserShare</span><span class="token punctuation">(</span>memberId<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
+<pre><code class="lang-java">TuyaHomeSdk.getDeviceShareInstance().removeReceivedUserShare(memberId, <span class="hljs-keyword">new</span> IResultCallback() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
+    }
 
 
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
+    }
 
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+})
 </code></pre>
-<h2 id="3-deleting-sharing-of-a-device"><a name="3-deleting-sharing-of-a-device" class="plugin-anchor" href="#3-deleting-sharing-of-a-device"><i class="fa fa-link" aria-hidden="true"></i></a>(3) Deleting sharing of a device</h2>
+<h2 id="3-deleting-sharing-of-a-device">(3) Deleting sharing of a device</h2>
 <p><strong>[Description]</strong></p>
 <p>The sharer deletes a shared device of a specified relationship user.</p>
 <p><strong>[Method Invocation]</strong></p>
-<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@param</span> devId    device Id
+<pre><code class="lang-java"><span class="hljs-meta">@param</span> devId    device Id
 
-<span class="token annotation punctuation">@param</span> memberId     user member Id <span class="token punctuation">(</span>obtained from SharedUserInfoBean<span class="token punctuation">)</span>
+<span class="hljs-meta">@param</span> <span class="hljs-function">memberId     user member <span class="hljs-title">Id</span> <span class="hljs-params">(obtained from SharedUserInfoBean)</span>
 
-<span class="token keyword">void</span> <span class="token function">removeDevShare</span><span class="token punctuation">(</span>String devId<span class="token punctuation">,</span> <span class="token keyword">long</span> memberId<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title">removeDevShare</span><span class="hljs-params">(String devId, <span class="hljs-keyword">long</span> memberId, IResultCallback callback)</span></span>;
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getDeviceShareInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">removeDevShare</span><span class="token punctuation">(</span>devId<span class="token punctuation">,</span> memberId<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre><code class="lang-java">TuyaHomeSdk.getDeviceShareInstance().removeDevShare(devId, memberId, <span class="hljs-keyword">new</span> IResultCallback() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
 
-    <span class="token punctuation">}</span>
+    }
 
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
 
-    <span class="token punctuation">}</span>
+    }
 
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+})
 </code></pre>
-<h2 id="4-removing-the-received-device-for-sharing"><a name="4-removing-the-received-device-for-sharing" class="plugin-anchor" href="#4-removing-the-received-device-for-sharing"><i class="fa fa-link" aria-hidden="true"></i></a>(4) Removing the received device for sharing</h2>
+<h2 id="4-removing-the-received-device-for-sharing">(4) Removing the received device for sharing</h2>
 <p><strong>[Description]</strong></p>
 <p>The receiver deletes a shared device.</p>
 <p><strong>[Method Invocation]</strong></p>
-<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@param</span> devId    device Id
+<pre><code class="lang-java"><span class="hljs-meta">@param</span> <span class="hljs-function">devId    device Id
 
-<span class="token keyword">void</span> <span class="token function">removeReceivedDevShare</span><span class="token punctuation">(</span>String devId<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title">removeReceivedDevShare</span><span class="hljs-params">(String devId, IResultCallback callback)</span></span>;
 </code></pre>
 <p><strong>[Example Codes]</strong></p>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getDeviceShareInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">removeReceivedDevShare</span><span class="token punctuation">(</span>devId<span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">IResultCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre><code class="lang-java">TuyaHomeSdk.getDeviceShareInstance().removeReceivedDevShare(devId,<span class="hljs-keyword">new</span> IResultCallback() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String code, String error)</span> </span>{
 
-    <span class="token punctuation">}</span>
+    }
 
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
 
-    <span class="token punctuation">}</span>
+    }
 
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+})
 </code></pre>
 
                                 
@@ -1413,7 +1409,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Removing Sharing","level":"1.9.2","depth":2,"next":{"title":"Modifying Remark Name","level":"1.9.3","depth":2,"path":"resource/Shared_Device_Rename.md","ref":"./resource/Shared_Device_Rename.md","articles":[]},"previous":{"title":"Add for Sharing","level":"1.9.1","depth":2,"path":"resource/Shared_Device_add.md","ref":"./resource/Shared_Device_add.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Shared_Device_Remove.md","mtime":"2019-03-12T02:03:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T12:29:14.513Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Removing Sharing","level":"1.9.2","depth":2,"next":{"title":"Modifying Remark Name","level":"1.9.3","depth":2,"path":"resource/Shared_Device_Rename.md","ref":"./resource/Shared_Device_Rename.md","articles":[]},"previous":{"title":"Add for Sharing","level":"1.9.1","depth":2,"path":"resource/Shared_Device_add.md","ref":"./resource/Shared_Device_add.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Shared_Device_Remove.md","mtime":"2019-03-12T02:03:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1421,18 +1417,6 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

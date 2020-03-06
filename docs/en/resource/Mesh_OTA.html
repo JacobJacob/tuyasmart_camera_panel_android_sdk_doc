@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1282,131 +1278,131 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="firmware-upgrade"><a name="firmware-upgrade" class="plugin-anchor" href="#firmware-upgrade"><i class="fa fa-link" aria-hidden="true"></i></a>Firmware Upgrade</h2>
+                                <h2 id="firmware-upgrade">Firmware Upgrade</h2>
 <p>There are two types of sub-device upgrades, one is the ordinary sub-device upgrade, and the other is the mesh gateway upgrade.</p>
-<h3 id="get-sub-device-upgrade-information"><a name="get-sub-device-upgrade-information" class="plugin-anchor" href="#get-sub-device-upgrade-information"><i class="fa fa-link" aria-hidden="true"></i></a>Get Sub-device Upgrade Information</h3>
-<pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getMeshInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">requestUpgradeInfo</span><span class="token punctuation">(</span>mDevID<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IRequestUpgradeInfoCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span>ArrayList<span class="token generics function"><span class="token punctuation">&lt;</span>BLEUpgradeBean<span class="token punctuation">&gt;</span></span> bleUpgradeBeans<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span>BLEUpgradeBean bean <span class="token operator">:</span> bleUpgradeBeans<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       <span class="token keyword">if</span> <span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getUpgradeStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-          <span class="token keyword">if</span> <span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// wifi module needs to be upgraded</span>
-          <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span>getType <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token comment">// Bluetooth module needs to be upgraded</span>
-            <span class="token comment">// Need to download ota firmware manually</span>
-            url<span class="token operator">=</span>bean<span class="token punctuation">.</span><span class="token function">getUrl</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                    <span class="token punctuation">}</span>
-       <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-         <span class="token comment">// No update required</span>
-       <span class="token punctuation">}</span>
-         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+<h3 id="get-sub-device-upgrade-information">Get Sub-device Upgrade Information</h3>
+<pre><code class="lang-java">TuyaHomeSdk.getMeshInstance().requestUpgradeInfo(mDevID, <span class="hljs-keyword">new</span> IRequestUpgradeInfoCallback() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(ArrayList&lt;BLEUpgradeBean&gt; bleUpgradeBeans)</span> </span>{
+        <span class="hljs-keyword">for</span> (BLEUpgradeBean bean : bleUpgradeBeans) {
+       <span class="hljs-keyword">if</span> (bean.getUpgradeStatus()==<span class="hljs-number">1</span>) {
+          <span class="hljs-keyword">if</span> (bean.getType() == <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">// wifi module needs to be upgraded</span>
+          }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(bean.getType == <span class="hljs-number">1</span>){
+            <span class="hljs-comment">// Bluetooth module needs to be upgraded</span>
+            <span class="hljs-comment">// Need to download ota firmware manually</span>
+            url=bean.getUrl()
+                    }
+       }<span class="hljs-keyword">else</span>{
+         <span class="hljs-comment">// No update required</span>
+       }
+         }
+    }
 
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
+    }
+});
 </code></pre>
-<h3 id="sub-device-upgrade"><a name="sub-device-upgrade" class="plugin-anchor" href="#sub-device-upgrade"><i class="fa fa-link" aria-hidden="true"></i></a>Sub-device Upgrade</h3>
-<h5 id="&#x3010;initial-parameter-configuration&#x3011;"><a name="&#x3010;initial-parameter-configuration&#x3011;" class="plugin-anchor" href="#&#x3010;initial-parameter-configuration&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Initial parameter configuration&#x3011;</h5>
-<pre class="language-"><code class="lang-java">TuyaBlueMeshOtaBuilder build <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TuyaBlueMeshOtaBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> data<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setMeshId</span><span class="token punctuation">(</span>String meshId<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setProductKey</span><span class="token punctuation">(</span>String productKey<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setNodeId</span><span class="token punctuation">(</span>String nodeId<span class="token punctuation">)</span>      
-            <span class="token punctuation">.</span><span class="token function">setDevId</span><span class="token punctuation">(</span>String devId<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setVersion</span><span class="token punctuation">(</span>String version<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">setTuyaBlueMeshActivatorListener</span><span class="token punctuation">(</span>MeshUpgradeListener mListener<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">bulid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="sub-device-upgrade">Sub-device Upgrade</h3>
+<h5 id="&#x3010;initial-parameter-configuration&#x3011;">&#x3010;Initial parameter configuration&#x3011;</h5>
+<pre><code class="lang-java">TuyaBlueMeshOtaBuilder build = <span class="hljs-keyword">new</span> TuyaBlueMeshOtaBuilder()
+            .setData(<span class="hljs-keyword">byte</span>[] data)
+            .setMeshId(String meshId)
+            .setProductKey(String productKey)
+            .setNodeId(String nodeId)      
+            .setDevId(String devId)
+            .setVersion(String version)
+            .setTuyaBlueMeshActivatorListener(MeshUpgradeListener mListener)
+            .bulid();
 </code></pre>
-<h5 id="&#x3010;parameter-description&#x3011;"><a name="&#x3010;parameter-description&#x3011;" class="plugin-anchor" href="#&#x3010;parameter-description&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Parameter Description&#x3011;</h5>
-<h6 id="&#x3010;entry-parameters&#x3011;"><a name="&#x3010;entry-parameters&#x3011;" class="plugin-anchor" href="#&#x3010;entry-parameters&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Entry parameters&#x3011;</h6>
-<pre class="language-"><code class="lang-java"><span class="token operator">*</span> <span class="token annotation punctuation">@param</span> data                     <span class="token keyword">byte</span> stream of the firmware to be upgraded
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> meshId                   meshId
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> productKey            product Id
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> mNodeId                  nodeId
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> devId                       device Id 
-<span class="token operator">*</span> <span class="token annotation punctuation">@param</span> version                 the version number of the firmware to be upgraded
+<h5 id="&#x3010;parameter-description&#x3011;">&#x3010;Parameter Description&#x3011;</h5>
+<h6 id="&#x3010;entry-parameters&#x3011;">&#x3010;Entry parameters&#x3011;</h6>
+<pre><code class="lang-java">* <span class="hljs-meta">@param</span> data                     <span class="hljs-keyword">byte</span> stream of the firmware to be upgraded
+* <span class="hljs-meta">@param</span> meshId                   meshId
+* <span class="hljs-meta">@param</span> productKey            product Id
+* <span class="hljs-meta">@param</span> mNodeId                  nodeId
+* <span class="hljs-meta">@param</span> devId                       device Id 
+* <span class="hljs-meta">@param</span> version                 the version number of the firmware to be upgraded
 </code></pre>
-<h6 id="&#x3010;back-parameters&#x3011;"><a name="&#x3010;back-parameters&#x3011;" class="plugin-anchor" href="#&#x3010;back-parameters&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Back parameters&#x3011;</h6>
+<h6 id="&#x3010;back-parameters&#x3011;">&#x3010;Back parameters&#x3011;</h6>
 <p>MeshUpgradeListener listener </p>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token keyword">private</span> MeshUpgradeListener mListener <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MeshUpgradeListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onUpgrade</span><span class="token punctuation">(</span><span class="token keyword">int</span> percent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// upgrade progress</span>
-        <span class="token punctuation">}</span>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java"><span class="hljs-keyword">private</span> MeshUpgradeListener mListener = <span class="hljs-keyword">new</span> MeshUpgradeListener() {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onUpgrade</span><span class="hljs-params">(<span class="hljs-keyword">int</span> percent)</span> </span>{
+            <span class="hljs-comment">// upgrade progress</span>
+        }
 
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSendSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// firmware data sent successfully</span>
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSendSuccess</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-comment">// firmware data sent successfully</span>
 
-        <span class="token punctuation">}</span>
+        }
 
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onUpgradeSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// update successed</span>
-             mMeshOta<span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onUpgradeSuccess</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-comment">// update successed</span>
+             mMeshOta.onDestroy();
+        }
 
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFail</span><span class="token punctuation">(</span>String errorCode<span class="token punctuation">,</span> String errorMsg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// update failed</span>
-             mMeshOta<span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token comment">//Get the byte stream of the specified file</span>
-<span class="token keyword">byte</span> data<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">getFromFile</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(String errorCode, String errorMsg)</span> </span>{
+            <span class="hljs-comment">// update failed</span>
+             mMeshOta.onDestroy();
+        }
+    };
+<span class="hljs-comment">//Get the byte stream of the specified file</span>
+<span class="hljs-keyword">byte</span> data[] = getFromFile(path);
 
-TuyaBlueMeshOtaBuilder build <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TuyaBlueMeshOtaBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">setMeshId</span><span class="token punctuation">(</span>mDevBean<span class="token punctuation">.</span><span class="token function">getMeshId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">setProductKey</span><span class="token punctuation">(</span>mDevBean<span class="token punctuation">.</span><span class="token function">getProductId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">setNodeId</span><span class="token punctuation">(</span>mDevBean<span class="token punctuation">.</span><span class="token function">getNodeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">setDevId</span><span class="token punctuation">(</span>mDevID<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">setVersion</span><span class="token punctuation">(</span><span class="token string">&quot;version&quot;</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">setTuyaBlueMeshActivatorListener</span><span class="token punctuation">(</span>mListener<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">bulid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-ITuyaBlueMeshOta  <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newMeshOtaManagerInstance</span><span class="token punctuation">(</span>build<span class="token punctuation">)</span><span class="token punctuation">;</span>
+TuyaBlueMeshOtaBuilder build = <span class="hljs-keyword">new</span> TuyaBlueMeshOtaBuilder()
+        .setData(data)
+        .setMeshId(mDevBean.getMeshId())
+        .setProductKey(mDevBean.getProductId())
+        .setNodeId(mDevBean.getNodeId())
+        .setDevId(mDevID)
+        .setVersion(<span class="hljs-string">&quot;version&quot;</span>)
+        .setTuyaBlueMeshActivatorListener(mListener)
+        .bulid();
+ITuyaBlueMeshOta  = TuyaHomeSdk.newMeshOtaManagerInstance(build);
 
-<span class="token comment">// Start upgrading</span>
-mMeshOta<span class="token punctuation">.</span><span class="token function">startOta</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Start upgrading</span>
+mMeshOta.startOta();
 </code></pre>
-<h3 id="gateway-device-upgrade"><a name="gateway-device-upgrade" class="plugin-anchor" href="#gateway-device-upgrade"><i class="fa fa-link" aria-hidden="true"></i></a>Gateway Device Upgrade</h3>
+<h3 id="gateway-device-upgrade">Gateway Device Upgrade</h3>
 <p>The gateway device upgrade is divided into 2 steps.</p>
 <ol>
 <li>Upgrade the Bluetooth module (the operation is the same as that of ordinary sub-device upgrades) </li>
 <li>Upgrade the wifi module</li>
 </ol>
-<h5 id="&#x3010;example-codes&#x3011;"><a name="&#x3010;example-codes&#x3011;" class="plugin-anchor" href="#&#x3010;example-codes&#x3011;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;Example Codes&#x3011;</h5>
-<pre class="language-"><code class="lang-java"><span class="token keyword">private</span> IOtaListener iOtaListener <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IOtaListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onSuccess</span><span class="token punctuation">(</span><span class="token keyword">int</span> otaType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// update successed</span>
+<h5 id="&#x3010;example-codes&#x3011;">&#x3010;Example Codes&#x3011;</h5>
+<pre><code class="lang-java"><span class="hljs-keyword">private</span> IOtaListener iOtaListener = <span class="hljs-keyword">new</span> IOtaListener() {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(<span class="hljs-keyword">int</span> otaType)</span> </span>{
+            <span class="hljs-comment">// update successed</span>
 
-          <span class="token punctuation">}</span>
+          }
 
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onFailure</span><span class="token punctuation">(</span><span class="token keyword">int</span> otaType<span class="token punctuation">,</span> String code<span class="token punctuation">,</span> String error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-             <span class="token comment">// update failed</span>
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(<span class="hljs-keyword">int</span> otaType, String code, String error)</span> </span>{
+             <span class="hljs-comment">// update failed</span>
 
-        <span class="token punctuation">}</span>
+        }
 
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onProgress</span><span class="token punctuation">(</span><span class="token keyword">int</span> otaType<span class="token punctuation">,</span> <span class="token keyword">final</span> <span class="token keyword">int</span> progress<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-           <span class="token comment">// update progress</span>
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onProgress</span><span class="hljs-params">(<span class="hljs-keyword">int</span> otaType, <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> progress)</span> </span>{
+           <span class="hljs-comment">// update progress</span>
 
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        }
+    };
 
-ITuyaOta iTuyaOta <span class="token operator">=</span> TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">newOTAInstance</span><span class="token punctuation">(</span>mDevID<span class="token punctuation">)</span><span class="token punctuation">;</span>
-iTuyaOta<span class="token punctuation">.</span><span class="token function">setOtaListener</span><span class="token punctuation">(</span>mOtaListener<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// start upgrading</span>
-iTuyaOta<span class="token punctuation">.</span><span class="token function">startOta</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ITuyaOta iTuyaOta = TuyaHomeSdk.newOTAInstance(mDevID);
+iTuyaOta.setOtaListener(mOtaListener);
+<span class="hljs-comment">// start upgrading</span>
+iTuyaOta.startOta();
 
-<span class="token comment">// destroy upgrading</span>
-iTuyaOta<span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// destroy upgrading</span>
+iTuyaOta.onDestroy();
 </code></pre>
 
                                 
@@ -1451,7 +1447,7 @@ iTuyaOta<span class="token punctuation">.</span><span class="token function">onD
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Firmware Upgrade","level":"1.20.8","depth":2,"next":{"title":"Bluetooth Mesh (SIG)","level":"1.21","depth":1,"path":"resource/Mesh.md","ref":"./resource/Mesh.md","articles":[{"title":"Prepare","level":"1.21.1","depth":2,"path":"resource/SigMesh_Prepare.md","ref":"./resource/SigMesh_Prepare.md","articles":[]},{"title":"Basic Notion","level":"1.21.2","depth":2,"path":"resource/SigMesh_IDEA.md","ref":"./resource/SigMesh_IDEA.md","articles":[]},{"title":"Management","level":"1.21.3","depth":2,"path":"resource/SigMesh_Admin.md","ref":"./resource/SigMesh_Admin.md","articles":[]},{"title":"Configuration","level":"1.21.4","depth":2,"path":"resource/SigMesh_Config.md","ref":"./resource/SigMesh_Config.md","articles":[]},{"title":"Device","level":"1.21.5","depth":2,"path":"resource/SigMesh_Device.md","ref":"./resource/SigMesh_Device.md","articles":[]},{"title":"Group","level":"1.21.6","depth":2,"path":"resource/SigMesh_Group_Operate.md","ref":"./resource/SigMesh_Group_Operate.md","articles":[]},{"title":"Control","level":"1.21.7","depth":2,"path":"resource/SigMesh_Device_Operate.md","ref":"./resource/SigMesh_Device_Operate.md","articles":[]},{"title":"Firmware Upgrade","level":"1.21.8","depth":2,"path":"resource/SigMesh_OTA.md","ref":"./resource/SigMesh_OTA.md","articles":[]}]},"previous":{"title":"Control","level":"1.20.7","depth":2,"path":"resource/Mesh_Device_Operate.md","ref":"./resource/Mesh_Device_Operate.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Mesh_OTA.md","mtime":"2019-12-14T15:07:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T12:29:14.513Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Firmware Upgrade","level":"1.20.8","depth":2,"next":{"title":"Bluetooth Mesh (SIG)","level":"1.21","depth":1,"path":"resource/Mesh.md","ref":"./resource/Mesh.md","articles":[{"title":"Prepare","level":"1.21.1","depth":2,"path":"resource/SigMesh_Prepare.md","ref":"./resource/SigMesh_Prepare.md","articles":[]},{"title":"Basic Notion","level":"1.21.2","depth":2,"path":"resource/SigMesh_IDEA.md","ref":"./resource/SigMesh_IDEA.md","articles":[]},{"title":"Management","level":"1.21.3","depth":2,"path":"resource/SigMesh_Admin.md","ref":"./resource/SigMesh_Admin.md","articles":[]},{"title":"Configuration","level":"1.21.4","depth":2,"path":"resource/SigMesh_Config.md","ref":"./resource/SigMesh_Config.md","articles":[]},{"title":"Device","level":"1.21.5","depth":2,"path":"resource/SigMesh_Device.md","ref":"./resource/SigMesh_Device.md","articles":[]},{"title":"Group","level":"1.21.6","depth":2,"path":"resource/SigMesh_Group_Operate.md","ref":"./resource/SigMesh_Group_Operate.md","articles":[]},{"title":"Control","level":"1.21.7","depth":2,"path":"resource/SigMesh_Device_Operate.md","ref":"./resource/SigMesh_Device_Operate.md","articles":[]},{"title":"Firmware Upgrade","level":"1.21.8","depth":2,"path":"resource/SigMesh_OTA.md","ref":"./resource/SigMesh_OTA.md","articles":[]}]},"previous":{"title":"Control","level":"1.20.7","depth":2,"path":"resource/Mesh_Device_Operate.md","ref":"./resource/Mesh_Device_Operate.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Mesh_OTA.md","mtime":"2019-12-14T15:07:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-06T06:20:12.578Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -1459,18 +1455,6 @@ iTuyaOta<span class="token punctuation">.</span><span class="token function">onD
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
