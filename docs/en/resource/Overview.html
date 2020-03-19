@@ -548,29 +548,48 @@
                                 
                                 <h2 id="overview"><a name="overview" class="plugin-anchor" href="#overview"><i class="fa fa-link" aria-hidden="true"></i></a>Overview</h2>
 <p>Tuya Smart Camera Panel SDK (referred to as: TuyaCameraPanelSDK) provides users with Tuya Camera related panels, which mainly include:</p>
-<ul>
-<li>Native preview panel</li>
-<li>React Native Panel&#xFF08;refer to <a href="https://tuyainc.github.io/tuyasmart_panel_android_sdk_doc/" target="_blank">TuyaPanelSDK Doc.</a> )</li>
-<li>Doorbell Panel</li>
-<li>Video Doorbell Panel</li>
-<li>Cloud Storage Panel</li>
-<li>Playback Panel</li>
-<li>Setting Panel</li>
-<li>Message-Center Panel</li>
-<li>Album Panel</li>
-<li>Custom Panel<ul>
-<li>customize playback</li>
-<li>customize cloud storage</li>
-<li>customize ablum</li>
-<li>customize message center</li>
-<li>customize set<ul>
-<li>customize device info</li>
-<li>customize feedback</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Class name</th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CameraPanelActivity.class</td>
+<td>Camera native preview panel, mainly including live video preview.</td>
+</tr>
+<tr>
+<td style="text-align:left">CameraPlaybackActivity.class</td>
+<td>Camera playback panel, showing videos stored on the camera storage device.</td>
+</tr>
+<tr>
+<td style="text-align:left">CameraCloudActivity.class</td>
+<td>Camera cloud storage panel, showing the recorded cloud video after the cloud storage function is activated.</td>
+</tr>
+<tr>
+<td style="text-align:left">LocalPhotoOrVideoActivity.class</td>
+<td>Camera album panel, which shows the screenshot or recorded video file saved according to the device id.</td>
+</tr>
+<tr>
+<td style="text-align:left">IPCCameraMessageCenterActivity.class</td>
+<td>Camera message center panel, including various detection alarm messages generated during camera recording.</td>
+</tr>
+<tr>
+<td style="text-align:left">CameraSettingActivity.class</td>
+<td>Camera settings panel, including device information, basic settings, storage settings, restart device, restart device and other commonly used camera functions.</td>
+</tr>
+<tr>
+<td style="text-align:left">DoorBellCallingActivity.class</td>
+<td>Camera doorbell panel,show the static screen that pops up after receiving the doorbell message, including the answer and end function.</td>
+</tr>
+<tr>
+<td style="text-align:left">DoorBellDirectCameraActivity.class</td>
+<td>Camera video doorbell panel,show the real-time video picture pushed by doorbell message, including answering and ending functions, with timeliness.</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -614,7 +633,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Function Overview","level":"1.2","depth":1,"next":{"title":"Preparation for integration","level":"1.3","depth":1,"path":"resource/Preparation.md","ref":"./resource/Preparation.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Overview.md","mtime":"2020-03-11T07:04:34.980Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-16T09:31:19.595Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Function Overview","level":"1.2","depth":1,"next":{"title":"Preparation for integration","level":"1.3","depth":1,"path":"resource/Preparation.md","ref":"./resource/Preparation.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Overview.md","mtime":"2020-03-19T11:05:49.312Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-19T11:07:34.124Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
