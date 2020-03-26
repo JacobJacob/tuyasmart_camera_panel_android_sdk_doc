@@ -15,5 +15,5 @@
 
 - SDK compiled version
 
-  SDK compiled version is 28 ,Android x is not supported
+  SDK compiled version is 28 
 
