@@ -2,7 +2,7 @@
 
 Developers can customize feedback in Tuya Smart Camera Settings panel to implement feedback
 
-**Interface Description**
+**Declaration**
 
 Set FeedbackListener to customize the panel to implement panel settings-feedback function
 
@@ -10,13 +10,13 @@ Set FeedbackListener to customize the panel to implement panel settings-feedback
 TuyaCameraPanelSDK.setCustomFeedbackListener(FeedbackListener feedbackListener);
 ```
 
- **Parameter Description**
+ **Parameters**
 
 | Parameter        | Description                                                  |
 | :--------------- | :----------------------------------------------------------- |
 | feedbackListener | FeedbackListener interface. Set this listener to customize feedback. If you do not set this listener, this item will not be displayed |
 
-**Example Codes**
+**Example**
 
 ```java
 TuyaCameraPanelSDK.setCustomFeedbackListener(new FeedbackListener() {

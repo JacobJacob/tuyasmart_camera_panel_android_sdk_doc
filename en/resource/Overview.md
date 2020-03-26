@@ -2,8 +2,8 @@
 
 Tuya Smart Camera Panel SDK (referred to as: TuyaCameraPanelSDK) provides users with Tuya Camera related panels, which mainly include:
 
-| Class name                           | **Description**                                              |
-| :----------------------------------- | ------------------------------------------------------------ |
+| Class name                           | Description                                                  |
+| :----------------------------------- | :----------------------------------------------------------- |
 | CameraPanelActivity.class            | Camera native preview panel, mainly including live video preview. |
 | CameraPlaybackActivity.class         | Camera playback panel, showing videos stored on the camera storage device. |
 | CameraCloudActivity.class            | Camera cloud storage panel, showing the recorded cloud video after the cloud storage function is activated. |

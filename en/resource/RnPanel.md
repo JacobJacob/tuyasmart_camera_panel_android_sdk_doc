@@ -2,7 +2,7 @@
 
 Camera RN preview panel, packaged in TuyaPanelSDK, refer to [TuyaPanelSDK Doc.](https://tuyainc.github.io/tuyasmart_panel_android_sdk_doc/)
 
-**Interface Description**
+**Declaration**
 
 TuyaPanelSDK.getPanelInstance().gotoPanelViewControllerWithDevice()  to jump to the RN panel
 
@@ -12,7 +12,7 @@ TuyaPanelSDK.getPanelInstance().gotoPanelViewControllerWithDevice(context, homeI
 
 
 
-**Parameter Description**
+**Parameters**
 
 | Parameter | Description |
 |  :-------|:-------|
@@ -23,7 +23,7 @@ TuyaPanelSDK.getPanelInstance().gotoPanelViewControllerWithDevice(context, homeI
 
 
 
-**Example Codes**
+**Example**
 
 ```java
 TuyaPanelSDK.getPanelInstance().gotoPanelViewControllerWithDevice(context, homeId, deviceId,  

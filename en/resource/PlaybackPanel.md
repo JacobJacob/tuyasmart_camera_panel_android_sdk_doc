@@ -6,13 +6,13 @@ The camera playback panel displays the video saved on the camera storage device,
 
 CameraPlaybackActivity.class
 
-**Parameter Description**
+**Parameters**
 
 | Parameter | Description |
 | :------ | :------ |
 | extra_camera_uuid | Device id |
 
-**Example Codes**
+**Example**
 
 ```java
 Intent intent = new Intent(context, CameraPlaybackActivity.class);

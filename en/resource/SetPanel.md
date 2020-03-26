@@ -17,13 +17,13 @@ Camera settings panel, which can be configured and displayed through the backgro
 
 CameraSettingActivity.class
 
- **Parameter Description**
+ **Parameters**
 
 | Parameter         | Description |
 | :---------------- | :---------- |
 | extra_camera_uuid | device id   |
 
-**Example Codes**
+**Example**
 
 ```java
 Intent intent = new Intent(context, CameraSettingActivity.class);

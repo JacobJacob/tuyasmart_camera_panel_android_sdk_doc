@@ -6,13 +6,13 @@ Camera native preview panel, including real-time video preview, sharpness switch
 
 CameraPanelActivity.class
 
- **Parameter Description**
+ **Parameters**
 
 | Parameter         | Description |
 | :---------------- | :---------- |
 | extra_camera_uuid | device id   |
 
-**Example Codes**
+**Example**
 
 ```java
 Bundle bundle = new Bundle();

@@ -6,14 +6,14 @@ The camera's cloud storage panel displays recorded cloud videos recorded after t
 
 CameraCloudActivity.class
 
-**Parameter Description**
+**Parameters**
 
 | Parameter | Description |
 | :------ | :------ |
 | extra_camera_uuid | Device id |
 | timeRangeBean | Cloud storage of a piece of data's position from the last day ,not necessary |
 
-**Example Codes**
+**Example**
 
 ```java
 Intent intent = new Intent(context, CameraCloudActivity.class);

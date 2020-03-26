@@ -13,4 +13,8 @@
 - 面板内的多语言配置
 
   可通过下载 Demo 提供的[多语言包](https://github.com/TuyaInc/tuyasmart_camera_panel_android_sdk/tree/master/language/res)，选择自己想要的进行配置
+  
+- SDK 编译版本
+
+  SDK 编译版本为 28 ，暂不支持Android X
 

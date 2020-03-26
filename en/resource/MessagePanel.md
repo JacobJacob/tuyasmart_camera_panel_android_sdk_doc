@@ -6,13 +6,13 @@ The camera message center panel includes all kinds of messages generated during 
 
 IPCCameraMessageCenterActivity.class
 
-**Parameter Description**
+**Parameters**
 
 | Parameter         | Description |
 | :---------------- | :---------- |
 | extra_camera_uuid | device id   |
 
-**Example Codes**
+**Example**
 
 ```java
 Intent intent = new Intent(context, IPCCameraMessageCenterActivity.class);

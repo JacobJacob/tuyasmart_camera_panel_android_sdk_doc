@@ -9,7 +9,7 @@ LocalPhotoOrVideoActivity.class
 **参数说明**
 
 | 参数              | 说明    |
-| :---------------- | :------ |
+| :---------------- |:------- |
 | extra_camera_uuid | 设备 id |
 
 **示例代码**

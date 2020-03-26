@@ -6,13 +6,13 @@ The camera album panel shows the files saved according to the device id. These f
 
 LocalPhotoOrVideoActivity.class
 
-**Parameter Description**
+**Parameters**
 
 | Parameter         | Description |
 | :---------------- | :---------- |
 | extra_camera_uuid | Device id   |
 
-**Example Codes**
+**Example**
 
 ```java
 Intent intent = new Intent(context, LocalPhotoOrVideoActivity.class);

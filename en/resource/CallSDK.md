@@ -12,7 +12,7 @@ Please refer to the demo procedure to configure a successful camera and perform 
 
 Before jumping to the camera panel, you need to set the home Id where the camera device is located. Enter the corresponding panel page through the home Id and device Id
 
-**Interface Description**
+**Declaration**
 
 Set the homeId where the camera is currently located
 
@@ -20,13 +20,13 @@ Set the homeId where the camera is currently located
 TuyaCameraPanelSDK.setCurrentHomeId(homeId);
  ```
 
- **Parameter Description**
+ **Parameters**
 
 | Parameter | Description                                                  |
 | :-------- | :----------------------------------------------------------- |
 | homeId    | the homeId where the device is located, which can be obtained through the  [TuyaSmartHomeSDK](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/zh-hans/)  - Home Management interface |
 
-**Example Codes**
+**Example**
 
  ```java
 TuyaCameraPanelSDK.setCurrentHomeId(homeId);

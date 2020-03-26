@@ -32,7 +32,7 @@ Message body format definition example:
 
 Register after the account is successfully logged in, and log out when the account is logged out
 
-**Interface Description**
+**Declaration**
 
 The Tuya push assistant protocol needs to register for monitoring after the account login is successful, and log out when the account is logged out.
 
@@ -44,7 +44,7 @@ TuyaHomeSdk.getCameraInstance().registerCameraPushListener(ITuyaGetBeanCallback<
 TuyaHomeSdk.getCameraInstance().unRegisterCameraPushListener(ITuyaGetBeanCallback<CameraPushDataBean> callback)；
 ```
 
- **Parameter Description**
+ **Parameters**
 
 | Parameter | Description                                                  |
 | :-------- | :----------------------------------------------------------- |
@@ -59,7 +59,7 @@ TuyaHomeSdk.getCameraInstance().unRegisterCameraPushListener(ITuyaGetBeanCallbac
 | etype     | String  | message type              |
 | edata     | String  | message id                |
 
-**Example Codes**
+**Example**
 
 ```java
 private ITuyaHomeCamera homeCamera;

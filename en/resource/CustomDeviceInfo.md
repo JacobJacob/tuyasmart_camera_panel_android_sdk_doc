@@ -2,7 +2,7 @@
 
 The developer can customize the device icon and name in the Tuya smart camera settings panel.
 
-**Interface Description**
+**Declaration**
 
 Set DeviceInfoListener and customize the panel to modify device information.
 
@@ -10,13 +10,13 @@ Set DeviceInfoListener and customize the panel to modify device information.
 TuyaCameraPanelSDK.setCustomDeviceInfoListener(DeviceInfoListener deviceInfoListener);
 ```
 
- **Parameter Description**
+ **Parameters**
 
 | Parameter          | Description                                                  |
 | :----------------- | :----------------------------------------------------------- |
 | deviceInfoListener | DeviceInfoListener interface, set this listener, can be customized to achieve panel settings-device information function |
 
-**Example Codes**
+**Example**
 
 ```java
 TuyaCameraPanelSDK.setCustomDeviceInfoListener(new DeviceInfoListener() {

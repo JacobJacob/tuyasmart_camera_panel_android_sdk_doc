@@ -6,14 +6,14 @@ The camera video stream doorbell answer panel displays the real-time video strea
 
 DoorBellDirectCameraActivity.class
 
- **Parameter Description**
+ **Parameters**
 
 | Parameter     | Description                      |
 | :---------------- | :----------------------------------- |
 | extra_camera_uuid | device id,it is usually extracted from the message pushed |
 |  doorbell_start_time | Long type, which indicates the start time of pressing the doorbell. The doorbell answering panel counts from the time of pressing, and the stay time is 25s (actually <25s) |
 
-**Example Codes**
+**Example**
 
 ```java
 Bundle bundle = new Bundle();

@@ -12,6 +12,7 @@
       repositories {
           //***** required start ****//
           maven { url "https://maven-other.tuya.com/repository/maven-releases/"}
+        	maven { url "https://maven-other.tuya.com/repository/maven-snapshots/" }
           maven { url 'https://jitpack.io' }
           //***** required end ****//
           google()
@@ -19,10 +20,11 @@
           mavenCentral()
       }
   }
-
+  
   buildscript {
       repositories {
           maven {url "https://maven-other.tuya.com/repository/maven-releases/"}
+        	maven { url "https://maven-other.tuya.com/repository/maven-snapshots/" }
           maven { url "https://jitpack.io" }
           mavenLocal()
           mavenCentral()

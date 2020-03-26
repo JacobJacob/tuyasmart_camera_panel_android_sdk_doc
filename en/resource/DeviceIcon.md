@@ -2,7 +2,7 @@
 
 Users can modify the camera  icon by themselves.
 
-**Interface Description**
+**Declaration**
 
 Call modifyDeviceImg () under TuyaHomeSdk to modify the device icon
 
@@ -12,7 +12,7 @@ ModifyDevInfoInteractor mModifyDevInfoInteractor = new ModifyDevInfoInteractorIm
 mModifyDevInfoInteractor.modifyDeviceImg( deviceId,  deviceName, imageFile,  callback);
 ```
 
- **Parameter Description**
+ **Parameters**
 
 | Parameter  | Description                                                  |
 | :--------- | :----------------------------------------------------------- |
@@ -21,7 +21,7 @@ mModifyDevInfoInteractor.modifyDeviceImg( deviceId,  deviceName, imageFile,  cal
 | deviceName | device name，Available through DeviceBean in the TuyaHomeSdk |
 | callback   | ModifyDevInfoInteractor.ModifyDeviceImgCallback interface,uploaded image file success / failure callback |
 
-**Example Codes**
+**Example**
 
 ```java
 /**

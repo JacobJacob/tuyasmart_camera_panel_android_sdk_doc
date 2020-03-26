@@ -2,7 +2,7 @@
 
 User-defined cloud storage,refer to [Tuya Smart Camera SDK - CloudStorage](<https://tuyainc.github.io/tuyasmart_camera_android_sdk_doc/en/resource/CloudStorageProcess.html>)
 
-**Interface Description**
+**Declaration**
 
 Set up CloudStoragePanelListener, customize the panel to implement cloud storage video playback.
 
@@ -10,13 +10,13 @@ Set up CloudStoragePanelListener, customize the panel to implement cloud storage
 TuyaCameraPanelSDK.setCustomCloudStoragePanelListener(CloudStoragePanelListener cloudStoragePanelListener);
 ```
 
- **Parameter Description**
+ **Parameters**
 
 | Parameter                 | Description                                                  |
 | :------------------------ | :----------------------------------------------------------- |
 | cloudStoragePanelListener | CloudStoragePanelListener interface, set this listener to customize the cloud storage panel; if not set, skip to the default Tuya camera cloud storage panel |
 
-**Example Codes**
+**Example**
 
 ```java
 TuyaCameraPanelSDK.setCustomCloudStoragePanelListener(new CloudStoragePanelListener() {

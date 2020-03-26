@@ -2,7 +2,7 @@
 
 Developers can modify camera device name
 
-**Interface Description**
+**Declaration**
 
 Call renameDevice () under TuyaHomeSdk to modify the device name
 
@@ -10,7 +10,7 @@ Call renameDevice () under TuyaHomeSdk to modify the device name
 TuyaHomeSdk.newDeviceInstance(deviceId).renameDevice(String deviceName, IResultCallback callback);
 ```
 
- **Parameter Description**
+ **Parameters**
 
 | Parameter | Description                 |
 | :------ | :------------------------------ |
@@ -18,7 +18,7 @@ TuyaHomeSdk.newDeviceInstance(deviceId).renameDevice(String deviceName, IResultC
 | deviceName | device renamed name           |
 | callback   | IResultCallback interface，device rename success / failure callback |
 
-**Example Codes**
+**Example**
 
 ```java
 /**

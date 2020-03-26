@@ -2,7 +2,7 @@
 
 Initialize TuyaCameraPanelSDK in Application
 
-**Example Codes**
+**Example**
 
 ```java
 public class TuyaSmartApp extends Application {

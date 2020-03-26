@@ -2,7 +2,7 @@
 
 User-defined local photo album
 
-**Interface Description**
+**Declaration**
 
 Set AlbumPanelListener, customize the panel to achieve the current deviceId image preview, playback, cloud storage video playback, video information display,local storage path:
 
@@ -13,13 +13,13 @@ Set AlbumPanelListener, customize the panel to achieve the current deviceId imag
 TuyaCameraPanelSDK.setCustomAlbumPanelListener(AlbumPanelListener albumPanelListener);
 ```
 
- **Parameter Description**
+ **Parameters**
 
 | Parameter          | Description                                                  |
 | :----------------- | :----------------------------------------------------------- |
 | albumPanelListener | AlbumPanelListener interface, set this listener to customize the album panel; if not set, skip to the default Tuya camera album panel |
 
-**Example Codes**
+**Example**
 
 ```java
 TuyaCameraPanelSDK.setCustomAlbumPanelListener(new AlbumPanelListener() {

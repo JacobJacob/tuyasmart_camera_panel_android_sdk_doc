@@ -6,13 +6,13 @@ The camera doorbell answer panel displays the doorbell message interface that is
 
 DoorBellCallingActivity.class
 
- **Parameter Description**
+ **Parameters**
 
 | Parameter         | Description                                                |
 | :---------------- | :--------------------------------------------------------- |
 | extra_camera_uuid | device id，It is usually extracted from the message pushed |
 
-**Example Codes**
+**Example**
 
 ```java
 Bundle bundle = new Bundle();
