@@ -9,7 +9,6 @@
     "github-buttons",
     "anchor-navigation-ex",
     "alerts",
-    "ga",
     "expandable-chapters-small",
     "favicon",
     "pageview-count"
@@ -27,17 +26,17 @@
       ]
     },
     "github": {
-      "url": "https://github.com/TuyaInc/tuyasmart_home_android_sdk"
+      "url": "https://github.com/TuyaInc/tuyasmart_camera_panel_android_sdk"
     },
     "github-buttons": {
       "buttons": [{
         "user": "TuyaInc",
-        "repo": "tuyasmart_home_android_sdk",
+        "repo": "tuyasmart_camera_panel_android_sdk",
         "type": "star",
         "size": "small"
       },{
         "user": "TuyaInc",
-        "repo": "tuyasmart_home_android_sdk",
+        "repo": "tuyasmart_camera_panel_android_sdk",
         "type": "watch",
         "size": "small"
       },{
@@ -58,9 +57,6 @@
       "showLevel": false,
       "associatedWithSummary": false,
       "showGoTop": true
-    },
-    "ga": {
-      "token": "UA-161421048-1"
     },
     "favicon": {
             "shortcut": "zh-hans/resource/images/bitbug_favicon.ico"
